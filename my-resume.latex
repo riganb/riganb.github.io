@@ -1,0 +1,168 @@
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+\documentclass[a4paper,11pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[margin=0.4cm,scale=0.8]{geometry}
+
+\usepackage{tabularx}
+\usepackage{enumitem}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+\begin{tabularx}{\linewidth}{@{} C @{}}
+{\Huge Rigan Burnwal} \\[2.5pt]
+\href{https://github.com/riganb}{Github} \ $|$ \ 
+\href{https://www.linkedin.com/in/rigan-burnwal/}{LinkedIn} \ $|$ \
+\href{mailto:therealriganb@gmail.com}{therealriganb@gmail.com} \ $|$ \ 
+\href{tel:+919380654730}{+91-9380654730} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	SUMMARY
+%----------------------------------------------------------------------------------------
+\vspace{-8pt}
+\begin{tabularx}{\linewidth}{@{}X@{}}
+\small{Full-stack engineer with 2+ years of production experience building consumer web products — Next.js, TypeScript, AWS. Proven track record shipping revenue-critical features, leading frontend architecture, and migrating legacy codebases at scale.}
+\end{tabularx}
+\vspace{-10pt}
+
+%----------------------------------------------------------------------------------------
+%	EXPERIENCE
+%----------------------------------------------------------------------------------------
+\section{Work Experience}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Software Engineer, Ultraviolette Automotive} & \hfill August 2024 -- Present \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+\vspace{-0.9\baselineskip}
+\begin{itemize}[itemsep=0pt]
+
+    \item \textbf{Architecture Overhaul:} Spearheaded end-to-end migration of a legacy JavaScript codebase into a strictly typed TypeScript monorepo (\texttt{TurboRepo}), introducing compilation constraints, validation schemas, and global state management (\texttt{Jotai}) — governing \textbf{2,800+ production Pull Requests}.
+    \item \textbf{Revenue-Critical Frontend:} Engineered the core multi-zone Next.js digital configurator for the flagship web presence, directly driving direct-to-consumer revenue pipelines and international customer acquisition flows.
+    \item \textbf{Serverless Infrastructure:} Designed and integrated backend serverless components using AWS Lambda, API Gateway, and S3, with scalable DynamoDB single-table design schemas for high-performance normalized data storage.
+    \item \textbf{Security:} Discovered and patched a critical user session authentication vulnerability, restructuring the core application layer into a modular, secure, and resilient posture.
+    \item \textbf{Spark Award (June 2025):} Sole recipient on a cross-functional team for delivering the Isle of Man web project across multiple phases under a week of total execution time — unblocking critical auth session management failures, resolving frontend integration issues including font loading, Next.js rewrite configuration, and dashboard refinements.
+
+\end{itemize}
+} \\
+\end{tabularx}
+
+\vspace{-8pt}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Contract Software Engineer, Suggaa Ventures} & \hfill May 2023 -- March 2024 \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+\vspace{-0.9\baselineskip}
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{Full-Stack Delivery:} Built core user flows for the primary web platform including high-volume payment processing modules and dynamic cancellation trees using Next.js and server-side state.
+    \item \textbf{Performance:} Reduced payment routing complexity and application bundle size by \textbf{40\%}, improving web performance metrics and reducing conversion drop-offs at checkout.
+    \item \textbf{Data Automation:} Engineered Node.js automation and scraping scripts to extract, normalize, and cache real-time pricing data from 4 ride-hailing services to train dynamic fare algorithms.
+\end{itemize}
+}  \\
+\end{tabularx}
+
+\vspace{-4pt}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Frameworks \& Libraries & React, Next.js, Node.js, tRPC, Prisma, Jotai, Framer Motion, Tailwind CSS \\
+Languages               & TypeScript, JavaScript, SQL, Python, Java, HTML/CSS \\
+Tools \& Architecture   & AWS (Lambda, DynamoDB, API Gateway, S3), PostgreSQL, TurboRepo, Vercel, Git, CI/CD \\  
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}	
+2020 -- 2024 & Bachelor of Engineering (ISE) at \textbf{JSSATE, Bangalore} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS
+%----------------------------------------------------------------------------------------
+\section{Projects}
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Autom8r} | \textit{AI Workflow Automation Platform — \href{https://github.com/riganb/autom8r}{GitHub} \ $|$ \ \href{https://autom8r.vercel.app}{Live Demo}} & \hfill \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+\vspace{-0.9\baselineskip}
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{Workflow Engine:} Architected a visual, node-based automation builder on Next.js, tRPC, and Prisma/PostgreSQL, enabling users to chain triggers (Stripe, Google Forms), AI models (OpenAI, Anthropic, Gemini), and integrations (Slack, Discord) into reusable workflows.
+    \item \textbf{Execution \& Extensibility:} Engineered an event-driven execution engine using \textbf{Inngest} with topological-sort-based node ordering and a pluggable executor registry, allowing new node types to be added without modifying the core engine.
+\end{itemize}
+} \\
+\end{tabularx}
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{use-content} | \textit{Open Source React Hook — \href{https://github.com/riganb/use-content}{GitHub} \ $|$ \ \href{https://www.npmjs.com/package/@riganb/use-content}{npm}} & \hfill \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+\vspace{-0.9\baselineskip}
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{Developer Tooling:} Built and published a lightweight, type-safe React hook (\texttt{@riganb/use-content}) that injects a live content-editing panel in dev/staging environments, enabling marketing and design teams to iterate on copy directly in the browser with zero engineering intervention.
+    \item \textbf{Zero Production Overhead:} Engineered an environment-aware compilation entry pivot using tree-shaking — the entire dev panel is automatically stripped at build time, adding \textbf{less than 1 kB} to production bundles.
+\end{itemize}
+} \\
+\end{tabularx}
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Serverless Notification \& Secure Verification Pipeline} | \textit{Freelance — Maven Consultancy Services} & \hfill \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+\vspace{-0.9\baselineskip}
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{Serverless Architecture:} Built an end-to-end dispatch platform using Next.js, decoupling heavy processing loads via \textbf{AWS API Gateway} and asynchronous \textbf{AWS Lambda} functions.
+    \item \textbf{Automated Workflows:} Developed a Lambda microservice ecosystem to compute validation data, generate secure QR codes, and trigger high-volume transactional emails via \textbf{MailerSend}.
+\end{itemize}
+} \\
+\end{tabularx}
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Enterprise Workforce Logistics \& Analytics Engine} | \textit{Freelance — Pee Empro Exports} & \hfill \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+\vspace{-0.7\baselineskip}
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{Process Automation:} Built a low-latency Java logging client for on-site personnel tracking with offline-resilient QR pipelines and optimized CSV parsing.
+    \item \textbf{Operational ROI:} Consolidated fragmented paper-trail metrics into a single-view dashboard, cutting administrative data-entry costs by \textbf{90\%}.
+\end{itemize}
+} \\
+\end{tabularx}
+
+\vfill
+
+\end{document}

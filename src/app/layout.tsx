@@ -1,0 +1,35 @@
+import type { Metadata } from 'next'
+import '@fontsource/space-grotesk/400.css'
+import '@fontsource/space-grotesk/500.css'
+import '@fontsource/space-grotesk/700.css'
+import '@fontsource/space-mono/400.css'
+import '@fontsource/inter/400.css'
+import '@fontsource/inter/500.css'
+import './globals.css'
+import CustomCursor from '@/components/ui/CustomCursor'
+import MouseGlow from '@/components/ui/MouseGlow'
+import Meteors from '@/components/ui/Meteors'
+
+export const metadata: Metadata = {
+  title: 'Rigan Burnwal | Full-Stack Engineer',
+  description: 'Full-stack engineer building consumer web products with Next.js, TypeScript, and AWS. Revenue-critical features, frontend architecture, and scalable serverless infrastructure.',
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+      </head>
+      <body className="bg-black text-white font-body antialiased cursor-none overflow-x-hidden relative">
+        <CustomCursor />
+        <MouseGlow />
+        <Meteors number={12} />
+        <div className="relative z-10">
+          {children}
+        </div>
+      </body>
+    </html>
+  )
+}
