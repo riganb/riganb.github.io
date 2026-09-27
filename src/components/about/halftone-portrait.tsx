@@ -66,7 +66,16 @@ export function HalftonePortrait({ alt, className = '' }: { alt: string; classNa
       pixels = sampleCtx.getImageData(0, 0, sample.width, sample.height)
       draw()
     }
-    image.src = SAMPLE_SRC
+    // Load and draw only as the portrait nears the viewport, keeping the work off the page load.
+    const nearObserver = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return
+        nearObserver.disconnect()
+        image.src = SAMPLE_SRC
+      },
+      { rootMargin: '600px 0px' },
+    )
+    nearObserver.observe(host)
 
     const resizeObserver = new ResizeObserver(draw)
     resizeObserver.observe(host)
@@ -77,6 +86,7 @@ export function HalftonePortrait({ alt, className = '' }: { alt: string; classNa
 
     return () => {
       image.onload = null
+      nearObserver.disconnect()
       resizeObserver.disconnect()
       themeObserver.disconnect()
       scheme.removeEventListener('change', draw)
