@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { MobileMenu } from '@/components/mobile-menu'
 import { ThemeToggle } from '@/components/theme/theme-toggle'
 import { site } from '@/content/site'
 
@@ -29,6 +30,7 @@ export function SiteNav() {
               </li>
             ))}
           </ul>
+          <MobileMenu />
           <ThemeToggle />
         </div>
       </nav>
