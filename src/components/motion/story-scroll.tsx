@@ -62,6 +62,7 @@ export function StorySheet({ label, className = '', style, children }: StoryShee
     <section data-sheet="" aria-label={label} className="relative">
       <div
         data-sheet-inner=""
+        data-palette={style ? '' : undefined}
         style={style}
         className={`relative min-h-screen origin-bottom-left bg-paper text-ink shadow-[0_-30px_60px_-30px_rgb(0_0_0/0.5)] will-change-transform ${className}`}
       >

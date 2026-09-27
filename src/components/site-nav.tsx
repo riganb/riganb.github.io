@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { NavPalette } from '@/components/nav-palette'
 import { MobileMenu } from '@/components/mobile-menu'
 import { ThemeToggle } from '@/components/theme/theme-toggle'
 import { site } from '@/content/site'
@@ -6,9 +7,11 @@ import { site } from '@/content/site'
 export function SiteNav() {
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-paper/85 backdrop-blur-sm"
+      data-site-header=""
+      className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-paper/85 text-ink backdrop-blur-sm transition-[background-color,color,border-color] duration-300"
       style={{ viewTransitionName: 'site-header' }}
     >
+      <NavPalette />
       <nav
         aria-label="Primary"
         className="mx-auto grid max-w-[1320px] grid-cols-[1fr_auto] items-center gap-6 px-6 py-4 md:grid-cols-[1fr_auto_1fr] md:px-10"
