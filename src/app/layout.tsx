@@ -1,34 +1,67 @@
 import type { Metadata } from 'next'
-import '@fontsource/space-grotesk/400.css'
-import '@fontsource/space-grotesk/500.css'
-import '@fontsource/space-grotesk/700.css'
-import '@fontsource/space-mono/400.css'
-import '@fontsource/inter/400.css'
-import '@fontsource/inter/500.css'
+import type { ReactNode } from 'react'
+import { Geist_Mono, Instrument_Serif, Inter_Tight } from 'next/font/google'
+import { site } from '@/content/site'
+import { SiteNav } from '@/components/site-nav'
+import { SmoothScroll } from '@/components/smooth-scroll'
+import { themeScript } from '@/lib/theme'
+import { tokensToCss } from '@/styles/tokens'
 import './globals.css'
-import CustomCursor from '@/components/ui/CustomCursor'
-import MouseGlow from '@/components/ui/MouseGlow'
-import Meteors from '@/components/ui/Meteors'
+
+const display = Instrument_Serif({
+  weight: '400',
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--font-instrument-serif',
+  display: 'swap',
+})
+
+const body = Inter_Tight({
+  subsets: ['latin'],
+  variable: '--font-inter-tight',
+  display: 'swap',
+})
+
+const mono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'Rigan Burnwal | Full-Stack Engineer',
-  description: 'Full-stack engineer building consumer web products with Next.js, TypeScript, and AWS. Revenue-critical features, frontend architecture, and scalable serverless infrastructure.',
+  metadataBase: new URL(site.url),
+  title: site.title,
+  description: site.description,
+  openGraph: {
+    title: site.title,
+    description: site.description,
+    url: site.url,
+    siteName: site.name,
+    type: 'website',
+  },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
       <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+        <style dangerouslySetInnerHTML={{ __html: tokensToCss() }} />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="bg-black text-white font-body antialiased cursor-none overflow-x-hidden relative">
-        <CustomCursor />
-        <MouseGlow />
-        <Meteors number={12} />
-        <div className="relative z-10">
-          {children}
-        </div>
+      <body className="min-h-dvh bg-paper text-ink">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-3 focus:py-2 focus:text-paper"
+        >
+          Skip to content
+        </a>
+        <SmoothScroll />
+        <SiteNav />
+        {children}
       </body>
     </html>
   )

@@ -1,31 +1,14 @@
-import Navbar from '@/components/sections/Navbar'
-import Hero from '@/components/sections/Hero'
-import About from '@/components/sections/About'
-import Skills from '@/components/sections/Skills'
-import Experience from '@/components/sections/Experience'
-import Projects from '@/components/sections/Projects'
-import Companies from '@/components/sections/Companies'
-import Education from '@/components/sections/Education'
-import Footer from '@/components/sections/Footer'
-import Loader from '@/components/ui/Loader'
-import ResponsiveNotice from '@/components/ui/ResponsiveNotice'
+import { Emphasis } from '@/components/typography/emphasis'
+import { site } from '@/content/site'
 
 export default function Home() {
   return (
-    <>
-      <Loader />
-      <main className="relative min-h-screen bg-black text-white">
-        <Navbar />
-        <ResponsiveNotice />
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Companies />
-        <Education />
-        <Footer />
-      </main>
-    </>
+    <main id="main" className="mx-auto max-w-[1320px] px-6 pb-24 pt-40 md:px-10">
+      <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{site.hero.label}</p>
+      <h1 className="mt-4 max-w-[14ch] font-display text-[clamp(3rem,9vw,7.5rem)] leading-[0.92] tracking-[-0.02em]">
+        <Emphasis text={site.hero.headline.text} />
+      </h1>
+      <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-ink-2">{site.hero.lede}</p>
+    </main>
   )
 }
