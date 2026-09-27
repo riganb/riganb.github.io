@@ -1,5 +1,3 @@
-export type Copy = { text: string; honest?: string }
-
 export type NavLink = { label: string; href: string }
 export type Social = { label: string; href: string; caption: string }
 

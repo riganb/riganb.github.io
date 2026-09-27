@@ -8,7 +8,7 @@ import { toWords } from '@/lib/words'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-export function ScrollFill({ text, className = '' }: { text: string; className?: string }) {
+export function ScrollFill({ lines, className = '' }: { lines: string[]; className?: string }) {
   const ref = useRef<HTMLParagraphElement>(null)
 
   useGSAP(
@@ -32,13 +32,17 @@ export function ScrollFill({ text, className = '' }: { text: string; className?:
 
   return (
     <p ref={ref} className={className}>
-      {toWords(text).map((word, index) => (
-        <Fragment key={index}>
-          {index > 0 && !word.glue ? ' ' : null}
-          <span data-word="" className={word.em ? 'italic text-accent' : undefined}>
-            {word.text}
-          </span>
-        </Fragment>
+      {lines.map((line, lineIndex) => (
+        <span key={lineIndex} className="pair-line block">
+          {toWords(line).map((word, wordIndex) => (
+            <Fragment key={wordIndex}>
+              {wordIndex > 0 && !word.glue ? ' ' : null}
+              <span data-word="" className={word.em ? 'italic text-accent' : undefined}>
+                {word.text}
+              </span>
+            </Fragment>
+          ))}
+        </span>
       ))}
     </p>
   )

@@ -39,20 +39,22 @@
   }
 }
 
-/* Ink lens: overlays only exist while the lens runs; fallbacks only when it does not. */
+/* Ink lens. Overlays exist only while a lens mode runs. The hover lens locks every paired
+   line to one line so honest words sit exactly where polished ones were. */
 .honest-layer {
   display: none;
 }
 
-html[data-lens='on'] .honest-layer {
+html[data-lens] .honest-layer {
   display: block;
 }
 
-html[data-lens='on'] .honest-inline {
-  display: none;
+html[data-lens='hover'] .pair-line {
+  white-space: nowrap;
 }
 
-html[data-lens='on'] .honest-toggle:not(:focus-visible) {
+/* Kept for keyboard and screen-reader users; visible only when focused. */
+.honest-toggle:not(:focus-visible) {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -61,8 +63,38 @@ html[data-lens='on'] .honest-toggle:not(:focus-visible) {
   white-space: nowrap;
 }
 
+/* The press-and-hold button only exists in press mode, and steps aside while held. */
+.lens-press {
+  display: none;
+  transition: opacity 0.2s;
+}
+
+html[data-lens='press'] .lens-press {
+  display: block;
+}
+
+html[data-honest='on'] .lens-press {
+  opacity: 0;
+}
+
+.lens-press-ring {
+  animation: lens-press-spin 14s linear infinite;
+}
+
+@keyframes lens-press-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lens-press-ring {
+    animation: none;
+  }
+}
+
 /* Line reveals start hidden only when JavaScript will reveal them. */
-html.js [data-split] {
+html.js [data-reveal] {
   visibility: hidden;
 }
 

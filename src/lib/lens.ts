@@ -9,6 +9,11 @@ export function approach(current: number, target: number, dtMs: number, rate = 0
   return current + (target - current) * t
 }
 
+// The radius a circle centred at `center` needs to cover the whole viewport.
+export function coverRadius(center: Point, width: number, height: number): number {
+  return Math.hypot(Math.max(center.x, width - center.x), Math.max(center.y, height - center.y))
+}
+
 export function lensClipPath(
   pointer: Point,
   rect: { left: number; top: number },

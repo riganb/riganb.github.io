@@ -1,5 +1,15 @@
 import { describe, expect, it } from 'vitest'
-import { approach, lensClipPath } from '@/lib/lens'
+import { approach, coverRadius, lensClipPath } from '@/lib/lens'
+
+describe('coverRadius', () => {
+  it('reaches the farthest corner of the viewport', () => {
+    expect(coverRadius({ x: 100, y: 700 }, 400, 800)).toBeCloseTo(Math.hypot(300, 700), 5)
+  })
+
+  it('is half the diagonal from the centre', () => {
+    expect(coverRadius({ x: 200, y: 400 }, 400, 800)).toBeCloseTo(Math.hypot(200, 400), 5)
+  })
+})
 
 describe('approach', () => {
   it('covers `rate` of the distance in one 60fps frame', () => {

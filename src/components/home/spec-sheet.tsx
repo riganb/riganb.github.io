@@ -9,12 +9,12 @@ export function SpecSheet() {
       <dl className="mt-4 border border-rule bg-paper">
         {specSheet.rows.map((row) => (
           <div
-            key={row.label}
+            key={row.value}
             className="grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-rule px-4 py-3 last:border-b-0"
           >
             <dt>
-              <HonestText honest={row.honest} layerClassName="text-sm" fallback="inline">
-                <span className="text-sm">{row.label}</span>
+              <HonestText honest={row.honest} layerClassName="text-sm" toggle={false}>
+                <span className="pair-line block text-sm">{row.lines[0]}</span>
               </HonestText>
             </dt>
             <dd className="font-mono text-sm">

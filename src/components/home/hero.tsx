@@ -1,12 +1,10 @@
 import { BlueprintGrid } from '@/components/home/blueprint-grid'
 import { SpecSheet } from '@/components/home/spec-sheet'
 import { HonestText } from '@/components/lens/honest-text'
-import { SplitLines } from '@/components/motion/split-lines'
-import { Emphasis } from '@/components/typography/emphasis'
+import { RevealLines } from '@/components/motion/reveal-lines'
 import { hero } from '@/content/home'
 
-const headline =
-  'max-w-[14ch] text-balance font-display text-[clamp(3rem,8.4vw,7.5rem)] leading-[0.92] tracking-[-0.02em]'
+const headline = 'font-display text-[clamp(3rem,6.4vw,7.5rem)] leading-[0.92] tracking-[-0.02em]'
 
 export function Hero() {
   return (
@@ -15,9 +13,7 @@ export function Hero() {
         <div className="px-6 pb-16 pt-36 md:border-r md:border-rule md:px-10 md:pb-20 md:pt-44">
           <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{hero.label}</p>
           <HonestText honest={hero.headline.honest} layerClassName={headline} className="mt-5">
-            <SplitLines as="h1" id="hero-title" className={headline}>
-              <Emphasis text={hero.headline.text} />
-            </SplitLines>
+            <RevealLines as="h1" id="hero-title" lines={hero.headline.lines} className={headline} />
           </HonestText>
           <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-ink-2">{hero.lede}</p>
         </div>

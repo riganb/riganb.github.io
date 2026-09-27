@@ -4,18 +4,30 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { useLens } from '@/components/lens/lens-provider'
 
 type HonestTextProps = {
-  honest: string
+  /** Honest copy, one entry per line of the polished child. */
+  honest: string[]
+  /** Typography shared by the polished child and the honest overlay, so their lines coincide. */
   layerClassName: string
+  /** Spacing and layout for the wrapper. Keep margins off the child so the overlay lines up. */
   className?: string
-  fallback?: 'toggle' | 'inline'
+  /** A screen-reader and keyboard toggle; off for short labels such as spec rows. */
+  toggle?: boolean
   children: ReactNode
+}
+
+function HonestLines({ lines }: { lines: string[] }) {
+  return lines.map((line, index) => (
+    <span key={index} className="pair-line block">
+      {line}
+    </span>
+  ))
 }
 
 export function HonestText({
   honest,
   layerClassName,
   className = '',
-  fallback = 'toggle',
+  toggle = true,
   children,
 }: HonestTextProps) {
   const lens = useLens()
@@ -37,7 +49,7 @@ export function HonestText({
       <div hidden={showHonest}>{children}</div>
       {showHonest && (
         <p className={layerClassName} aria-live="polite">
-          {honest}
+          <HonestLines lines={honest} />
         </p>
       )}
       <div
@@ -46,9 +58,9 @@ export function HonestText({
         className={`honest-layer pointer-events-none absolute inset-x-0 top-0 z-[46] text-accent-ink ${layerClassName}`}
         style={{ clipPath: 'circle(0px at 0px 0px)' }}
       >
-        {honest}
+        <HonestLines lines={honest} />
       </div>
-      {fallback === 'toggle' ? (
+      {toggle && (
         <button
           type="button"
           onClick={() => setShowHonest((value) => !value)}
@@ -56,8 +68,6 @@ export function HonestText({
         >
           {showHonest ? 'Show the polished version' : 'Show the honest version'}
         </button>
-      ) : (
-        <p className="honest-inline mt-1 text-xs italic text-muted">{honest}</p>
       )}
     </div>
   )
