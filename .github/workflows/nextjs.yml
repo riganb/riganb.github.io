@@ -4,8 +4,7 @@ on:
   pull_request:
   push:
     branches: [main]
-  # Deploys run only when triggered by hand until the redesign launches,
-  # so the current live site stays up while phases merge into main.
+  # Every push to main deploys; pull requests only build. Manual runs redeploy main.
   workflow_dispatch:
 
 permissions:
@@ -32,13 +31,13 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/**') }}
           restore-keys: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
       - run: npm run build
-      - if: github.event_name == 'workflow_dispatch'
+      - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
   deploy:
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     concurrency:
