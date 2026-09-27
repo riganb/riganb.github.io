@@ -38,3 +38,25 @@
     outline-offset: 3px;
   }
 }
+
+/* Ink lens: overlays only exist while the lens runs; fallbacks only when it does not. */
+.honest-layer {
+  display: none;
+}
+
+html[data-lens='on'] .honest-layer {
+  display: block;
+}
+
+html[data-lens='on'] .honest-inline {
+  display: none;
+}
+
+html[data-lens='on'] .honest-toggle:not(:focus-visible) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
