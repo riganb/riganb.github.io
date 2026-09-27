@@ -89,7 +89,7 @@ ship.
 | I2 | **Scroll-filled text.** Large statements start at 20% opacity and fill word by word as they scroll through the viewport | Statement, case study intros | Custom, adapted from React Bits `ScrollReveal` (scoped cleanup; the original kills every ScrollTrigger on unmount) |
 | I3 | **Line reveal.** Headlines slide up out of a mask, one authored line at a time, on first view | Hero, section titles | Custom GSAP tween over authored lines (no SplitText needed once lines are explicit) |
 | I4 | **Row band.** Hovering an index row wipes a full-width accent band in from the edge the cursor entered; the title turns `--accent-ink` and a one-line note appears on the right | Work index | Custom |
-| I5 | **Cursor preview.** A small preview image of the hovered project follows the cursor, tilted a few degrees | Work index | Motion Primitives `Cursor` |
+| I5 | **Cursor preview.** A small preview image of the hovered project follows the cursor, tilted a few degrees | Work index | Custom, reusing the lens easing, with its right edge kept clear of the row notes (avoids adding `motion` for one follower) |
 | I6 | **Story scroll.** Sections pin; each next one is dealt onto the pile, rotating from about 10° to flat around its bottom-left corner, with a soft shadow on the incoming edge and the covered sheet dimming slightly | Exactly one per page: VeraStack chapter on home, one per case study | 21st.dev Story Scroll by Samira Boudjadja (adapted, credited) |
 | I7 | **Odometer.** Labels and digits roll vertically when they change | Nav active section, spec sheet numbers | Spec sheet: custom CSS odometer after Motion Primitives `SlidingNumber`, showing real values without JS. Nav: Motion Primitives `TextRoll` (planned) |
 | I8 | **Blueprint ripple.** The faint grid behind the spec sheet ripples away from the cursor | Hero only | Custom 2D canvas (Canvas UI `Displacement` distorts wrapped HTML through an experimental API and would spend a WebGL slot) |
@@ -178,6 +178,10 @@ Row notes (shown in the band on hover):
 - PixelStack: "A design and development studio's site. Currently on the workbench."
 
 Years for Maven (2024) and Pee Empro (2023) come from the resume and must be confirmed.
+
+Previews are 960×600 WebP captures: the Cold Stone menu page (the home hero has the "EXPERIENCEEE"
+typo), the E3 product page hero, and the UV X-47 configurator. Rows without a capture show a
+typographic card. Rows become links once the case study pages exist (Phase 4).
 
 ### 04. VeraStack Labs (story scroll, I6)
 

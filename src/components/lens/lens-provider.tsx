@@ -6,7 +6,6 @@ import {
   useEffect,
   useMemo,
   useRef,
-  useSyncExternalStore,
   type ReactNode,
 } from 'react'
 import {
@@ -17,6 +16,7 @@ import {
   lensClipPath,
   type Point,
 } from '@/lib/lens'
+import { HOVER_LENS_QUERY, useMediaQuery } from '@/components/use-media-query'
 
 type LensApi = {
   register: (el: HTMLElement) => () => void
@@ -28,20 +28,6 @@ const LensContext = createContext<LensApi | null>(null)
 export function useLens() {
   return useContext(LensContext)
 }
-
-// A precise pointer on a wide screen gets the trailing lens. Everything else
-// (touch, narrow windows, reduced motion) presses and holds a button instead.
-const HOVER_QUERY =
-  '(hover: hover) and (pointer: fine) and (min-width: 1024px) and (prefers-reduced-motion: no-preference)'
-
-function subscribeHover(onChange: () => void) {
-  const query = matchMedia(HOVER_QUERY)
-  query.addEventListener('change', onChange)
-  return () => query.removeEventListener('change', onChange)
-}
-
-const getHover = () => matchMedia(HOVER_QUERY).matches
-const getServerHover = () => false
 
 // The disc is a fixed 2 × LENS_ACTIVE_RADIUS circle, scaled to the current radius.
 function paint(disc: HTMLElement, layers: Iterable<HTMLElement>, center: Point, radius: number) {
@@ -57,7 +43,7 @@ export function LensProvider({ children }: { children: ReactNode }) {
   const pressRef = useRef<HTMLButtonElement>(null)
   const layers = useRef(new Set<HTMLElement>())
   const activeCount = useRef(0)
-  const hover = useSyncExternalStore(subscribeHover, getHover, getServerHover)
+  const hover = useMediaQuery(HOVER_LENS_QUERY)
 
   const api = useMemo<LensApi>(
     () => ({
