@@ -1,12 +1,13 @@
 import { describe, expect, it } from 'vitest'
 import { splitEmphasis } from '@/lib/emphasis'
 import { site } from '@/content/site'
+import * as home from '@/content/home'
 
 // Built from its code point so this file never contains the character itself.
 const EM_DASH = String.fromCodePoint(0x2014)
 
 // Add every content module here as it is created.
-const modules: Record<string, unknown> = { site }
+const modules: Record<string, unknown> = { site, home }
 
 function collectStrings(value: unknown, path: string): Array<[string, string]> {
   if (typeof value === 'string') return [[path, value]]
