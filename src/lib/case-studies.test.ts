@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { caseStudies } from '@/content/case-studies'
+import { caseStudies, draftCaseStudies } from '@/content/case-studies'
 import { work } from '@/content/work'
 
 const slugs = caseStudies.map((study) => study.slug)
@@ -21,7 +21,14 @@ describe('case studies', () => {
     expect(study.sheets).toHaveLength(3)
   })
 
-  const images = caseStudies.flatMap((study) =>
+  it('keeps drafts off the index', () => {
+    for (const draft of draftCaseStudies) {
+      expect(slugs).not.toContain(draft.slug)
+      expect(work.items.find((item) => item.slug === draft.slug)?.caseStudy).toBeFalsy()
+    }
+  })
+
+  const images = [...caseStudies, ...draftCaseStudies].flatMap((study) =>
     study.sheets.flatMap((sheet) => (sheet.media?.kind === 'image' ? [[study.slug, sheet.media.src] as const] : [])),
   )
 
