@@ -73,6 +73,11 @@ html[data-lens='press'] .lens-press {
   display: block;
 }
 
+/* Room at the end of the page so the floating button never hides the last lines. */
+html[data-lens='press'] body {
+  padding-bottom: 7rem;
+}
+
 html[data-honest='on'] .lens-press {
   opacity: 0;
 }
@@ -111,5 +116,77 @@ html.js .odometer:not([data-rolled]) .odometer-strip {
 @media (prefers-reduced-motion: reduce) {
   .odometer-strip {
     transition: none;
+  }
+}
+
+/* Work index. Without a fine hovering pointer, notes sit under each title and nothing animates. */
+.work-band {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.work-row[data-edge='bottom'] .work-band {
+  transform-origin: bottom;
+}
+
+.work-preview {
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.work-preview[data-visible='true'] {
+  opacity: 1;
+}
+
+.work-preview-item {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.work-preview-item[data-active='true'] {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .work-band {
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .work-title,
+  .work-meta,
+  .work-note {
+    transition:
+      color 0.3s,
+      opacity 0.3s;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .work-note {
+    opacity: 0;
+  }
+
+  .work-row:hover .work-band,
+  .work-row:focus-visible .work-band {
+    transform: scaleY(1);
+  }
+
+  .work-row:hover .work-title,
+  .work-row:hover .work-meta,
+  .work-row:hover .work-note,
+  .work-row:focus-visible .work-title,
+  .work-row:focus-visible .work-meta,
+  .work-row:focus-visible .work-note {
+    color: var(--accent-ink);
+  }
+
+  .work-row:hover .work-note,
+  .work-row:focus-visible .work-note {
+    opacity: 1;
+  }
+
+  .work-row:hover .work-facts,
+  .work-row:focus-visible .work-facts {
+    opacity: 0;
   }
 }
