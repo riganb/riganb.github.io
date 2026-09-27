@@ -213,3 +213,37 @@ html.js .halftone:not([data-ready]) img {
     transition: none;
   }
 }
+
+/* Resume corner: the bottom-right corner folds back to show the accent underneath. */
+.resume-fold {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: linear-gradient(to top left, var(--accent) 50%, color-mix(in oklab, var(--paper-2), var(--ink) 14%) 50%);
+  box-shadow: -3px -3px 8px -2px rgb(0 0 0 / 0.18);
+  transition:
+    width 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+    height 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.resume-tag {
+  opacity: 0;
+  transition: opacity 0.2s 0.1s;
+}
+
+.resume-corner:hover .resume-fold,
+.resume-corner:focus-visible .resume-fold {
+  width: 7rem;
+  height: 7rem;
+}
+
+.resume-corner:hover .resume-tag,
+.resume-corner:focus-visible .resume-tag {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-fold,
+  .resume-tag {
+    transition: none;
+  }
+}
