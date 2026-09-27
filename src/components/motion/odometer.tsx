@@ -28,12 +28,15 @@ export function Odometer({ value, className = '' }: { value: string; className?:
   return (
     <span ref={ref} className={`odometer inline-flex tabular-nums ${className}`} data-rolled={rolled || undefined}>
       <span className="sr-only">{value}</span>
-      <span aria-hidden="true" className="inline-flex">
+      {/* Glyphs are top-aligned 1em boxes: overflow-hidden boxes sit on their bottom edge, not the baseline. */}
+      <span aria-hidden="true" className="inline-flex items-start leading-none">
         {toGlyphs(value).map((glyph, index) =>
           glyph.kind === 'static' ? (
-            <span key={index}>{glyph.char}</span>
+            <span key={index} className="block h-[1em] leading-none">
+              {glyph.char}
+            </span>
           ) : (
-            <span key={index} className="inline-block h-[1em] overflow-hidden leading-none">
+            <span key={index} className="block h-[1em] overflow-hidden leading-none">
               <span
                 className="odometer-strip block"
                 style={{ '--n': glyph.value, transitionDelay: `${glyph.order * 90}ms` } as CSSProperties}
