@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Geist_Mono, Instrument_Serif, Inter_Tight } from 'next/font/google'
 import { site } from '@/content/site'
+import { SiteNav } from '@/components/site-nav'
+import { SmoothScroll } from '@/components/smooth-scroll'
 import { themeScript } from '@/lib/theme'
 import { tokensToCss } from '@/styles/tokens'
 import './globals.css'
@@ -57,6 +59,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         >
           Skip to content
         </a>
+        <SmoothScroll />
+        <SiteNav />
         {children}
       </body>
     </html>
