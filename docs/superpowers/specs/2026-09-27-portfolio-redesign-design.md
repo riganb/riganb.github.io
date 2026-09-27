@@ -45,15 +45,19 @@ components.
 | `--paper-2` (raised surface) | `#ECE7DC` | `#1D1A15` |
 | `--ink` (text) | `#16140F` | `#EDE6D6` |
 | `--ink-2` (secondary text) | `#4A463E` | `#A79F8E` |
-| `--muted` (labels) | `#7A7468` | `#8D8575` |
+| `--muted` (labels) | `#6D675D` | `#8D8575` |
 | `--rule` (hairlines) | `#DCD5C6` | `#2E2A23` |
 | `--grid` (blueprint grid) | `rgba(22,20,15,.05)` | `rgba(237,230,214,.045)` |
-| `--accent` (terracotta) | `#B4532A` | `#E8A55A` |
+| `--accent` (terracotta) | `#A74D27` | `#E8A55A` |
 | `--accent-ink` (text on accent) | `#F4F1EA` | `#15130F` |
+| `--live` (status dot) | `#3F8F5A` | `#6FBF86` |
 
 Dark mode follows the operating system by default, with a manual toggle in the nav that persists
-in `localStorage`. Every token pair must pass WCAG AA contrast for its use (body text 4.5:1, large
-text and labels 3:1), checked by a script.
+in `localStorage`.
+
+Every text colour must reach 4.5:1 on the backgrounds it sits on, including small mono labels and
+the accent (the 3:1 allowance only covers text 24px and up, which labels are not). Non-text marks
+such as the live dot and focus rings need 3:1. `src/styles/tokens.test.ts` enforces this.
 
 ### 3.2 Type
 
