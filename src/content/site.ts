@@ -7,9 +7,9 @@ export const site = {
   title: 'Rigan Burnwal: founder and engineer',
   description:
     'Founder of VeraStack Labs. I build software people keep using, from desktop apps to revenue-critical web.',
+  ogImage: { url: '/og.png', width: 1200, height: 630, alt: 'Rigan Burnwal: founder of VeraStack Labs and software engineer' },
   status: 'Building VeraStack Labs · Bangalore',
   email: 'therealriganb@gmail.com',
-  resume: '/rigan_burnwal_resume_2026_v1.pdf',
   nav: [
     { label: 'Work', href: '/#work' },
     { label: 'Studio', href: '/#studio' },

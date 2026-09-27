@@ -62,6 +62,6 @@ export const contact = {
     honest: ["Let's build something.", "I'll over-engineer it."],
   } satisfies LinePair,
   emailCaption: 'I actually read it.',
-  resume: { label: 'Resume', caption: 'One page. I checked.' },
+  resume: { label: 'Resume', caption: 'Being rewritten into something better.', tag: 'Soon' },
   footer: 'Built in Bangalore. Set in Instrument Serif and Geist Mono.',
 }

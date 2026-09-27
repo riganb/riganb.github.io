@@ -34,12 +34,20 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: site.title,
   description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  alternates: { canonical: '/' },
+  robots: { index: true, follow: true },
+  twitter: { card: 'summary_large_image', title: site.title, description: site.description, images: [site.ogImage] },
   openGraph: {
     title: site.title,
     description: site.description,
     url: site.url,
     siteName: site.name,
     type: 'website',
+    locale: 'en_IN',
+    images: [site.ogImage],
   },
 }
 
