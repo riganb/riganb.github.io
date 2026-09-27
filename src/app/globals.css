@@ -10,6 +10,8 @@
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
   --color-live: var(--live);
+  --color-fill: var(--fill);
+  --color-fill-ink: var(--fill-ink);
 
   --font-display: var(--font-instrument-serif), Georgia, serif;
   --font-body: var(--font-inter-tight), system-ui, sans-serif;

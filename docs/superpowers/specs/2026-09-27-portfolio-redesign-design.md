@@ -196,7 +196,10 @@ The one pinned story on the home page. Four sheets dealt onto the pile:
 4. **Mehfil**: "Rally friends for chai, dinner or cards in a couple of taps." Screenshot, stack
    line (Next.js PWA), landing page link.
 
-After the last sheet the pin releases into a full-width link: "Visit the studio →". Dithered
+After the last sheet the pin releases into a full-width link: "Visit the studio →". Until the studio site
+exists, the link reads "VeraStack Labs on GitHub" and points at the organisation. Each product sheet
+redefines the site's colour variables with its own palette (`src/styles/products.ts`, contrast-tested).
+Mehfil has no public page yet, so its sheet shows an invite card drawn in Mehfil's own design language. Dithered
 product objects (I9) drift in the margin of the intro sheet only.
 
 ### 05. Side projects and open source

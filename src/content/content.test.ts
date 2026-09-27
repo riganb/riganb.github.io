@@ -4,12 +4,13 @@ import { isLinePair, pairProblems, type LinePair } from '@/lib/pairs'
 import { site } from '@/content/site'
 import * as home from '@/content/home'
 import * as workContent from '@/content/work'
+import * as studioContent from '@/content/studio'
 
 // Built from its code point so this file never contains the character itself.
 const EM_DASH = String.fromCodePoint(0x2014)
 
 // Add every content module here as it is created.
-const modules: Record<string, unknown> = { site, home, work: workContent }
+const modules: Record<string, unknown> = { site, home, work: workContent, studio: studioContent }
 
 function collectStrings(value: unknown, path: string): Array<[string, string]> {
   if (typeof value === 'string') return [[path, value]]
