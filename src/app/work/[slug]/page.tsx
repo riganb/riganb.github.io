@@ -5,10 +5,12 @@ import { CaseHeader } from '@/components/case-study/case-header'
 import { CaseSheet } from '@/components/case-study/case-sheet'
 import { Highlights } from '@/components/case-study/highlights'
 import { NextCase } from '@/components/case-study/next-case'
+import { JsonLd } from '@/components/json-ld'
 import { ScrollFill } from '@/components/motion/scroll-fill'
 import { StoryScroll, StorySheet } from '@/components/motion/story-scroll'
 import { caseStudies, findCaseStudy } from '@/content/case-studies'
 import { site } from '@/content/site'
+import { caseStudyGraph } from '@/lib/structured-data'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -23,7 +25,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const study = findCaseStudy(slug)
   if (!study) return {}
   const title = `${study.client}: ${study.title.replaceAll('*', '')} · ${site.name}`
-  return { title, description: study.intro.join(' '), openGraph: { title, description: study.intro.join(' ') } }
+  const description = study.intro.join(' ')
+  const url = `/work/${study.slug}/`
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { title, description, url, type: 'article', siteName: site.name, images: [site.ogImage] },
+    twitter: { card: 'summary_large_image', title, description, images: [site.ogImage] },
+  }
 }
 
 const intro = 'font-display text-[clamp(2rem,4.6vw,4rem)] leading-[1.08] tracking-[-0.01em]'
@@ -41,6 +51,7 @@ export default async function CaseStudyPage({ params }: Props) {
       default="none"
     >
       <main id="main">
+        <JsonLd data={caseStudyGraph(study)} />
         <CaseHeader study={study} />
         <section aria-label="Overview" className="border-b border-rule">
           <div className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-32">
