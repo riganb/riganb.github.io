@@ -1,3 +1,4 @@
+import { ViewTransition } from 'react'
 import { Journey } from '@/components/about/journey'
 import { SideProjects } from '@/components/about/side-projects'
 import { Toolbox } from '@/components/about/toolbox'
@@ -9,15 +10,21 @@ import { WorkIndex } from '@/components/work/work-index'
 
 export default function Home() {
   return (
-    <main id="main">
-      <Hero />
-      <Statement />
-      <WorkIndex />
-      <StudioChapter />
-      <SideProjects />
-      <Journey />
-      <Toolbox />
-      <Contact />
-    </main>
+    <ViewTransition
+      enter={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
+      exit={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
+      default="none"
+    >
+      <main id="main">
+        <Hero />
+        <Statement />
+        <WorkIndex />
+        <StudioChapter />
+        <SideProjects />
+        <Journey />
+        <Toolbox />
+        <Contact />
+      </main>
+    </ViewTransition>
   )
 }

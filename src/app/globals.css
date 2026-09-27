@@ -169,7 +169,8 @@ html.js .odometer:not([data-rolled]) .odometer-strip {
   }
 
   .work-row:hover .work-band,
-  .work-row:focus-visible .work-band {
+  .work-row:focus-visible .work-band,
+  .work-row:has(:focus-visible) .work-band {
     transform: scaleY(1);
   }
 
@@ -178,17 +179,22 @@ html.js .odometer:not([data-rolled]) .odometer-strip {
   .work-row:hover .work-note,
   .work-row:focus-visible .work-title,
   .work-row:focus-visible .work-meta,
-  .work-row:focus-visible .work-note {
+  .work-row:focus-visible .work-note,
+  .work-row:has(:focus-visible) .work-title,
+  .work-row:has(:focus-visible) .work-meta,
+  .work-row:has(:focus-visible) .work-note {
     color: var(--accent-ink);
   }
 
   .work-row:hover .work-note,
-  .work-row:focus-visible .work-note {
+  .work-row:focus-visible .work-note,
+  .work-row:has(:focus-visible) .work-note {
     opacity: 1;
   }
 
   .work-row:hover .work-facts,
-  .work-row:focus-visible .work-facts {
+  .work-row:focus-visible .work-facts,
+  .work-row:has(:focus-visible) .work-facts {
     opacity: 0;
   }
 }
@@ -245,5 +251,96 @@ html.js .halftone:not([data-ready]) img {
   .resume-fold,
   .resume-tag {
     transition: none;
+  }
+}
+
+/* Page transitions (Next.js view transitions guide). The client name morphs between the work
+   index and its case study; pages slide by direction; the nav stays put. */
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-group(.morph) {
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+::view-transition-image-pair(.morph) {
+  animation-name: vt-via-blur;
+}
+
+::view-transition-old(.nav-forward) {
+  --slide-offset: -60px;
+  animation:
+    150ms ease-in both vt-fade reverse,
+    400ms ease-in-out both vt-slide reverse;
+}
+
+::view-transition-new(.nav-forward) {
+  --slide-offset: 60px;
+  animation:
+    210ms ease-out 150ms both vt-fade,
+    400ms ease-in-out both vt-slide;
+}
+
+::view-transition-old(.nav-back) {
+  --slide-offset: 60px;
+  animation:
+    150ms ease-in both vt-fade reverse,
+    400ms ease-in-out both vt-slide reverse;
+}
+
+::view-transition-new(.nav-back) {
+  --slide-offset: -60px;
+  animation:
+    210ms ease-out 150ms both vt-fade,
+    400ms ease-in-out both vt-slide;
+}
+
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+
+::view-transition-old(site-header) {
+  display: none;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+@keyframes vt-via-blur {
+  30% {
+    filter: blur(3px);
+  }
+}
+
+@keyframes vt-fade {
+  from {
+    filter: blur(3px);
+    opacity: 0;
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes vt-slide {
+  from {
+    translate: var(--slide-offset);
+  }
+  to {
+    translate: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
   }
 }

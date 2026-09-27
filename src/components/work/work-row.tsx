@@ -1,6 +1,7 @@
 'use client'
 
-import { useRef, type PointerEvent } from 'react'
+import Link from 'next/link'
+import { ViewTransition, useRef, type PointerEvent } from 'react'
 import type { WorkItem } from '@/content/work'
 import { entryEdge } from '@/lib/hover'
 
@@ -12,6 +13,7 @@ type WorkRowProps = {
 
 export function WorkRow({ item, index, onActive }: WorkRowProps) {
   const ref = useRef<HTMLLIElement>(null)
+  const label = `${item.client}, ${item.discipline}, ${item.year}. ${item.note}`
 
   // The band grows from the edge the pointer came through and retreats through the edge it leaves by.
   const setEdge = (event: PointerEvent<HTMLLIElement>) => {
@@ -22,9 +24,10 @@ export function WorkRow({ item, index, onActive }: WorkRowProps) {
   return (
     <li
       ref={ref}
-      tabIndex={0}
+      // Rows with a case study are reached through their link; the rest are focusable so notes can be revealed.
+      tabIndex={item.caseStudy ? undefined : 0}
       data-edge="top"
-      aria-label={`${item.client}, ${item.discipline}, ${item.year}. ${item.note}`}
+      aria-label={item.caseStudy ? undefined : label}
       onPointerEnter={(event) => {
         setEdge(event)
         onActive(item.slug)
@@ -38,13 +41,27 @@ export function WorkRow({ item, index, onActive }: WorkRowProps) {
       className="work-row relative border-b border-rule outline-none"
     >
       <span aria-hidden="true" className="work-band absolute inset-0 bg-accent" />
+      {item.caseStudy && (
+        <Link
+          href={`/work/${item.slug}/`}
+          transitionTypes={['nav-forward']}
+          aria-label={`${label} Read the case study.`}
+          className="absolute inset-0 z-10"
+        />
+      )}
       <div
         aria-hidden="true"
         className="relative mx-auto grid max-w-[1320px] grid-cols-[2.5rem_1fr] items-baseline gap-x-4 px-6 py-5 md:px-10 lg:grid-cols-[3rem_1fr_minmax(0,22rem)_4rem] lg:py-6"
       >
         <span className="work-meta font-mono text-[11px] text-muted">{String(index + 1).padStart(2, '0')}</span>
         <span className="work-title font-display text-[clamp(1.75rem,4vw,3.5rem)] leading-none tracking-[-0.01em]">
-          {item.client}
+          {item.caseStudy ? (
+            <ViewTransition name={`case-${item.slug}`} share="morph" default="none">
+              <span className="inline-block">{item.client}</span>
+            </ViewTransition>
+          ) : (
+            item.client
+          )}
           {item.status === 'in-progress' && (
             <span className="work-meta ml-3 align-middle font-mono text-[10px] uppercase tracking-[0.08em] text-muted">
               In progress
