@@ -5,6 +5,11 @@ import { ViewTransition, useRef, type PointerEvent } from 'react'
 import type { WorkItem } from '@/content/work'
 import { entryEdge } from '@/lib/hover'
 
+const STATUS_LABELS: Record<NonNullable<WorkItem['status']>, string> = {
+  'in-progress': 'In progress',
+  'case-study-soon': 'Case study soon',
+}
+
 type WorkRowProps = {
   item: WorkItem
   index: number
@@ -13,7 +18,7 @@ type WorkRowProps = {
 
 export function WorkRow({ item, index, onActive }: WorkRowProps) {
   const ref = useRef<HTMLLIElement>(null)
-  const label = `${item.client}, ${item.discipline}, ${item.year}. ${item.note}`
+  const label = `${item.client}, ${item.discipline}, ${item.year}.${item.status ? ` ${STATUS_LABELS[item.status]}.` : ''} ${item.note}`
 
   // The band grows from the edge the pointer came through and retreats through the edge it leaves by.
   const setEdge = (event: PointerEvent<HTMLLIElement>) => {
@@ -62,9 +67,9 @@ export function WorkRow({ item, index, onActive }: WorkRowProps) {
           ) : (
             item.client
           )}
-          {item.status === 'in-progress' && (
+          {item.status && (
             <span className="work-meta ml-3 align-middle font-mono text-[10px] uppercase tracking-[0.08em] text-muted">
-              In progress
+              {STATUS_LABELS[item.status]}
             </span>
           )}
         </span>

@@ -5,7 +5,7 @@ export type WorkItem = {
   year: string
   note: string
   caseStudy?: boolean
-  status?: 'in-progress'
+  status?: 'in-progress' | 'case-study-soon'
   preview?: { src: string; alt: string }
 }
 
@@ -19,7 +19,7 @@ export const work = {
       discipline: 'Website and CMS',
       year: '2026',
       note: '76 stores, six countries, one CMS. First paint 716 ms to 264 ms.',
-      caseStudy: true,
+      status: 'case-study-soon',
     },
     {
       slug: 'e3-trion',
