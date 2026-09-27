@@ -1,3 +1,7 @@
+import { Journey } from '@/components/about/journey'
+import { SideProjects } from '@/components/about/side-projects'
+import { Toolbox } from '@/components/about/toolbox'
+import { Contact } from '@/components/contact/contact'
 import { Hero } from '@/components/home/hero'
 import { Statement } from '@/components/home/statement'
 import { StudioChapter } from '@/components/studio/studio-chapter'
@@ -10,6 +14,10 @@ export default function Home() {
       <Statement />
       <WorkIndex />
       <StudioChapter />
+      <SideProjects />
+      <Journey />
+      <Toolbox />
+      <Contact />
     </main>
   )
 }

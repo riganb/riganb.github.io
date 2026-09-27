@@ -5,12 +5,13 @@ import { site } from '@/content/site'
 import * as home from '@/content/home'
 import * as workContent from '@/content/work'
 import * as studioContent from '@/content/studio'
+import * as about from '@/content/about'
 
 // Built from its code point so this file never contains the character itself.
 const EM_DASH = String.fromCodePoint(0x2014)
 
 // Add every content module here as it is created.
-const modules: Record<string, unknown> = { site, home, work: workContent, studio: studioContent }
+const modules: Record<string, unknown> = { site, home, work: workContent, studio: studioContent, about }
 
 function collectStrings(value: unknown, path: string): Array<[string, string]> {
   if (typeof value === 'string') return [[path, value]]

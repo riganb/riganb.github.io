@@ -94,11 +94,11 @@ ship.
 | I7 | **Odometer.** Labels and digits roll vertically when they change | Nav active section, spec sheet numbers | Spec sheet: custom CSS odometer after Motion Primitives `SlidingNumber`, showing real values without JS. Nav: Motion Primitives `TextRoll` (planned) |
 | I8 | **Blueprint ripple.** The faint grid behind the spec sheet ripples away from the cursor | Hero only | Custom 2D canvas (Canvas UI `Displacement` distorts wrapped HTML through an experimental API and would spend a WebGL slot) |
 | I9 | **Dithered objects.** 3D renders of the three product icons, drawn as 1-bit dither, drift slowly in the margin | VeraStack chapter only | Canvas UI `Dithered Object` |
-| I10 | **Halftone portrait.** Rigan's photo as newspaper halftone that resolves to the full photo on hover | Journey | React Bits `HalftoneReveal` |
-| I11 | **Decrypt label.** Mono labels unscramble once when they enter view | Section labels | React Bits `DecryptedText` |
-| I12 | **Peel.** The corner of the contact sheet peels back to reveal the resume PDF | Contact | Canvas UI `Peel` |
+| I10 | **Halftone portrait.** Rigan's photo as newspaper halftone that resolves to the full photo on hover | Journey | Custom 2D canvas that reads the live tokens, so dots invert correctly in dark mode (React Bits `HalftoneReveal` is WebGL with fixed colours) |
+| I11 | **Decrypt label.** Mono labels unscramble once when they enter view | Section labels | React Bits `DecryptedText` (deferred: not needed for launch) |
+| I12 | **Peel.** The corner of the contact sheet peels back to reveal the resume PDF | Contact | CSS corner fold (Canvas UI `Peel` would spend a WebGL slot on a link) |
 | I13 | **Before/after slider.** Drag to compare old and new builds | Case studies | Motion Primitives `ImageComparison` |
-| I14 | **Magnet.** The email button leans towards the cursor | Contact | React Bits `Magnet` |
+| I14 | **Magnet.** The email button leans towards the cursor | Contact | Custom, over the lens easing |
 
 Global: **Lenis** smooth scrolling, connected to GSAP ScrollTrigger so pins do not jitter.
 
