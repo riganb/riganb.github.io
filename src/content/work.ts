@@ -20,7 +20,6 @@ export const work = {
       year: '2026',
       note: '76 stores, six countries, one CMS. First paint 716 ms to 264 ms.',
       caseStudy: true,
-      preview: { src: '/work/cold-stone/preview.webp', alt: 'The rebuilt Cold Stone Creamery Arabia menu page' },
     },
     {
       slug: 'e3-trion',
