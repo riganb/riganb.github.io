@@ -1,5 +1,3 @@
-export type Copy = { text: string; honest?: string }
-
 export type NavLink = { label: string; href: string }
 export type Social = { label: string; href: string; caption: string }
 
@@ -30,12 +28,4 @@ export const site = {
       caption: 'The version of me that wears a collar.',
     },
   ] satisfies Social[],
-  hero: {
-    label: 'Founder · Engineer · 2026',
-    headline: {
-      text: 'I build software people *keep* using.',
-      honest: 'I build software, then rebuild it until people keep using it.',
-    } satisfies Copy,
-    lede: 'Founder of VeraStack Labs, where we make rigseed, Riggit and Mehfil. Before that, I shipped the X-47 configurator and a typed monorepo at Ultraviolette.',
-  },
 } as const

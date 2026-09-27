@@ -38,3 +38,78 @@
     outline-offset: 3px;
   }
 }
+
+/* Ink lens. Overlays exist only while a lens mode runs. The hover lens locks every paired
+   line to one line so honest words sit exactly where polished ones were. */
+.honest-layer {
+  display: none;
+}
+
+html[data-lens] .honest-layer {
+  display: block;
+}
+
+html[data-lens='hover'] .pair-line {
+  white-space: nowrap;
+}
+
+/* Kept for keyboard and screen-reader users; visible only when focused. */
+.honest-toggle:not(:focus-visible) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* The press-and-hold button only exists in press mode, and steps aside while held. */
+.lens-press {
+  display: none;
+  transition: opacity 0.2s;
+}
+
+html[data-lens='press'] .lens-press {
+  display: block;
+}
+
+html[data-honest='on'] .lens-press {
+  opacity: 0;
+}
+
+.lens-press-ring {
+  animation: lens-press-spin 14s linear infinite;
+}
+
+@keyframes lens-press-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lens-press-ring {
+    animation: none;
+  }
+}
+
+/* Line reveals start hidden only when JavaScript will reveal them. */
+html.js [data-reveal] {
+  visibility: hidden;
+}
+
+/* Odometer: without JS the real value shows; with JS it rolls up from zero once in view. */
+.odometer-strip {
+  transform: translateY(calc(var(--n) * -1em));
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.js .odometer:not([data-rolled]) .odometer-strip {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .odometer-strip {
+    transition: none;
+  }
+}

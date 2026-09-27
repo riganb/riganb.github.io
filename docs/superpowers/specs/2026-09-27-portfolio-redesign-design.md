@@ -1,7 +1,7 @@
 # riganb.github.io redesign: design spec
 
 Date: 2026-09-27
-Status: draft, awaiting review
+Status: approved 2026-09-27, amended as phases land
 
 ## 1. Why
 
@@ -85,14 +85,14 @@ ship.
 
 | # | Effect | Where | Source |
 |---|---|---|---|
-| I1 | **Ink lens.** A terracotta disc trails the cursor with a spring. Over text marked as having an honest twin, it grows to about 220px and reveals the alternate copy inside it; elsewhere it shrinks to a 12px dot. The reveal tracks the scroll position under a still cursor | Hero, statement, contact | Custom (masked duplicate layer with `clip-path: circle()`), cursor physics from React Bits `BlobCursor` |
-| I2 | **Scroll-filled text.** Large statements start at 20% opacity and fill word by word as they scroll through the viewport | Statement, case study intros | React Bits `ScrollReveal` |
-| I3 | **Line reveal.** Headlines slide up out of a mask, one line at a time, on first view | Hero, section titles | React Bits `SplitText` |
+| I1 | **Ink lens.** Honest copy is authored line for line against the polished copy (section 7). *Hover mode* (fine pointer, 1024px and wider, motion allowed): a terracotta disc trails the cursor, swells to about 220px over paired copy and reveals the honest lines in place, with paired lines locked to one line each; elsewhere it is a 12px dot. It tracks scroll under a still cursor. *Press mode* (touch, narrow screens, reduced motion): a round "Hold · the honest version" button sits at the bottom; holding it (pointer, Space or Enter) grows the disc from the button until it covers the screen, showing every honest line at once, as on minhpham.design | Hero, statement, spec sheet, contact | Custom: clipped duplicate layers with `clip-path: circle()`, one shared pointer loop |
+| I2 | **Scroll-filled text.** Large statements start at 20% opacity and fill word by word as they scroll through the viewport | Statement, case study intros | Custom, adapted from React Bits `ScrollReveal` (scoped cleanup; the original kills every ScrollTrigger on unmount) |
+| I3 | **Line reveal.** Headlines slide up out of a mask, one authored line at a time, on first view | Hero, section titles | Custom GSAP tween over authored lines (no SplitText needed once lines are explicit) |
 | I4 | **Row band.** Hovering an index row wipes a full-width accent band in from the edge the cursor entered; the title turns `--accent-ink` and a one-line note appears on the right | Work index | Custom |
 | I5 | **Cursor preview.** A small preview image of the hovered project follows the cursor, tilted a few degrees | Work index | Motion Primitives `Cursor` |
 | I6 | **Story scroll.** Sections pin; each next one is dealt onto the pile, rotating from about 10° to flat around its bottom-left corner, with a soft shadow on the incoming edge and the covered sheet dimming slightly | Exactly one per page: VeraStack chapter on home, one per case study | 21st.dev Story Scroll by Samira Boudjadja (adapted, credited) |
-| I7 | **Odometer.** Labels and digits roll vertically when they change | Nav active section, spec sheet numbers | Motion Primitives `TextRoll`, `SlidingNumber` |
-| I8 | **Blueprint ripple.** The faint grid behind the spec sheet ripples away from the cursor | Hero only | Canvas UI `Displacement` |
+| I7 | **Odometer.** Labels and digits roll vertically when they change | Nav active section, spec sheet numbers | Spec sheet: custom CSS odometer after Motion Primitives `SlidingNumber`, showing real values without JS. Nav: Motion Primitives `TextRoll` (planned) |
+| I8 | **Blueprint ripple.** The faint grid behind the spec sheet ripples away from the cursor | Hero only | Custom 2D canvas (Canvas UI `Displacement` distorts wrapped HTML through an experimental API and would spend a WebGL slot) |
 | I9 | **Dithered objects.** 3D renders of the three product icons, drawn as 1-bit dither, drift slowly in the margin | VeraStack chapter only | Canvas UI `Dithered Object` |
 | I10 | **Halftone portrait.** Rigan's photo as newspaper halftone that resolves to the full photo on hover | Journey | React Bits `HalftoneReveal` |
 | I11 | **Decrypt label.** Mono labels unscramble once when they enter view | Section labels | React Bits `DecryptedText` |
@@ -107,10 +107,12 @@ Global: **Lenis** smooth scrolling, connected to GSAP ScrollTrigger so pins do n
 - At most **two WebGL effects** on screen at once. I8 and I9 never share a viewport.
 - Effects run only while their section is in view (IntersectionObserver), and WebGL canvases pause
   when off screen.
-- `prefers-reduced-motion: reduce` turns off I1, I2 (text shows filled), I3, I6 (sections stack
-  normally), I8, I9 and Lenis. Everything stays readable and usable.
-- Touch devices get no cursor effects (I1, I4's directional wipe becomes a tap-to-open, I5, I14).
-  Honest copy is reachable with a "Show the honest version" toggle beside each honest block.
+- `prefers-reduced-motion: reduce` turns off I2 (text shows filled), I3, I6 (sections stack
+  normally), I8, I9 and Lenis, and puts I1 in press mode with an instant switch instead of a growing
+  disc. Everything stays readable and usable.
+- Touch devices get no cursor effects (I4's directional wipe becomes a tap-to-open, I5, I14). The ink
+  lens switches to press mode (I1). Keyboard and screen-reader users get a "Show the honest version"
+  toggle per block, visible when focused.
 - Durations sit between 200ms and 700ms; eases are custom cubic-beziers, never the defaults.
 
 ## 5. Home page
@@ -127,29 +129,28 @@ On phones the links collapse into a full-screen menu set in serif.
 
 Left column (about 60%):
 - Label: `FOUNDER · ENGINEER · 2026`
-- Headline (I3): **"I build software people *keep* using."**
-- Honest twin (I1): "I build software, then rebuild it until people keep using it."
+- Headline (I3), two authored lines: **"I build software / people *keep* using."**
+- Honest twin (I1): "I rebuild software / until people use it."
 - Lede: "Founder of VeraStack Labs, where we make rigseed, Riggit and Mehfil. Before that, I shipped
   the X-47 configurator and a typed monorepo at Ultraviolette."
 
 Right column (about 40%), on the blueprint grid (I8), a spec sheet in mono with rolling digits
 (I7). Each row has an honest footnote revealed by the lens:
 
-| Row | Value | Honest footnote |
+| Row | Value | Honest twin |
 |---|---|---|
-| Products shipped | 03 | "and two more in a folder called `later`" |
-| Production PRs governed | 2,800+ | "some of them were renames" |
-| Client launches | 07 | "one of them is still loading" (PixelStack, in progress) |
-| Spark Award | 2025 | "for a week I would not recommend" |
+| Products shipped | 03 | "Plus two in /later" |
+| Production PRs | 2,800+ | "Some were renames" |
+| Client launches | 07 | "One still loading" (PixelStack, in progress) |
+| Spark Award | 2025 | "One long week" |
 
 ### 02. Statement
 
 Large serif paragraph, scroll-filled (I2), with an honest twin (I1):
 
-- Polished: "I care about the parts nobody screenshots: the migration that stops the next outage,
-  the checkout that loads before the customer gives up, the CMS a marketing team can actually use."
-- Honest: "I care about the parts nobody screenshots, mostly because I am the one who gets paged
-  when they break."
+- Polished, four authored lines: "I care about the parts / *nobody screenshots*. / Migrations. Checkouts. /
+  A CMS people can use."
+- Honest: "I care about the parts / nobody screenshots, / mostly because I get / paged when they break."
 
 ### 03. Selected work, the index
 
@@ -295,11 +296,16 @@ Source assets: `Documents/cold-stone-showcase/` (comparisons, shots, `optimised-
 ## 7. Content model
 
 All copy lives in typed files under `src/content/` (`site.ts`, `work.ts`, `studio.ts`,
-`journey.ts`, `case-studies/*.ts`). An honest twin is a field on the content object, not markup:
+`journey.ts`, `case-studies/*.ts`). Copy with an honest twin is a line pair, authored one entry per visual line:
 
 ```ts
-type Copy = { text: string; honest?: string }
+type LinePair = { lines: string[]; honest: string[] }
 ```
+
+Each honest line must keep its polished twin's shape: the same number of lines, and each line within
+25% of its twin's length. `src/content/content.test.ts` fails the build otherwise. This is what keeps
+the lens readable: inside the disc you read whole honest words sitting where polished ones were,
+never fragments of a differently wrapped sentence.
 
 Components never contain copy. Images live under `public/work/<slug>/`, converted to AVIF and
 WebP at build time or before commit.

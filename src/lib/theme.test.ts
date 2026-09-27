@@ -29,4 +29,8 @@ describe('themeScript', () => {
     expect(themeScript).toContain(`localStorage.getItem("${THEME_STORAGE_KEY}")`)
     expect(themeScript).toContain(`t==='light'||t==='dark'`)
   })
+
+  it('marks the document as having JavaScript', () => {
+    expect(themeScript).toContain(`classList.add('js')`)
+  })
 })
