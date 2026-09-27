@@ -60,3 +60,8 @@ html[data-lens='on'] .honest-toggle:not(:focus-visible) {
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+/* Line reveals start hidden only when JavaScript will reveal them. */
+html.js [data-split] {
+  visibility: hidden;
+}
