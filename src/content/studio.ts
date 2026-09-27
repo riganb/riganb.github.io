@@ -30,7 +30,7 @@ export const studio = {
         { label: 'Website', href: 'https://verastack-labs.github.io/rigseed/' },
         { label: 'Source', href: 'https://github.com/verastack-labs/rigseed-app' },
       ],
-      image: { src: '/studio/rigseed.webp', alt: 'The rigseed landing page, with the torrent list under the headline' },
+      image: { src: '/studio/rigseed.webp', alt: 'The rigseed app: a sidebar of torrent filters beside a grid of downloads with speeds and progress' },
     },
     {
       slug: 'riggit',
