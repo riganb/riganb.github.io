@@ -65,3 +65,19 @@ html[data-lens='on'] .honest-toggle:not(:focus-visible) {
 html.js [data-split] {
   visibility: hidden;
 }
+
+/* Odometer: without JS the real value shows; with JS it rolls up from zero once in view. */
+.odometer-strip {
+  transform: translateY(calc(var(--n) * -1em));
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.js .odometer:not([data-rolled]) .odometer-strip {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .odometer-strip {
+    transition: none;
+  }
+}
