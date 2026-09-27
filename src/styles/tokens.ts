@@ -9,6 +9,8 @@ export const TOKEN_NAMES = [
   'accent',
   'accent-ink',
   'live',
+  'fill',
+  'fill-ink',
 ] as const
 
 export type TokenName = (typeof TOKEN_NAMES)[number]
@@ -27,6 +29,8 @@ export const palettes: Record<ThemeName, Palette> = {
     accent: '#A74D27',
     'accent-ink': '#F4F1EA',
     live: '#3F8F5A',
+    fill: '#E8A55A',
+    'fill-ink': '#16140F',
   },
   dark: {
     paper: '#15130F',
@@ -39,6 +43,8 @@ export const palettes: Record<ThemeName, Palette> = {
     accent: '#E8A55A',
     'accent-ink': '#15130F',
     live: '#6FBF86',
+    fill: '#E8A55A',
+    'fill-ink': '#15130F',
   },
 }
 
@@ -56,6 +62,7 @@ export const CONTRAST_RULES: ContrastRule[] = [
   { fg: 'accent', bg: 'paper-2', min: 4.5 },
   { fg: 'accent-ink', bg: 'accent', min: 4.5 },
   { fg: 'live', bg: 'paper', min: 3 },
+  { fg: 'fill-ink', bg: 'fill', min: 4.5 },
 ]
 
 function declarations(theme: ThemeName): string {
