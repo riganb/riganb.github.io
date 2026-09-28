@@ -61,10 +61,15 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 
 ## Planned, not started
 
-- [ ] Main-thread cost on load. Lighthouse mobile simulation shows about 0.5 s total blocking time,
-  mostly GSAP and ScrollTrigger setup. Real LCP is about 0.24 s and CLS is 0.
+Nothing planned right now. Add ideas here as they come up.
 
 ## Known trade-offs
+
+- Lighthouse, mobile simulation, home page (2026-09-28): performance 88, accessibility 96,
+  best practices 100, SEO 100. Total blocking time 170 ms, CLS 0. Simulated LCP is 3.5 s (observed
+  1.4 s); what remains is React hydration and GSAP setup.
+- The accessibility deduction is the scroll-filled statement: words start at 18% opacity and fill
+  in as you scroll. Screen readers get the full text; the faint state is the effect.
 
 - The studio's floating object (spec I9) is one object that cycles rigseed, Riggit and Mehfil,
   not three, to keep to one WebGL context. three.js is a 172 KB (gzip) chunk fetched only on
