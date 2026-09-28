@@ -81,15 +81,12 @@ export function HalftonePortrait({ alt, className = '' }: { alt: string; classNa
     resizeObserver.observe(host)
     const themeObserver = new MutationObserver(draw)
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
-    const scheme = matchMedia('(prefers-color-scheme: dark)')
-    scheme.addEventListener('change', draw)
 
     return () => {
       image.onload = null
       nearObserver.disconnect()
       resizeObserver.disconnect()
       themeObserver.disconnect()
-      scheme.removeEventListener('change', draw)
     }
   }, [])
 

@@ -92,12 +92,6 @@ html[data-honest='on'] .lens-press {
   --lens-blend: multiply;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --lens-blend: difference;
-  }
-}
-
 :root[data-theme='dark'] {
   --lens-blend: difference;
 }
@@ -434,6 +428,56 @@ html.menu-open {
   .mobile-menu-link,
   .mobile-menu[data-state='open'] .mobile-menu-link {
     transform: none;
+    transition: none;
+  }
+}
+
+/* Theme toggle: the sun sets and the moon rises. Driven by data-theme, so the icon is right on
+   first paint without waiting for React. */
+.theme-sun,
+.theme-moon {
+  transition:
+    transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1),
+    opacity 0.3s ease;
+}
+
+.theme-moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.4);
+}
+
+html[data-theme='dark'] .theme-sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.4);
+}
+
+html[data-theme='dark'] .theme-moon {
+  opacity: 1;
+  transform: none;
+}
+
+.theme-toggle:hover .theme-sun {
+  transform: rotate(45deg);
+}
+
+html[data-theme='dark'] .theme-toggle:hover .theme-moon {
+  transform: rotate(-15deg);
+}
+
+/* Theme switch: the new theme is revealed by a circle clipped in theme-toggle.tsx. */
+html.theme-switching * {
+  view-transition-name: none !important;
+}
+
+html.theme-switching::view-transition-old(root),
+html.theme-switching::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-sun,
+  .theme-moon {
     transition: none;
   }
 }

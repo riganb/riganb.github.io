@@ -2,18 +2,17 @@ import { describe, expect, it } from 'vitest'
 import { THEME_STORAGE_KEY, nextTheme, resolveTheme, themeScript } from '@/lib/theme'
 
 describe('resolveTheme', () => {
-  it('prefers a stored choice', () => {
-    expect(resolveTheme('dark', false)).toBe('dark')
-    expect(resolveTheme('light', true)).toBe('light')
+  it('uses a stored choice', () => {
+    expect(resolveTheme('dark')).toBe('dark')
+    expect(resolveTheme('light')).toBe('light')
   })
 
-  it('falls back to the system preference', () => {
-    expect(resolveTheme(null, true)).toBe('dark')
-    expect(resolveTheme(null, false)).toBe('light')
+  it('defaults to light, whatever the system prefers', () => {
+    expect(resolveTheme(null)).toBe('light')
   })
 
   it('ignores garbage in storage', () => {
-    expect(resolveTheme('purple', true)).toBe('dark')
+    expect(resolveTheme('purple')).toBe('light')
   })
 })
 

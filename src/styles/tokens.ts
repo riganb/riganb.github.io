@@ -75,6 +75,5 @@ export function tokensToCss(): string {
   return [
     `:root{${declarations('light')}}`,
     `:root[data-theme="dark"]{${declarations('dark')}}`,
-    `@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){${declarations('dark')}}}`,
   ].join('')
 }
