@@ -196,7 +196,7 @@ export function LensProvider({ children }: { children: ReactNode }) {
       <div
         ref={discRef}
         aria-hidden="true"
-        className="pointer-events-none fixed left-0 top-0 z-[45] size-[220px] rounded-full bg-accent opacity-0 transition-opacity duration-200"
+        className="lens-disc pointer-events-none fixed left-0 top-0 z-[45] size-[220px] rounded-full bg-accent opacity-0 transition-opacity duration-200"
       />
       <button
         ref={pressRef}
