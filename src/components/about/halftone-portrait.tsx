@@ -3,17 +3,23 @@
 import { useEffect, useRef } from 'react'
 import { relativeLuminance } from '@/lib/contrast'
 import { approach } from '@/lib/lens'
-import { dotRadius, lensPoint, luminance } from '@/lib/halftone'
+import { dotRadius, gravityPull, luminance } from '@/lib/halftone'
 
 const CELL = 7
 const SAMPLE_SRC = '/portrait-sample.webp'
-// Einstein radius at full mass, as a share of the portrait's shorter side.
-const EINSTEIN_SHARE = 0.1
+// Reach of the well, as a share of the portrait's shorter side, and how hard it pulls at the centre.
+const WELL_SHARE = 0.26
+const WELL_STRENGTH = 0.55
+// Dots run past the frame by this share, so the pull drags in dots from outside, not paper.
+const MARGIN_SHARE = 0.12
+// Each dot chases its pulled position on a spring: it lags, overshoots a touch and settles.
+const STIFFNESS = 0.012
+const DAMPING = 0.84
 
 // The portrait as newsprint dots in the current ink, drawn from a small sample image. On hover
-// (fine pointers, motion allowed) the pointer becomes a mass: dots are redrawn through a
-// gravitational lens, clearing a hole, piling into a ring and swirling as if space were dragged
-// round. The real photograph is never shown.
+// (fine pointers, motion allowed) the pointer becomes a mass sinking into the page, like the
+// rubber-sheet picture of spacetime: dots slide toward it and shrink as they fall in, each on its
+// own spring, so the fabric trails the pointer and wobbles back when it leaves.
 export function HalftonePortrait({ alt, className = '' }: { alt: string; className?: string }) {
   const hostRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -24,15 +30,19 @@ export function HalftonePortrait({ alt, className = '' }: { alt: string; classNa
     const ctx = canvas?.getContext('2d')
     if (!host || !canvas || !ctx) return
     let pixels: ImageData | null = null
-    // Dots as flat [x, y, radius] triples, rebuilt on resize and theme change.
+    // Rest positions and radii as [x, y, radius] triples; live offsets and velocities alongside.
     let dots = new Float32Array(0)
+    let offset = new Float32Array(0)
+    let velocity = new Float32Array(0)
+    let scales = new Float32Array(0)
     let width = 0
     let height = 0
     let ink = ''
     let paper = ''
 
     const build = () => {
-      if (!pixels) return
+      const source = pixels
+      if (!source) return
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
       width = host.clientWidth
       height = host.clientHeight
@@ -46,26 +56,26 @@ export function HalftonePortrait({ alt, className = '' }: { alt: string; classNa
       const inkIsDark = relativeLuminance(ink) < relativeLuminance(paper)
 
       const list: number[] = []
-      const scaleX = pixels.width / width
-      const scaleY = pixels.height / height
-      // The field runs past the frame, repeating the edge pixels, so the swirl near an edge pulls
-      // in dots from off-canvas instead of opening paper-coloured gaps.
-      const margin = Math.ceil((EINSTEIN_SHARE * Math.min(width, height)) / CELL) * CELL
-      const clampX = (x: number) => Math.min(pixels!.width - 1, Math.max(0, Math.floor(x * scaleX)))
-      const clampY = (y: number) => Math.min(pixels!.height - 1, Math.max(0, Math.floor(y * scaleY)))
+      const scaleX = source.width / width
+      const scaleY = source.height / height
+      const margin = Math.ceil((MARGIN_SHARE * Math.min(width, height)) / CELL) * CELL
+      const sampleX = (x: number) => Math.min(source.width - 1, Math.max(0, Math.floor(x * scaleX)))
+      const sampleY = (y: number) => Math.min(source.height - 1, Math.max(0, Math.floor(y * scaleY)))
       for (let y = CELL / 2 - margin; y < height + margin; y += CELL) {
         for (let x = CELL / 2 - margin; x < width + margin; x += CELL) {
-          const px = clampX(x)
-          const py = clampY(y)
-          const i = (py * pixels.width + px) * 4
-          const radius = dotRadius(luminance(pixels.data[i], pixels.data[i + 1], pixels.data[i + 2]), CELL, inkIsDark)
+          const i = (sampleY(y) * source.width + sampleX(x)) * 4
+          const radius = dotRadius(luminance(source.data[i], source.data[i + 1], source.data[i + 2]), CELL, inkIsDark)
           if (radius >= 0.3) list.push(x, y, radius)
         }
       }
       dots = new Float32Array(list)
+      const count = dots.length / 3
+      offset = new Float32Array(count * 2)
+      velocity = new Float32Array(count * 2)
+      scales = new Float32Array(count).fill(1)
     }
 
-    // Lens state: the mass eases in and out; its centre trails the pointer.
+    // The mass eases in and out; its centre trails the pointer.
     const center = { x: 0, y: 0 }
     const target = { x: 0, y: 0 }
     let mass = 0
@@ -73,33 +83,61 @@ export function HalftonePortrait({ alt, className = '' }: { alt: string; classNa
     let frame = 0
     let last = 0
 
-    const render = (time: number) => {
+    const render = () => {
       ctx.fillStyle = paper
       ctx.fillRect(0, 0, width, height)
       ctx.fillStyle = ink
-      const einstein = mass * EINSTEIN_SHARE * Math.min(width, height)
-      // A slow breathing in the twist, so the warp never sits still while held.
-      const twist = mass * (0.75 + 0.2 * Math.sin(time / 900))
       ctx.beginPath()
-      for (let i = 0; i < dots.length; i += 3) {
-        const p = lensPoint({ x: dots[i], y: dots[i + 1] }, center, einstein, twist)
-        const r = dots[i + 2] * p.scale
-        ctx.moveTo(p.x + r, p.y)
-        ctx.arc(p.x, p.y, r, 0, Math.PI * 2)
+      for (let d = 0, i = 0; i < dots.length; d += 1, i += 3) {
+        const x = dots[i] + offset[d * 2]
+        const y = dots[i + 1] + offset[d * 2 + 1]
+        const r = dots[i + 2] * scales[d]
+        ctx.moveTo(x + r, y)
+        ctx.arc(x, y, r, 0, Math.PI * 2)
       }
       ctx.fill()
     }
 
+    // Steps every dot's spring toward its pulled position; returns the largest motion left.
+    const step = (dt: number) => {
+      const radius = WELL_SHARE * Math.min(width, height)
+      const strength = WELL_STRENGTH * mass
+      const k = STIFFNESS * dt
+      const damping = Math.pow(DAMPING, dt / 16)
+      let motion = 0
+      for (let d = 0, i = 0; i < dots.length; d += 1, i += 3) {
+        const goal = gravityPull({ x: dots[i], y: dots[i + 1] }, center, radius, strength)
+        const o = d * 2
+        velocity[o] = (velocity[o] + (goal.x - dots[i] - offset[o]) * k) * damping
+        velocity[o + 1] = (velocity[o + 1] + (goal.y - dots[i + 1] - offset[o + 1]) * k) * damping
+        offset[o] += velocity[o]
+        offset[o + 1] += velocity[o + 1]
+        scales[d] += (goal.scale - scales[d]) * Math.min(1, k * 4)
+        motion = Math.max(
+          motion,
+          Math.abs(velocity[o]) + Math.abs(velocity[o + 1]),
+          Math.abs(offset[o]) + Math.abs(offset[o + 1]),
+        )
+      }
+      return motion
+    }
+
     const tick = (now: number) => {
-      const dt = last ? Math.min(now - last, 64) : 16
+      const dt = last ? Math.min(now - last, 48) : 16
       last = now
-      mass = approach(mass, hovering ? 1 : 0, dt, 0.12)
-      center.x = approach(center.x, target.x, dt, 0.2)
-      center.y = approach(center.y, target.y, dt, 0.2)
-      if (!hovering && mass < 0.002) mass = 0
-      render(now)
-      if (hovering || mass > 0) frame = requestAnimationFrame(tick)
+      mass = approach(mass, hovering ? 1 : 0, dt, 0.1)
+      center.x = approach(center.x, target.x, dt, 0.18)
+      center.y = approach(center.y, target.y, dt, 0.18)
+      const motion = step(dt)
+      render()
+      if (hovering || mass > 0.002 || motion > 0.05) frame = requestAnimationFrame(tick)
       else {
+        // Settled: snap the last fraction of a pixel back to rest and stop the loop.
+        mass = 0
+        offset.fill(0)
+        velocity.fill(0)
+        scales.fill(1)
+        render()
         frame = 0
         last = 0
       }
@@ -110,7 +148,7 @@ export function HalftonePortrait({ alt, className = '' }: { alt: string; classNa
 
     const redraw = () => {
       build()
-      if (dots.length) render(performance.now())
+      if (dots.length) render()
       host.dataset.ready = 'true'
     }
 
@@ -151,7 +189,7 @@ export function HalftonePortrait({ alt, className = '' }: { alt: string; classNa
     const onEnter = (event: PointerEvent) => {
       if (!canWarp.matches || !dots.length) return
       locate(event)
-      // Start the mass where the pointer came in, rather than sliding over from the last exit.
+      // Start the well where the pointer came in, rather than sliding over from the last exit.
       if (mass === 0) {
         center.x = target.x
         center.y = target.y
