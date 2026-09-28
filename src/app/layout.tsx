@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },
   // Google Search Console ownership (URL prefix property, HTML tag method).
-  verification: { google: 'XaT8Yv1kLl-jrgDTCHtPOv14FHf6ZLYtYLmHnCHAYRU' },
+  verification: { google: 'Khv1EH0oq--r11Gxhsk82I4RJZJJ0wiL1JjTxQNXurU' },
   twitter: { card: 'summary_large_image', title: site.title, description: site.description, images: [site.ogImage] },
   openGraph: {
     title: site.title,
