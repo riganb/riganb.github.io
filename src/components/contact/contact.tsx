@@ -1,3 +1,4 @@
+import { DecryptText } from '@/components/motion/decrypt-text'
 import { Magnet } from '@/components/contact/magnet'
 import { ResumeCorner } from '@/components/contact/resume-corner'
 import { HonestText } from '@/components/lens/honest-text'
@@ -11,7 +12,7 @@ export function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-title">
       <div className="mx-auto max-w-[1320px] px-6 py-28 md:px-10 md:py-40">
-        <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{contact.label}</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted"><DecryptText text={contact.label} /></p>
         <HonestText honest={contact.signOff.honest} layerClassName={signOff} className="mt-6">
           <RevealLines as="h2" id="contact-title" lines={contact.signOff.lines} className={signOff} />
         </HonestText>

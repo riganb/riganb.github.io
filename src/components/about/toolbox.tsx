@@ -1,3 +1,4 @@
+import { DecryptText } from '@/components/motion/decrypt-text'
 import { toolbox } from '@/content/about'
 
 export function Toolbox() {
@@ -5,7 +6,7 @@ export function Toolbox() {
     <section aria-labelledby="toolbox-title" className="border-b border-rule">
       <div className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-28">
         <h2 id="toolbox-title" className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
-          {toolbox.label}
+          <DecryptText text={toolbox.label} />
         </h2>
         <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-ink pt-8 md:grid-cols-4">
           {toolbox.columns.map((column) => (

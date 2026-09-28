@@ -1,3 +1,4 @@
+import { DecryptText } from '@/components/motion/decrypt-text'
 import { sideProjects } from '@/content/about'
 
 export function SideProjects() {
@@ -5,7 +6,7 @@ export function SideProjects() {
     <section aria-labelledby="side-projects-title" className="border-b border-rule">
       <div className="mx-auto max-w-[1320px] px-6 pb-4 pt-24 md:px-10 md:pt-32">
         <h2 id="side-projects-title" className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
-          {sideProjects.label}
+          <DecryptText text={sideProjects.label} />
         </h2>
       </div>
       <div className="mx-auto grid max-w-[1320px] border-t border-ink md:grid-cols-2">

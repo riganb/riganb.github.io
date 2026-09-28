@@ -1,3 +1,4 @@
+import { DecryptText } from '@/components/motion/decrypt-text'
 import { HonestText } from '@/components/lens/honest-text'
 import { LensZone } from '@/components/lens/lens-zone'
 import { Odometer } from '@/components/motion/odometer'
@@ -6,7 +7,7 @@ import { specSheet } from '@/content/home'
 export function SpecSheet() {
   return (
     <div>
-      <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{specSheet.label}</p>
+      <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted"><DecryptText text={specSheet.label} /></p>
       <dl className="mt-4 border border-rule bg-paper">
         {specSheet.rows.map((row) => (
           <div key={row.value} className="grid grid-cols-2 items-baseline border-b border-rule last:border-b-0">
