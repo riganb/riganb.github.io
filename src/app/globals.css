@@ -516,3 +516,51 @@ html.theme-switching::view-transition-new(root) {
 .studio-product[data-active] > span:last-child {
   color: var(--accent);
 }
+
+/* "Come say hi" nudge beside the Journey portrait: only where its hover effect exists. The arrow
+   draws itself in a loop so the eye follows it to the portrait. */
+.portrait-nudge {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+  .portrait-nudge {
+    display: flex;
+  }
+
+  .portrait-nudge-arrow path {
+    stroke-dasharray: 1;
+    animation: nudge-draw 3.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+
+  .portrait-nudge-arrow path + path {
+    animation-name: nudge-draw-head;
+  }
+}
+
+@keyframes nudge-draw {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  35%,
+  80% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1;
+  }
+}
+
+@keyframes nudge-draw-head {
+  0%,
+  30% {
+    stroke-dashoffset: 1;
+  }
+  45%,
+  80% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1;
+  }
+}
