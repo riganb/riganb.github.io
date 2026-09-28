@@ -22,6 +22,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #8 | Case study pages with the index-to-header view transition |
 | #9 | Header follows product palettes, rigseed image recapture, resume card, sitemap, robots, JSON-LD, llms.txt, share image |
 | #10 | E3 custom-code copy, Cold Stone held as a draft, lens zone on the spec sheet, deploy on push |
+| #11 | Mobile menu: curtain and staggered link transitions, header mirrored so opening no longer shifts the layout |
 
 ## Names used in this project
 
