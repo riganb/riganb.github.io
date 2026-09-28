@@ -344,3 +344,60 @@ html.js .halftone:not([data-ready]) img {
     animation-delay: 0s !important;
   }
 }
+
+/* Mobile menu. The panel is clipped to the header's height, so opening looks like the header
+   pulling a curtain down the screen; the links then rise out of their masks. Closing reverses it,
+   and the dialog closes once CLOSE_MS in mobile-menu.tsx has passed. */
+html.menu-open {
+  overflow: hidden;
+}
+
+.mobile-menu {
+  clip-path: inset(0 0 calc(100% - 65px) 0);
+  transition: clip-path 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.mobile-menu[data-state='open'] {
+  clip-path: inset(0);
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu-link {
+  transform: translateY(110%);
+  transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.mobile-menu[data-state='open'] .mobile-menu-link {
+  transform: none;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) calc(0.15s + var(--i) * 0.06s);
+}
+
+.mobile-menu-foot {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.mobile-menu[data-state='open'] .mobile-menu-foot {
+  opacity: 1;
+  transition: opacity 0.5s 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .mobile-menu[data-state='open'] {
+    clip-path: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .mobile-menu[data-state='open'] {
+    opacity: 1;
+  }
+
+  .mobile-menu-link,
+  .mobile-menu[data-state='open'] .mobile-menu-link {
+    transform: none;
+    transition: none;
+  }
+}
