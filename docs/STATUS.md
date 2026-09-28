@@ -34,6 +34,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #20 | Softer portrait lens |
 | #21 | Come say hi nudge pointing at the portrait |
 | #22 | Portrait hover becomes a gravity well with spring physics |
+| #23 | Darker hero grid; floating blueprint glyphs that warp it |
 
 ## Names used in this project
 
