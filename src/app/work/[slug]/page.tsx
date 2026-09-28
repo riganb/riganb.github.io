@@ -27,12 +27,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = `${study.client}: ${study.title.replaceAll('*', '')} · ${site.name}`
   const description = study.intro.join(' ')
   const url = `/work/${study.slug}/`
+  const image = { ...site.ogImage, url: `${url}og.png`, alt: `${study.client}: ${study.title.replaceAll('*', '')}` }
   return {
     title,
     description,
     alternates: { canonical: url },
-    openGraph: { title, description, url, type: 'article', siteName: site.name, images: [site.ogImage] },
-    twitter: { card: 'summary_large_image', title, description, images: [site.ogImage] },
+    openGraph: { title, description, url, type: 'article', siteName: site.name, images: [image] },
+    twitter: { card: 'summary_large_image', title, description, images: [image] },
   }
 }
 
