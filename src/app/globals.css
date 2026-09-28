@@ -517,3 +517,23 @@ html.theme-switching::view-transition-new(root) {
     transition: none;
   }
 }
+
+/* Studio product object: the dither is inverted, so lit surfaces print as black cells. Multiply
+   lays them on light paper as ink; in dark mode a CSS invert turns them back to white and screen
+   lays them on dark paper. */
+.product-object {
+  mix-blend-mode: multiply;
+}
+
+:root[data-theme='dark'] .product-object {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+.studio-product > span:last-child {
+  transition: color 0.3s;
+}
+
+.studio-product[data-active] > span:last-child {
+  color: var(--accent);
+}

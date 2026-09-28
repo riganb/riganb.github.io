@@ -1,6 +1,7 @@
 import { DecryptText } from '@/components/motion/decrypt-text'
 import { StoryScroll, StorySheet } from '@/components/motion/story-scroll'
 import { ProductSheet } from '@/components/studio/product-sheet'
+import { StudioProducts } from '@/components/studio/studio-products'
 import { Emphasis } from '@/components/typography/emphasis'
 import { studio } from '@/content/studio'
 import { paletteStyle } from '@/styles/products'
@@ -21,14 +22,7 @@ export function StudioChapter() {
             <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-ink-2">{studio.line}</p>
             <div className="mt-14 border-t border-ink pt-4">
               <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{studio.productsLabel}</p>
-              <ol className="mt-3 grid gap-2 sm:grid-cols-3">
-                {studio.products.map((product, index) => (
-                  <li key={product.slug} className="flex items-baseline gap-3">
-                    <span className="font-mono text-[11px] text-muted">{String(index + 1).padStart(2, '0')}</span>
-                    <span className="font-display text-3xl">{product.name}</span>
-                  </li>
-                ))}
-              </ol>
+              <StudioProducts products={studio.products} />
             </div>
           </div>
         </StorySheet>

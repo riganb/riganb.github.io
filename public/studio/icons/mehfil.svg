@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Mehfil">
+  <!-- Stand-in mark drawn for the portfolio in Mehfil's invite style (cream, ink borders, hard
+       offset shadow, saffron and vermilion): a cutting-chai glass with steam. Replace it when
+       Mehfil has its own mark. -->
+  <rect x="44" y="44" width="440" height="440" rx="96" fill="#1C120B"/>
+  <rect x="24" y="24" width="440" height="440" rx="96" fill="#F3E9DA" stroke="#1C120B" stroke-width="20"/>
+  <path d="M170 196 L342 196 L318 392 Q316 408 300 408 L212 408 Q196 408 194 392 Z" fill="#E8A33D" stroke="#1C120B" stroke-width="20" stroke-linejoin="round"/>
+  <path d="M184 262 L328 262" stroke="#1C120B" stroke-width="14" stroke-linecap="round"/>
+  <path d="M222 160 C204 136 240 116 222 88" fill="none" stroke="#B93E29" stroke-width="18" stroke-linecap="round"/>
+  <path d="M290 160 C272 136 308 116 290 88" fill="none" stroke="#B93E29" stroke-width="18" stroke-linecap="round"/>
+</svg>

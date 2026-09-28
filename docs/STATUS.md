@@ -28,6 +28,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #14 | Current GitHub Actions majors; Maven and Pee Empro years confirmed |
 | #15 | Decrypting section labels, letter-roll nav labels, current-section dot in the nav |
 | #16 | Share images in Instrument Serif, one per case study |
+| #17 | Dithered product object on the studio sheet (Canvas UI Dithered Object, lazy three.js) |
 
 ## Names used in this project
 
@@ -60,12 +61,16 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 
 ## Planned, not started
 
-- [ ] Dithered product objects drifting in the VeraStack chapter margin (spec I9, Canvas UI
-  Dithered Object). Lazy-loaded WebGL, fine pointers only.
 - [ ] Main-thread cost on load. Lighthouse mobile simulation shows about 0.5 s total blocking time,
   mostly GSAP and ScrollTrigger setup. Real LCP is about 0.24 s and CLS is 0.
 
 ## Known trade-offs
+
+- The studio's floating object (spec I9) is one object that cycles rigseed, Riggit and Mehfil,
+  not three, to keep to one WebGL context. three.js is a 172 KB (gzip) chunk fetched only on
+  desktop when the studio nears the viewport.
+- `public/studio/icons/mehfil.svg` is a stand-in mark drawn for the portfolio. Replace it when
+  Mehfil has its own.
 
 - Maven (2024) and Pee Empro (2023) years are confirmed.
 
