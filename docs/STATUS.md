@@ -27,6 +27,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #13 | Light is the default theme (system dark ignored); sun and moon toggle with a circular theme reveal |
 | #14 | Current GitHub Actions majors; Maven and Pee Empro years confirmed |
 | #15 | Decrypting section labels, letter-roll nav labels, current-section dot in the nav |
+| #16 | Share images in Instrument Serif, one per case study |
 
 ## Names used in this project
 
@@ -61,10 +62,6 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 
 - [ ] Dithered product objects drifting in the VeraStack chapter margin (spec I9, Canvas UI
   Dithered Object). Lazy-loaded WebGL, fine pointers only.
-- [ ] Share image in the site's serif. `src/app/og.png/route.tsx` uses the default font because
-  the build cannot use the woff2 files next/font downloads. Also fix the wide gap between
-  "software" and "people".
-- [ ] Per-case-study share images.
 - [ ] Main-thread cost on load. Lighthouse mobile simulation shows about 0.5 s total blocking time,
   mostly GSAP and ScrollTrigger setup. Real LCP is about 0.24 s and CLS is 0.
 
@@ -75,7 +72,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 - E3 stack is listed as "Framer · React code components · Razorpay".
 - `public/work/cold-stone/before.webp` ships with the build but nothing links to it while the
   study is a draft.
-- The share image is shared by every page.
+- Share images are drawn at build time from Instrument Serif TTFs in `src/assets/fonts` (OFL).
 
 ## Working rules
 
