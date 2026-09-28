@@ -52,7 +52,6 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
   3. Put it back in the `next` chain (currently E3 → UV → E3).
   4. Replace the "The new site" placeholder with real screens.
   5. Consider a cursor preview image for its work row.
-- [ ] Confirm Maven (2024) and Pee Empro (2023) years.
 - [ ] The new resume. The contact section shows a "Soon" card with no link until then
   (`src/components/contact/resume-corner.tsx`, copy in `src/content/about.ts`).
 
@@ -68,10 +67,10 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 - [ ] Per-case-study share images.
 - [ ] Main-thread cost on load. Lighthouse mobile simulation shows about 0.5 s total blocking time,
   mostly GSAP and ScrollTrigger setup. Real LCP is about 0.24 s and CLS is 0.
-- [ ] Update the GitHub Actions versions before the Node 20 runner deprecation bites
-  (checkout, setup-node, cache, upload-pages-artifact).
 
 ## Known trade-offs
+
+- Maven (2024) and Pee Empro (2023) years are confirmed.
 
 - E3 stack is listed as "Framer · React code components · Razorpay".
 - `public/work/cold-stone/before.webp` ships with the build but nothing links to it while the

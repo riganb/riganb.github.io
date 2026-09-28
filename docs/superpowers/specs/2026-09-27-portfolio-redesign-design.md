@@ -177,7 +177,7 @@ Row notes (shown in the band on hover):
 - Pee Empro: "QR attendance on Android, exported to CSV whenever they need it."
 - PixelStack: "A design and development studio's site. Currently on the workbench."
 
-Years for Maven (2024) and Pee Empro (2023) come from the resume and must be confirmed.
+Years for Maven (2024) and Pee Empro (2023) are confirmed.
 
 Previews are 960×600 WebP captures: the Cold Stone menu page (the home hero has the "EXPERIENCEEE"
 typo), the E3 product page hero, and the UV X-47 configurator. Rows without a capture show a
@@ -362,7 +362,9 @@ Deploy: the existing GitHub Actions Pages workflow, with Node bumped from 20 to 
 
 ## 11. Open items
 
-1. Confirm Maven (2024) and Pee Empro (2023) years.
+Current open items live in [docs/STATUS.md](../../STATUS.md). The list below is kept as written.
+
+1. ~~Confirm Maven (2024) and Pee Empro (2023) years.~~ Confirmed.
 2. E3 configurator screenshots and shareable launch numbers.
 3. Ultraviolette configurator screenshots or recording.
 4. Cold Stone: fixed-typo capture, re-measured page weight, permission to publish.
