@@ -33,6 +33,6 @@ export function lensPoint(
   return {
     x: center.x + Math.cos(angle) * seen,
     y: center.y + Math.sin(angle) * seen,
-    scale: Math.min(Math.sqrt(magnification), 2.2),
+    scale: Math.min(Math.sqrt(magnification), 2),
   }
 }

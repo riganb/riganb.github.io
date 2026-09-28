@@ -8,7 +8,7 @@ import { dotRadius, lensPoint, luminance } from '@/lib/halftone'
 const CELL = 7
 const SAMPLE_SRC = '/portrait-sample.webp'
 // Einstein radius at full mass, as a share of the portrait's shorter side.
-const EINSTEIN_SHARE = 0.15
+const EINSTEIN_SHARE = 0.1
 
 // The portrait as newsprint dots in the current ink, drawn from a small sample image. On hover
 // (fine pointers, motion allowed) the pointer becomes a mass: dots are redrawn through a
@@ -79,7 +79,7 @@ export function HalftonePortrait({ alt, className = '' }: { alt: string; classNa
       ctx.fillStyle = ink
       const einstein = mass * EINSTEIN_SHARE * Math.min(width, height)
       // A slow breathing in the twist, so the warp never sits still while held.
-      const twist = mass * (0.9 + 0.25 * Math.sin(time / 900))
+      const twist = mass * (0.75 + 0.2 * Math.sin(time / 900))
       ctx.beginPath()
       for (let i = 0; i < dots.length; i += 3) {
         const p = lensPoint({ x: dots[i], y: dots[i + 1] }, center, einstein, twist)
