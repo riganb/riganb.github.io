@@ -52,7 +52,7 @@ export const toolbox = {
     { title: 'Frameworks', items: ['React', 'Next.js', 'Node.js', 'tRPC', 'Prisma', 'Jotai', 'Tailwind CSS', 'Tauri'] },
     { title: 'Languages', items: ['TypeScript', 'JavaScript', 'Rust', 'SQL', 'Python', 'Java'] },
     { title: 'Cloud', items: ['AWS Lambda', 'API Gateway', 'S3', 'DynamoDB', 'PostgreSQL', 'Supabase'] },
-    { title: 'Tools', items: ['TurboRepo', 'Vercel', 'GitHub Actions', 'Inngest', 'GSAP', 'Figma'] },
+    { title: 'Tools', items: ['TurboRepo', 'Vercel', 'GitHub Actions', 'Inngest', 'GSAP', 'Figma', 'Framer', 'Webflow'] },
   ],
 }
 
