@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { NavLinks } from '@/components/nav-links'
 import { NavPalette } from '@/components/nav-palette'
 import { MobileMenu } from '@/components/mobile-menu'
 import { ThemeToggle } from '@/components/theme/theme-toggle'
@@ -24,15 +25,7 @@ export function SiteNav() {
           {site.status}
         </p>
         <div className="flex items-center gap-6 justify-self-end">
-          <ul className="hidden items-center gap-6 font-mono text-[11px] uppercase tracking-[0.08em] sm:flex">
-            {site.nav.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="text-ink-2 transition-colors hover:text-ink">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <NavLinks />
           <MobileMenu />
           <ThemeToggle />
         </div>

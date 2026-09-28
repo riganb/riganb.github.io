@@ -481,3 +481,39 @@ html.theme-switching::view-transition-new(root) {
     transition: none;
   }
 }
+
+/* Nav labels roll letter by letter on hover (nav-links.tsx), and the current section gets a dot. */
+.roll-char {
+  display: block;
+  height: 1lh;
+  overflow: hidden;
+}
+
+.roll-char > span {
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1) calc(var(--i) * 25ms);
+}
+
+.nav-link:hover .roll-char > span,
+.nav-link:focus-visible .roll-char > span {
+  transform: translateY(-100%);
+}
+
+.nav-dot {
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity 0.3s,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-link[aria-current] .nav-dot {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roll-char > span,
+  .nav-dot {
+    transition: none;
+  }
+}
