@@ -31,6 +31,7 @@ export const sideProjects = {
 export const journey = {
   label: '// Journey',
   title: 'How I *got* here',
+  nudge: 'Come say hi',
   portraitAlt: 'Rigan Burnwal in a white hoodie against a dark background',
   rows: [
     { when: '2026', what: 'Founder, VeraStack Labs', detail: 'rigseed, Riggit and Mehfil' },
