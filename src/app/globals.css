@@ -229,27 +229,6 @@ html.js .odometer:not([data-rolled]) .odometer-strip {
   }
 }
 
-/* Halftone portrait: the photo waits for the dots so it never flashes, then shows through on hover. */
-html.js .halftone:not([data-ready]) img {
-  opacity: 0;
-}
-
-.halftone-canvas {
-  transition: opacity 0.6s ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .halftone:hover .halftone-canvas {
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .halftone-canvas {
-    transition: none;
-  }
-}
-
 /* Resume corner: the bottom-right corner folds back to show the accent underneath. */
 .resume-fold {
   width: 2.25rem;

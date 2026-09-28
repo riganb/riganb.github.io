@@ -29,6 +29,8 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #15 | Decrypting section labels, letter-roll nav labels, current-section dot in the nav |
 | #16 | Share images in Instrument Serif, one per case study |
 | #17 | Dithered product object on the studio sheet (Canvas UI Dithered Object, lazy three.js) |
+| #18 | Lighthouse results recorded |
+| #19 | Halftone portrait hover: gravitational lens instead of the photo reveal |
 
 ## Names used in this project
 
