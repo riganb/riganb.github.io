@@ -33,6 +33,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #19 | Halftone portrait hover: gravitational lens instead of the photo reveal |
 | #20 | Softer portrait lens |
 | #21 | Come say hi nudge pointing at the portrait |
+| #22 | Portrait hover becomes a gravity well with spring physics |
 
 ## Names used in this project
 
