@@ -25,6 +25,8 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #11 | Mobile menu: curtain and staggered link transitions, header mirrored so opening no longer shifts the layout |
 | #12 | Press lens tints the page instead of covering it; spec sheet lens zone limited to the label half |
 | #13 | Light is the default theme (system dark ignored); sun and moon toggle with a circular theme reveal |
+| #14 | Current GitHub Actions majors; Maven and Pee Empro years confirmed |
+| #15 | Decrypting section labels, letter-roll nav labels, current-section dot in the nav |
 
 ## Names used in this project
 
@@ -59,8 +61,6 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 
 - [ ] Dithered product objects drifting in the VeraStack chapter margin (spec I9, Canvas UI
   Dithered Object). Lazy-loaded WebGL, fine pointers only.
-- [ ] Decrypt-style labels (spec I11).
-- [ ] Odometer roll on nav labels (Motion Primitives TextRoll).
 - [ ] Share image in the site's serif. `src/app/og.png/route.tsx` uses the default font because
   the build cannot use the woff2 files next/font downloads. Also fix the wide gap between
   "software" and "people".
