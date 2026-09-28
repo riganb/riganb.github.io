@@ -95,8 +95,6 @@ export function BlueprintGrid({ className = '' }: { className?: string }) {
     // Redraw when the theme changes so the grid picks up the new --grid colour.
     const themeObserver = new MutationObserver(draw)
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
-    const scheme = matchMedia('(prefers-color-scheme: dark)')
-    scheme.addEventListener('change', draw)
     if (interactive) {
       host.addEventListener('pointermove', onMove)
       host.addEventListener('pointerleave', onLeave)
@@ -106,7 +104,6 @@ export function BlueprintGrid({ className = '' }: { className?: string }) {
       cancelAnimationFrame(frame)
       resizeObserver.disconnect()
       themeObserver.disconnect()
-      scheme.removeEventListener('change', draw)
       host.removeEventListener('pointermove', onMove)
       host.removeEventListener('pointerleave', onLeave)
     }

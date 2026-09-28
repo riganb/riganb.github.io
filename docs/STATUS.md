@@ -24,6 +24,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #10 | E3 custom-code copy, Cold Stone held as a draft, lens zone on the spec sheet, deploy on push |
 | #11 | Mobile menu: curtain and staggered link transitions, header mirrored so opening no longer shifts the layout |
 | #12 | Press lens tints the page instead of covering it; spec sheet lens zone limited to the label half |
+| #13 | Light is the default theme (system dark ignored); sun and moon toggle with a circular theme reveal |
 
 ## Names used in this project
 

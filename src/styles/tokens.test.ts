@@ -28,8 +28,8 @@ describe('tokensToCss', () => {
     expect(css).toContain('color-scheme:light;')
   })
 
-  it('declares dark tokens for an explicit choice and for the system preference', () => {
+  it('declares dark tokens only for an explicit choice, so light is the default', () => {
     expect(css).toContain(':root[data-theme="dark"]{--paper:#15130F;')
-    expect(css).toContain('@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#15130F;')
+    expect(css).not.toContain('prefers-color-scheme')
   })
 })
