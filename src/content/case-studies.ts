@@ -98,8 +98,8 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'ultraviolette',
-    client: 'Ultraviolette, X-47',
-    title: 'The configurator behind the *X-47*',
+    client: 'Ultraviolette, X-47 and Tesseract',
+    title: 'The configurators behind *X-47 and Tesseract*',
     year: '2025',
     role: 'Software Engineer, full-time',
     stack: ['Next.js', 'TypeScript', 'TurboRepo', 'Jotai', 'AWS Lambda', 'DynamoDB'],
@@ -125,10 +125,10 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: 'Build',
-        title: 'A typed monorepo and a configurator',
+        title: 'A typed monorepo and two configurators',
         body: [
           'I led the move to a strictly typed TurboRepo monorepo, with compile-time constraints, validation schemas and Jotai for shared state.',
-          'On top of it, a multi-zone Next.js configurator for the X-47 launch, backed by AWS Lambda, API Gateway, S3 and a DynamoDB single-table design.',
+          'On top of it, multi-zone Next.js configurators for the X-47 motorcycle and the Tesseract scooter, backed by AWS Lambda, API Gateway, S3 and a DynamoDB single-table design.',
         ],
         media: {
           kind: 'image',
@@ -143,7 +143,7 @@ export const caseStudies: CaseStudy[] = [
         label: 'Result',
         title: 'Shipped, and a Spark Award',
         body: [
-          'The configurator went live for the X-47 launch. Along the way I found and fixed a critical session authentication vulnerability.',
+          'Both configurators went live with their launches. Along the way I found and fixed a critical session authentication vulnerability.',
           'In June 2025 I received the Spark Award as the sole recipient on a cross-functional team, for delivering the Isle of Man project in under a week.',
         ],
         metrics: [
@@ -155,7 +155,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     highlights: [
       { title: 'Monorepo migration', body: 'Legacy JavaScript into a strictly typed TurboRepo monorepo, one pull request at a time.' },
-      { title: 'X-47 configurator', body: 'A multi-zone Next.js configurator that drives direct-to-consumer sales.' },
+      { title: 'X-47 and Tesseract configurators', body: 'Multi-zone Next.js configurators that drive direct-to-consumer sales for a motorcycle and a scooter.' },
       { title: 'Serverless backend', body: 'Lambda, API Gateway and S3 with a single-table DynamoDB design.' },
       { title: 'Security fix', body: 'A critical session authentication flaw found, patched and designed out.' },
     ],
