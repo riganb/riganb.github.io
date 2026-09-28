@@ -46,7 +46,9 @@ export function HonestText({
       onPointerEnter={() => lens?.setActive(true)}
       onPointerLeave={() => lens?.setActive(false)}
     >
-      <div hidden={showHonest}>{children}</div>
+      <div hidden={showHonest} className="honest-source">
+        {children}
+      </div>
       {showHonest && (
         <p className={layerClassName} aria-live="polite">
           <HonestLines lines={honest} />

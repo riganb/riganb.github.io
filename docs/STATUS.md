@@ -23,6 +23,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #9 | Header follows product palettes, rigseed image recapture, resume card, sitemap, robots, JSON-LD, llms.txt, share image |
 | #10 | E3 custom-code copy, Cold Stone held as a draft, lens zone on the spec sheet, deploy on push |
 | #11 | Mobile menu: curtain and staggered link transitions, header mirrored so opening no longer shifts the layout |
+| #12 | Press lens tints the page instead of covering it; spec sheet lens zone limited to the label half |
 
 ## Names used in this project
 
@@ -31,8 +32,11 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
   becomes the **press-and-hold button** at the bottom of the screen.
 - **Honest copy**: the alternate line under the lens. Every polished line has an honest pair of
   similar length (`LinePair`), enforced by `src/content/content.test.ts`.
-- **Lens zone**: a wrapper that keeps the lens swollen across a whole card
-  (`src/components/lens/lens-zone.tsx`).
+- **Lens zone**: a wrapper that keeps the lens swollen across an area wider than the text itself,
+  such as the label half of the spec sheet (`src/components/lens/lens-zone.tsx`). Areas with no
+  honest copy stay out of zones.
+- **Press mode tint**: holding the button tints the page (multiply in light, difference in dark)
+  so unpaired text stays readable; paired lines fade and their honest copy shows.
 - **Story scroll**: pinned sheets dealt onto a pile (`src/components/motion/story-scroll.tsx`),
   used once per page.
 - **Spec sheet**: the numbers card in the hero. **Work index**: the numbered client list.

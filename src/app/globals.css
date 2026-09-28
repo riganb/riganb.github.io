@@ -84,6 +84,42 @@ html[data-honest='on'] .lens-press {
   opacity: 0;
 }
 
+/* Press mode tints the page rather than covering it, so lines without an honest pair stay
+   readable. The disc turns the page to --fill: multiply keeps dark ink dark on light paper;
+   difference turns dark paper orange and light ink dark. Polished lines that do have a pair
+   fade out so their honest overlay reads cleanly. */
+:root {
+  --lens-blend: multiply;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --lens-blend: difference;
+  }
+}
+
+:root[data-theme='dark'] {
+  --lens-blend: difference;
+}
+
+html[data-lens='press'] .lens-disc {
+  background: var(--fill);
+  mix-blend-mode: var(--lens-blend);
+}
+
+html[data-lens='press'] .honest-layer {
+  color: var(--fill-ink);
+}
+
+html[data-lens='press'] .honest-source {
+  transition: opacity 0.3s 0.15s;
+}
+
+html[data-lens='press'][data-honest='on'] .honest-source {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
 .lens-press-ring {
   animation: lens-press-spin 14s linear infinite;
 }
