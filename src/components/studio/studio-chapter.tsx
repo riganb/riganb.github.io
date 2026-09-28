@@ -1,3 +1,4 @@
+import { DecryptText } from '@/components/motion/decrypt-text'
 import { StoryScroll, StorySheet } from '@/components/motion/story-scroll'
 import { ProductSheet } from '@/components/studio/product-sheet'
 import { Emphasis } from '@/components/typography/emphasis'
@@ -10,7 +11,7 @@ export function StudioChapter() {
       <StoryScroll label="VeraStack Labs products">
         <StorySheet label="VeraStack Labs">
           <div className="mx-auto flex min-h-screen max-w-[1320px] flex-col justify-center px-6 py-24 md:px-10">
-            <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{studio.label}</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted"><DecryptText text={studio.label} /></p>
             <h2
               id="studio-title"
               className="mt-6 font-display text-[clamp(3.5rem,11vw,10rem)] leading-[0.88] tracking-[-0.03em]"

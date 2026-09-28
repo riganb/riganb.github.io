@@ -1,3 +1,4 @@
+import { DecryptText } from '@/components/motion/decrypt-text'
 import { BlueprintGrid } from '@/components/home/blueprint-grid'
 import { SpecSheet } from '@/components/home/spec-sheet'
 import { HonestText } from '@/components/lens/honest-text'
@@ -11,7 +12,7 @@ export function Hero() {
     <section aria-labelledby="hero-title" className="border-b border-rule">
       <div className="mx-auto grid max-w-[1320px] md:grid-cols-[1.5fr_1fr]">
         <div className="px-6 pb-16 pt-36 md:border-r md:border-rule md:px-10 md:pb-20 md:pt-44">
-          <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{hero.label}</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted"><DecryptText text={hero.label} /></p>
           <HonestText honest={hero.headline.honest} layerClassName={headline} className="mt-5">
             <RevealLines as="h1" id="hero-title" lines={hero.headline.lines} className={headline} />
           </HonestText>
