@@ -63,6 +63,17 @@ export const contact = {
     honest: ["Let's build something.", "I'll over-engineer it."],
   } satisfies LinePair,
   emailCaption: 'I actually read it.',
+  note: {
+    label: 'Or leave a note here',
+    placeholder: 'What are you building, or what can I help with?',
+    send: 'Send it',
+    idle: 'Lands straight in my inbox.',
+    incomplete: 'Fill the underlined blanks and a message.',
+    sending: 'Sending...',
+    sent: 'Sent. I will reply soon.',
+    failed: 'That did not go through.',
+    fallback: 'Email it instead',
+  },
   resume: { label: 'Resume', caption: 'Being rewritten into something better.', tag: 'Soon' },
   footer: 'Built in Bangalore. Set in Instrument Serif and Geist Mono.',
 }

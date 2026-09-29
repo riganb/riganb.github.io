@@ -1,5 +1,6 @@
 import { DecryptText } from '@/components/motion/decrypt-text'
 import { Magnet } from '@/components/contact/magnet'
+import { NoteForm } from '@/components/contact/note-form'
 import { ResumeCorner } from '@/components/contact/resume-corner'
 import { HonestText } from '@/components/lens/honest-text'
 import { RevealLines } from '@/components/motion/reveal-lines'
@@ -28,6 +29,7 @@ export function Contact() {
               </a>
             </Magnet>
             <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{contact.emailCaption}</p>
+            <NoteForm />
           </div>
           <div className="grid gap-8">
             <ul className="border-t border-ink">
