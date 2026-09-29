@@ -15,10 +15,20 @@ export type StudioProduct = {
 export const studio = {
   label: '// The studio',
   title: 'VeraStack *Labs*',
-  line: 'A small lab for software that respects the people using it. Three products so far, each with its own look and a reason to exist.',
+  line: 'A small lab for software that respects the people using it. Four products so far, each with its own look and a reason to exist.',
   productsLabel: 'On the workbench',
   link: { label: 'VeraStack Labs on GitHub', href: 'https://github.com/verastack-labs' },
   products: [
+    {
+      slug: 'origan',
+      name: 'Origan',
+      kind: 'Campus partnership · Placement preparation',
+      pitch: 'Four years is a distance. We mark the ground the whole way.',
+      body: 'Software placement preparation for engineering colleges, from first semester to final drive: a consultant on campus, a platform students use every week, and a record of everything covered in between.',
+      stack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+      links: [{ label: 'Website', href: 'https://verastack-labs.github.io/origan/' }],
+      image: { src: '/studio/origan.webp', alt: "The Origan landing page: four years is a distance, over a surveyor's contour map" },
+    },
     {
       slug: 'rigseed',
       name: 'rigseed',

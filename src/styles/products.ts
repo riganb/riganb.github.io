@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 
-export type ProductSlug = 'rigseed' | 'riggit' | 'mehfil'
+export type ProductSlug = 'origan' | 'rigseed' | 'riggit' | 'mehfil'
 
 type Key = 'paper' | 'paper-2' | 'ink' | 'ink-2' | 'muted' | 'rule' | 'accent' | 'accent-ink' | 'fill' | 'fill-ink'
 export type ProductPalette = Record<Key, string>
@@ -8,6 +8,18 @@ export type ProductPalette = Record<Key, string>
 // Sampled from each product's own site or design system. Each sheet redefines the site's
 // variables with these, so every component inside it takes on the product's colours.
 export const productPalettes: Record<ProductSlug, ProductPalette> = {
+  origan: {
+    paper: '#0D1815',
+    'paper-2': '#13251F',
+    ink: '#EEF3F0',
+    'ink-2': '#9DB3AA',
+    muted: '#8AA79D',
+    rule: '#22423A',
+    accent: '#5FD9A8',
+    'accent-ink': '#06251A',
+    fill: '#5FD9A8',
+    'fill-ink': '#06251A',
+  },
   rigseed: {
     paper: '#0A0E15',
     'paper-2': '#121923',

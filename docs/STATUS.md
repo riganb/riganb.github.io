@@ -37,6 +37,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #23 | Darker hero grid; floating blueprint glyphs that warp it |
 | #24-27 | Search Console tag, X-47 and Tesseract copy, Framer and Webflow in the toolbox |
 | #28 | Contact note form via Web3Forms (form 'Portfolio contact') |
+| #29 | Origan added as the first VeraStack Labs product |
 
 ## Names used in this project
 
@@ -79,7 +80,7 @@ Nothing planned right now. Add ideas here as they come up.
 - The accessibility deduction is the scroll-filled statement: words start at 18% opacity and fill
   in as you scroll. Screen readers get the full text; the faint state is the effect.
 
-- The studio's floating object (spec I9) is one object that cycles rigseed, Riggit and Mehfil,
+- The studio's floating object (spec I9) is one object that cycles Origan, rigseed, Riggit and Mehfil,
   not three, to keep to one WebGL context. three.js is a 172 KB (gzip) chunk fetched only on
   desktop when the studio nears the viewport.
 - `public/studio/icons/mehfil.svg` is a stand-in mark drawn for the portfolio. Replace it when
