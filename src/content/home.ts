@@ -14,7 +14,7 @@ export const hero = {
 export const specSheet = {
   label: '// Spec sheet',
   rows: [
-    { lines: ['Products shipped'], honest: ['Plus two in /later'], value: '03' },
+    { lines: ['Products shipped'], honest: ['Plus two in /later'], value: '04' },
     { lines: ['Production PRs'], honest: ['Some were renames'], value: '2,800+' },
     { lines: ['Client launches'], honest: ['One still loading'], value: '07' },
     { lines: ['Spark Award'], honest: ['One long week'], value: '2025' },
