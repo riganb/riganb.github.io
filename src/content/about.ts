@@ -34,7 +34,7 @@ export const journey = {
   nudge: 'Come say hi',
   portraitAlt: 'Rigan Burnwal in a white hoodie against a dark background',
   rows: [
-    { when: '2026', what: 'Founder, VeraStack Labs', detail: 'rigseed, Riggit and Mehfil' },
+    { when: '2026', what: 'Founder, VeraStack Labs', detail: 'Origan, rigseed, Riggit and Mehfil' },
     {
       when: '2024 – now',
       what: 'Software Engineer, Ultraviolette Automotive',
