@@ -42,6 +42,7 @@ function organization(): Node {
     url: studio.link.href,
     description: studio.line,
     founder: { '@id': ids.person },
+    sameAs: [studio.github],
     makesOffer: studio.products.map((product) => ({
       '@type': 'Offer',
       itemOffered: {
