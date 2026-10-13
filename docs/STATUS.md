@@ -38,6 +38,8 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #24-27 | Search Console tag, X-47 and Tesseract copy, Framer and Webflow in the toolbox |
 | #28 | Contact note form via Web3Forms (form 'Portfolio contact') |
 | #29 | Origan added as the first VeraStack Labs product |
+| #30 | Products shipped 04 |
+| #31 | Links move to verastack.dev and product subdomains; Mehfil gets its website link |
 
 ## Names used in this project
 
