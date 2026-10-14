@@ -15,7 +15,7 @@ export type StudioProduct = {
 export const studio = {
   label: '// The studio',
   title: 'VeraStack *Labs*',
-  line: 'A small lab for software that respects the people using it. Four products so far, each with its own look and a reason to exist.',
+  line: 'A small lab for software that respects the people using it. Five products so far, each with its own look and a reason to exist.',
   productsLabel: 'On the workbench',
   link: { label: 'Visit VeraStack Labs', href: 'https://verastack.dev' },
   github: 'https://github.com/verastack-labs',
@@ -62,6 +62,19 @@ export const studio = {
       stack: ['Next.js', 'Supabase', 'PWA'],
       status: 'In development',
       links: [{ label: 'Website', href: 'https://mehfil.verastack.dev' }],
+    },
+    {
+      slug: 'oinkbuns',
+      name: 'Oinkbuns',
+      kind: 'Browser game · Kitchen game for kids',
+      pitch: 'Bake hot cross buns with Peppa.',
+      body: 'A tiny, free kitchen game: mix the dough, bake, pipe the cross and serve customers before they get bored. Five busy days, three stars each, on a laptop, tablet or phone.',
+      stack: ['Phaser', 'TypeScript', 'Next.js'],
+      links: [
+        { label: 'Play', href: 'https://oinkbuns.verastack.dev/play/' },
+        { label: 'Website', href: 'https://oinkbuns.verastack.dev' },
+      ],
+      image: { src: '/studio/oinkbuns.webp', alt: 'The Oinkbuns landing page: Peppa beside a giant hot cross bun, with a green Play button' },
     },
   ] satisfies StudioProduct[],
 }

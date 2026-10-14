@@ -41,6 +41,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #30 | Products shipped 04 |
 | #31 | Links move to verastack.dev and product subdomains; Mehfil gets its website link |
 | #32 | Claude Code mods (secret-guard, session-meter, repo-board) under side projects |
+| #33 | Oinkbuns added as the fifth VeraStack Labs product; products shipped 05 |
 
 ## Names used in this project
 
@@ -83,7 +84,7 @@ Nothing planned right now. Add ideas here as they come up.
 - The accessibility deduction is the scroll-filled statement: words start at 18% opacity and fill
   in as you scroll. Screen readers get the full text; the faint state is the effect.
 
-- The studio's floating object (spec I9) is one object that cycles Origan, rigseed, Riggit and Mehfil,
+- The studio's floating object (spec I9) is one object that cycles Origan, rigseed, Riggit, Mehfil and Oinkbuns,
   not three, to keep to one WebGL context. three.js is a 172 KB (gzip) chunk fetched only on
   desktop when the studio nears the viewport.
 - `public/studio/icons/mehfil.svg` is a stand-in mark drawn for the portfolio. Replace it when
