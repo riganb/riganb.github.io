@@ -26,6 +26,30 @@ export const sideProjects = {
       ] satisfies Link[],
     },
   ],
+  mods: {
+    label: 'Claude Code mods',
+    note: 'Open source under VeraStack Labs. Each installs as a plugin from its own repo.',
+    items: [
+      {
+        name: 'secret-guard',
+        body: 'Stops Claude from writing, running or committing API keys, tokens and private keys, and asks it to read them from the environment instead.',
+        trigger: 'Always on',
+        href: 'https://github.com/verastack-labs/secret-guard',
+      },
+      {
+        name: 'session-meter',
+        body: 'Usage limits, context and session totals in a pane and the status line, with a warning before you hit the wall.',
+        trigger: '/meter',
+        href: 'https://github.com/verastack-labs/session-meter',
+      },
+      {
+        name: 'repo-board',
+        body: 'Every repo you own in one pane: unpushed work, commits to pull, and the pull requests that need you.',
+        trigger: '/repos',
+        href: 'https://github.com/verastack-labs/repo-board',
+      },
+    ],
+  },
 }
 
 export const journey = {

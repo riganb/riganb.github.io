@@ -150,6 +150,7 @@ export function llmsText(): string {
     ...sideProjects.items.map(
       (project) => `- ${project.name} (${project.kind}): ${project.body} ${project.links.map((link) => link.href).join(' ')}`,
     ),
+    ...sideProjects.mods.items.map((mod) => `- ${mod.name} (${sideProjects.mods.label}): ${mod.body} ${mod.href}`),
     '',
     '## Journey',
     '',
