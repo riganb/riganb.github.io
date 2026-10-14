@@ -8,13 +8,13 @@ export const hero = {
     lines: ['I build software', 'people *keep* using.'],
     honest: ['I rebuild software', 'until people use it.'],
   } satisfies LinePair,
-  lede: 'Founder of VeraStack Labs, where we make Origan, rigseed, Riggit and Mehfil. Before that, I shipped the X-47 and Tesseract configurators and a typed monorepo at Ultraviolette.',
+  lede: 'Founder of VeraStack Labs, where we make Origan, rigseed, Riggit, Mehfil and Oinkbuns. Before that, I shipped the X-47 and Tesseract configurators and a typed monorepo at Ultraviolette.',
 }
 
 export const specSheet = {
   label: '// Spec sheet',
   rows: [
-    { lines: ['Products shipped'], honest: ['Plus two in /later'], value: '04' },
+    { lines: ['Products shipped'], honest: ['Plus two in /later'], value: '05' },
     { lines: ['Production PRs'], honest: ['Some were renames'], value: '2,800+' },
     { lines: ['Client launches'], honest: ['One still loading'], value: '07' },
     { lines: ['Spark Award'], honest: ['One long week'], value: '2025' },
