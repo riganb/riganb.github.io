@@ -40,6 +40,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #29 | Origan added as the first VeraStack Labs product |
 | #30 | Products shipped 04 |
 | #31 | Links move to verastack.dev and product subdomains; Mehfil gets its website link |
+| #32 | Claude Code mods (secret-guard, session-meter, repo-board) under side projects |
 
 ## Names used in this project
 
