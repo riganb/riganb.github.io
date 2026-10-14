@@ -42,6 +42,8 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #31 | Links move to verastack.dev and product subdomains; Mehfil gets its website link |
 | #32 | Claude Code mods (secret-guard, session-meter, repo-board) under side projects |
 | #33 | Oinkbuns added as the fifth VeraStack Labs product; products shipped 05 |
+| #34 | Shorter case study search titles; Article images |
+| #35 | Services section: coaching first (free 15-minute sessions via LinkedIn), six studio services, product film reel |
 
 ## Names used in this project
 
@@ -77,6 +79,8 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 Nothing planned right now. Add ideas here as they come up.
 
 ## Known trade-offs
+
+- Films in the services reel are 1080p web copies (2 to 6 MB) of the masters in `Videos\videonalyzer`; re-export them there and re-transcode if a film changes. The Firecracker draft, the Hook experiment and the vertical cuts are left out.
 
 - Lighthouse, mobile simulation, home page (2026-09-28): performance 88, accessibility 96,
   best practices 100, SEO 100. Total blocking time 170 ms, CLS 0. Simulated LCP is 3.5 s (observed

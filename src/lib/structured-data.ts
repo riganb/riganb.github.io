@@ -1,6 +1,7 @@
 import { journey, sideProjects, toolbox } from '@/content/about'
 import { caseStudies, type CaseStudy } from '@/content/case-studies'
 import { hero } from '@/content/home'
+import { services } from '@/content/services'
 import { site } from '@/content/site'
 import { studio } from '@/content/studio'
 import { work } from '@/content/work'
@@ -31,7 +32,27 @@ function person(): Node {
     knowsAbout: toolbox.columns.flatMap((column) => column.items),
     worksFor: { '@id': ids.studio },
     sameAs: site.socials.map((social) => social.href),
+    makesOffer: coachingOffer(),
   }
+}
+
+// Coaching is Rigan's own; every other service is sold through VeraStack Labs.
+const coaching = () => services.items.find((service) => service.offer)
+const studioServices = () => services.items.filter((service) => !service.offer)
+
+function coachingOffer(): Node[] {
+  const service = coaching()
+  if (!service?.offer) return []
+  return [
+    {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'INR',
+      description: service.offer.line,
+      url: service.offer.cta.href,
+      itemOffered: { '@type': 'Service', name: service.name, description: service.blurb },
+    },
+  ]
 }
 
 function organization(): Node {
@@ -43,15 +64,21 @@ function organization(): Node {
     description: studio.line,
     founder: { '@id': ids.person },
     sameAs: [studio.github],
-    makesOffer: studio.products.map((product) => ({
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'SoftwareApplication',
-        name: product.name,
-        applicationCategory: product.kind,
-        description: product.body,
-      },
-    })),
+    makesOffer: [
+      ...studio.products.map((product) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'SoftwareApplication',
+          name: product.name,
+          applicationCategory: product.kind,
+          description: product.body,
+        },
+      })),
+      ...studioServices().map((service) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: service.name, description: service.blurb },
+      })),
+    ],
   }
 }
 
@@ -149,6 +176,16 @@ export function llmsText(): string {
     '## Selected work',
     '',
     ...work.items.map((item) => `- ${item.client} (${item.year}, ${item.discipline}): ${item.note}`),
+    '',
+    '## Services',
+    '',
+    services.note,
+    '',
+    ...services.items.map((service) => {
+      const offer = service.offer ? ` ${service.offer.line}: ${service.offer.cta.href}` : ''
+      return `- ${service.name}: ${service.blurb} Proof: ${service.proof.map((p) => p.text).join(', ')}.${offer}`
+    }),
+    `Start a project: ${services.cta.href}`,
     '',
     '## VeraStack Labs',
     '',

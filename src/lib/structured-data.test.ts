@@ -1,4 +1,7 @@
 import { describe, expect, it } from 'vitest'
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
+import { services, type ServiceProof } from '@/content/services'
 import { caseStudies } from '@/content/case-studies'
 import { site } from '@/content/site'
 import { caseSearchTitle, caseStudyGraph, homeGraph, jsonLd, llmsText, sitemapEntries } from '@/lib/structured-data'
@@ -54,5 +57,37 @@ describe('llmsText', () => {
     expect(text.startsWith(`# ${site.name}\n\n> `)).toBe(true)
     for (const study of caseStudies) expect(text).toContain(`${site.url}/work/${study.slug}/`)
     expect(text).not.toContain('*')
+  })
+})
+
+describe('services', () => {
+  it('lists every service in llms.txt, with the coaching offer and the studio hand-off', () => {
+    const text = llmsText()
+    expect(text).toContain('## Services')
+    for (const service of services.items) expect(text).toContain(service.name)
+    expect(text).toContain('Free 15-minute sessions')
+    expect(text).toContain(services.cta.href)
+  })
+
+  it('offers coaching as the person and the rest as the studio', () => {
+    const graph = homeGraph()['@graph'] as Array<Record<string, unknown>>
+    const offers = (node: Record<string, unknown>) =>
+      (node.makesOffer as Array<{ itemOffered: { name: string } }>).map((offer) => offer.itemOffered.name)
+    expect(offers(graph[0])).toEqual(['Coaching & counselling'])
+    expect(offers(graph[1])).toContain('Product videos')
+    expect(offers(graph[1])).not.toContain('Coaching & counselling')
+  })
+
+  it('points every proof link at a real case study or file', () => {
+    const slugs = caseStudies.map((study) => `/work/${study.slug}/`)
+    for (const service of services.items)
+      for (const proof of service.proof as ServiceProof[])
+        if (proof.href) expect([...slugs, '/llms.txt']).toContain(proof.href)
+  })
+
+  it('ships every film, poster and caption file it shows', () => {
+    for (const film of services.films)
+      for (const file of [film.src, film.poster, film.captions])
+        expect(existsSync(join(process.cwd(), 'public', file))).toBe(true)
   })
 })
