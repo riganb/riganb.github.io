@@ -10,7 +10,7 @@ import { ScrollFill } from '@/components/motion/scroll-fill'
 import { StoryScroll, StorySheet } from '@/components/motion/story-scroll'
 import { caseStudies, findCaseStudy } from '@/content/case-studies'
 import { site } from '@/content/site'
-import { caseStudyGraph } from '@/lib/structured-data'
+import { caseSearchTitle, caseShareTitle, caseStudyGraph } from '@/lib/structured-data'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -24,7 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const study = findCaseStudy(slug)
   if (!study) return {}
-  const title = `${study.client}: ${study.title.replaceAll('*', '')} · ${site.name}`
+  const title = caseSearchTitle(study)
+  const shareTitle = caseShareTitle(study)
   const description = study.intro.join(' ')
   const url = `/work/${study.slug}/`
   const image = { ...site.ogImage, url: `${url}og.png`, alt: `${study.client}: ${study.title.replaceAll('*', '')}` }
@@ -32,8 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: url },
-    openGraph: { title, description, url, type: 'article', siteName: site.name, images: [image] },
-    twitter: { card: 'summary_large_image', title, description, images: [image] },
+    openGraph: { title: shareTitle, description, url, type: 'article', siteName: site.name, images: [image] },
+    twitter: { card: 'summary_large_image', title: shareTitle, description, images: [image] },
   }
 }
 

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { caseStudies } from '@/content/case-studies'
 import { site } from '@/content/site'
-import { caseStudyGraph, homeGraph, jsonLd, llmsText, sitemapEntries } from '@/lib/structured-data'
+import { caseSearchTitle, caseStudyGraph, homeGraph, jsonLd, llmsText, sitemapEntries } from '@/lib/structured-data'
 
 describe('homeGraph', () => {
   const graph = homeGraph()['@graph'] as Array<Record<string, unknown>>
@@ -24,6 +24,12 @@ describe('caseStudyGraph', () => {
     expect(article?.url).toBe(`${site.url}/work/${slug}/`)
     expect(article?.headline).not.toContain('*')
     expect(graph.some((node) => node['@type'] === 'BreadcrumbList')).toBe(true)
+  })
+})
+
+describe('caseSearchTitle', () => {
+  it.each(caseStudies.map((study) => [study.slug, study] as const))('%s stays within 65 characters', (_slug, study) => {
+    expect(caseSearchTitle(study).length).toBeLessThanOrEqual(65)
   })
 })
 

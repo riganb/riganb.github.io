@@ -82,6 +82,7 @@ export function caseStudyGraph(study: CaseStudy): Node {
         '@type': 'Article',
         url,
         mainEntityOfPage: url,
+        image: `${url}og.png`,
         headline: `${study.client}: ${plain(study.title)}`,
         description: study.intro.join(' '),
         datePublished: `${study.year}-01-01`,
@@ -107,6 +108,16 @@ export function caseStudyGraph(study: CaseStudy): Node {
 // content from ending the tag early.
 export function jsonLd(data: unknown): string {
   return JSON.stringify(data).replaceAll('<', '\\u003c')
+}
+
+// Search titles stay short enough not to be cut off (about 60 characters); share cards get the
+// fuller "client: title" line instead.
+export function caseSearchTitle(study: CaseStudy): string {
+  return `${study.client} case study · ${site.name}`
+}
+
+export function caseShareTitle(study: CaseStudy): string {
+  return `${study.client}: ${plain(study.title)}`
 }
 
 export function sitemapEntries(): Array<{ url: string; priority: number }> {
