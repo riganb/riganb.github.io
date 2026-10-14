@@ -14,6 +14,7 @@ export const site = {
   form: { endpoint: 'https://api.web3forms.com/submit', accessKey: 'b9f9d35b-769b-4c6d-819b-c8316b9dba55' },
   nav: [
     { label: 'Work', href: '/#work' },
+    { label: 'Services', href: '/#services' },
     { label: 'Studio', href: '/#studio' },
     { label: 'Journey', href: '/#journey' },
     { label: 'Contact', href: '/#contact' },
