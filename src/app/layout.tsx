@@ -6,6 +6,7 @@ import { LensProvider } from '@/components/lens/lens-provider'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteNav } from '@/components/site-nav'
 import { SmoothScroll } from '@/components/smooth-scroll'
+import { SpotlightTracker } from '@/components/spotlight-tracker'
 import { themeScript } from '@/lib/theme'
 import { tokensToCss } from '@/styles/tokens'
 import './globals.css'
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </a>
         <LensProvider>
           <SmoothScroll />
+          <SpotlightTracker />
           <SiteNav />
           {children}
           <SiteFooter />

@@ -12,9 +12,11 @@ export function SideProjects() {
       <div className="mx-auto grid max-w-[1320px] border-t border-ink md:grid-cols-2">
         {sideProjects.items.map((project) => (
           <article
+            data-spotlight=""
             key={project.name}
-            className="border-b border-rule px-6 py-10 last:border-b-0 md:border-b-0 md:px-10 md:py-14 md:first:border-r"
+            className="spot-surface border-b border-rule px-6 py-10 last:border-b-0 md:border-b-0 md:px-10 md:py-14 md:first:border-r"
           >
+            <span aria-hidden="true" className="spot" />
             <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{project.kind}</p>
             <h3 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] leading-none tracking-[-0.01em]">
               {project.name}
@@ -51,10 +53,12 @@ export function SideProjects() {
             <li key={mod.name} className="border-b border-rule last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
               <a
                 href={mod.href}
+                data-spotlight=""
                 target="_blank"
                 rel="noreferrer"
-                className="group flex h-full flex-col px-6 py-8 transition-colors hover:bg-paper-2 md:px-10"
+                className="spot-surface group flex h-full flex-col px-6 py-8 transition-colors hover:bg-paper-2 md:px-10"
               >
+                <span aria-hidden="true" className="spot" />
                 <span className="flex items-center justify-between gap-4">
                   <span className="font-mono text-base tracking-tight transition-colors group-hover:text-accent">
                     {mod.name}

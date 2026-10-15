@@ -28,6 +28,7 @@ export function WorkRow({ item, index, onActive }: WorkRowProps) {
 
   return (
     <li
+      data-spotlight=""
       ref={ref}
       // Rows with a case study are reached through their link; the rest are focusable so notes can be revealed.
       tabIndex={item.caseStudy ? undefined : 0}
@@ -46,6 +47,7 @@ export function WorkRow({ item, index, onActive }: WorkRowProps) {
       className="work-row relative border-b border-rule outline-none"
     >
       <span aria-hidden="true" className="work-band absolute inset-0 bg-accent" />
+      <span aria-hidden="true" className="spot spot-over" />
       {item.caseStudy && (
         <Link
           href={`/work/${item.slug}/`}

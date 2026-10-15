@@ -716,3 +716,67 @@ html.film-open {
     transition: opacity 0.2s;
   }
 }
+
+/* Spotlight: the soft accent light that follows the pointer (first on the big CTAs). A surface
+   marked [data-spotlight] gets --x/--y from spotlight-tracker.tsx; its .spot layer lights up on
+   hover. In a .spot-surface the light sits under the content; .spot-over sits above a coloured
+   band (the work rows) and under the text that follows it. */
+.spot-surface {
+  position: relative;
+  isolation: isolate;
+}
+
+.spot {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    380px circle at var(--x, 50%) var(--y, 50%),
+    color-mix(in oklab, var(--accent) var(--spot-strength, 16%), transparent),
+    transparent 70%
+  );
+  transition: opacity 0.45s;
+}
+
+.spot-over {
+  z-index: auto;
+  --spot-strength: 0%;
+  background: radial-gradient(
+    420px circle at var(--x, 50%) var(--y, 50%),
+    color-mix(in oklab, var(--paper) 30%, transparent),
+    transparent 70%
+  );
+}
+
+[data-spotlight]:hover > .spot {
+  opacity: 1;
+}
+
+/* The ink lens: a soft halo around the disc and a gentle sheen across it, the same light. */
+html[data-lens='hover'] .lens-disc {
+  background: radial-gradient(circle at 35% 30%, color-mix(in oklab, var(--accent), white 10%), var(--accent) 55%, color-mix(in oklab, var(--accent), black 14%));
+  box-shadow: 0 0 70px 10px color-mix(in oklab, var(--accent) 40%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spot {
+    transition: none;
+  }
+}
+
+/* Big link title: rolling letters only where a pointer can hover; plain words elsewhere. */
+.big-link-rolling {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .big-link-plain {
+    display: none;
+  }
+
+  .big-link-rolling {
+    display: inline-flex;
+  }
+}
