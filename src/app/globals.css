@@ -564,3 +564,155 @@ html.theme-switching::view-transition-new(root) {
     stroke-dashoffset: -1;
   }
 }
+
+/* Big call-to-action links (big-link.tsx). */
+.big-link-band {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.big-link[data-edge='bottom'] .big-link-band {
+  transform-origin: bottom;
+}
+
+.big-link-light {
+  opacity: 0;
+  background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), color-mix(in oklab, var(--accent) 45%, transparent), transparent 70%);
+  transition: opacity 0.5s;
+}
+
+.big-link-title,
+.big-link-ticker {
+  color: var(--ink);
+  transition: color 0.45s 0.05s;
+}
+
+.big-link-ticker {
+  color: var(--muted);
+}
+
+/* Each letter's mask is tall enough that one copy's descenders (p, j) never show above the
+   other, and it clips only vertically, so italic overhangs (the V) are not cut at the sides. The
+   negative margins give back the extra height. */
+.big-link-char {
+  display: block;
+  height: 1.4em;
+  margin-block: -0.2em;
+  clip-path: inset(0 -0.6em);
+}
+
+.big-link-char > span {
+  display: block;
+  height: 1.4em;
+  line-height: 1.4em;
+}
+
+.big-link-char > span {
+  transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1) calc(var(--i) * 18ms);
+}
+
+.big-link-arrow {
+  transition:
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.35s,
+    border-color 0.35s,
+    color 0.35s;
+}
+
+.big-link-track {
+  animation: big-link-ticker 40s linear infinite;
+}
+
+@keyframes big-link-ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.big-link:hover .big-link-band,
+.big-link:focus-visible .big-link-band {
+  transform: scaleY(1);
+}
+
+.big-link:hover .big-link-light {
+  opacity: 1;
+}
+
+.big-link:hover .big-link-title,
+.big-link:focus-visible .big-link-title {
+  color: var(--paper);
+}
+
+.big-link:hover .big-link-ticker,
+.big-link:focus-visible .big-link-ticker {
+  color: color-mix(in oklab, var(--paper), transparent 35%);
+}
+
+.big-link:hover .big-link-char > span,
+.big-link:focus-visible .big-link-char > span {
+  transform: translateY(-100%);
+}
+
+.big-link:hover .big-link-arrow,
+.big-link:focus-visible .big-link-arrow {
+  transform: rotate(-45deg) scale(1.08);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .big-link-band,
+  .big-link-char > span,
+  .big-link-arrow {
+    transition: none;
+  }
+
+  .big-link-track {
+    animation: none;
+  }
+}
+
+/* Film player (film-reel.tsx): grows out of the pressed poster (transform-origin is set from it),
+   shrinks back into it on close; the backdrop dims and blurs with it. */
+html.film-open {
+  overflow: hidden;
+}
+
+.film-player {
+  opacity: 0;
+  transform: scale(0.35);
+  transition:
+    transform 0.42s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.3s ease;
+}
+
+.film-player[data-state='open'] {
+  opacity: 1;
+  transform: none;
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease;
+}
+
+.film-player::backdrop {
+  background: rgb(8 7 6 / 0);
+  backdrop-filter: blur(0);
+  transition:
+    background-color 0.4s,
+    backdrop-filter 0.4s;
+}
+
+.film-player[data-state='open']::backdrop {
+  background: rgb(8 7 6 / 0.86);
+  backdrop-filter: blur(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .film-player,
+  .film-player[data-state='open'] {
+    transform: none;
+    transition: opacity 0.2s;
+  }
+}

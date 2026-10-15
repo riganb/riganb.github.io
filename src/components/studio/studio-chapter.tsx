@@ -1,4 +1,5 @@
 import { DecryptText } from '@/components/motion/decrypt-text'
+import { BigLink } from '@/components/motion/big-link'
 import { StoryScroll, StorySheet } from '@/components/motion/story-scroll'
 import { ProductSheet } from '@/components/studio/product-sheet'
 import { StudioProducts } from '@/components/studio/studio-products'
@@ -32,21 +33,7 @@ export function StudioChapter() {
           </StorySheet>
         ))}
       </StoryScroll>
-      <div className="border-y border-rule">
-        <a
-          href={studio.link.href}
-          target="_blank"
-          rel="noreferrer"
-          className="group mx-auto flex max-w-[1320px] items-center justify-between px-6 py-10 md:px-10"
-        >
-          <span className="font-display text-[clamp(2rem,5vw,4rem)] leading-none tracking-[-0.02em]">
-            {studio.link.label}
-          </span>
-          <span aria-hidden="true" className="text-3xl transition-transform group-hover:translate-x-2">
-            →
-          </span>
-        </a>
-      </div>
+      <BigLink href={studio.link.href} label={studio.link.label} ticker={studio.products.map((product) => product.name)} />
     </section>
   )
 }

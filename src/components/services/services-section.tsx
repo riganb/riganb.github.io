@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { HonestText } from '@/components/lens/honest-text'
+import { BigLink } from '@/components/motion/big-link'
 import { DecryptText } from '@/components/motion/decrypt-text'
 import { RevealLines } from '@/components/motion/reveal-lines'
 import { FilmReel } from '@/components/services/film-reel'
@@ -80,19 +81,7 @@ export function ServicesSection() {
         ))}
       </ol>
 
-      <a
-        href={services.cta.href}
-        target="_blank"
-        rel="noreferrer"
-        className="group mx-auto flex max-w-[1320px] items-center justify-between px-6 py-10 md:px-10"
-      >
-        <span className="font-display text-[clamp(2rem,5vw,4rem)] leading-none tracking-[-0.02em] transition-colors group-hover:text-accent">
-          {services.cta.label}
-        </span>
-        <span aria-hidden="true" className="text-3xl transition-transform group-hover:translate-x-2">
-          →
-        </span>
-      </a>
+      <BigLink href={services.cta.href} label={services.cta.label} ticker={services.items.map((service) => service.name)} />
     </section>
   )
 }
