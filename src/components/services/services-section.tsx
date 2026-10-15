@@ -39,7 +39,8 @@ export function ServicesSection() {
 
       <ol className="border-t border-ink">
         {services.items.map((service, index) => (
-          <li key={service.id} id={`service-${service.id}`} className="border-b border-rule">
+          <li key={service.id} id={`service-${service.id}`} data-spotlight="" className="spot-surface border-b border-rule">
+            <span aria-hidden="true" className="spot" />
             <div className="mx-auto grid max-w-[1320px] grid-cols-[2.5rem_1fr] gap-x-4 px-6 py-8 md:px-10 lg:grid-cols-[3rem_minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-x-10 lg:py-10">
               <span className={`${mono} pt-2 text-muted`}>{String(index + 1).padStart(2, '0')}</span>
               <h3 className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.05] tracking-[-0.01em]">
