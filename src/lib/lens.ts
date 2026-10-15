@@ -1,5 +1,5 @@
 export const LENS_IDLE_RADIUS = 6
-export const LENS_ACTIVE_RADIUS = 110
+export const LENS_ACTIVE_RADIUS = 160
 
 export type Point = { x: number; y: number }
 
