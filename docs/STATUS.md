@@ -44,6 +44,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #33 | Oinkbuns added as the fifth VeraStack Labs product; products shipped 05 |
 | #34 | Shorter case study search titles; Article images |
 | #35 | Services section: coaching first (free 15-minute sessions via LinkedIn), six studio services, product film reel |
+| #36 | Interactive CTAs (ink band, letter roll, accent spotlight, magnetic arrow, ticker); film overlay player; email now rigan@verastack.dev |
 
 ## Names used in this project
 
@@ -76,7 +77,8 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 
 ## Planned, not started
 
-Nothing planned right now. Add ideas here as they come up.
+- [ ] Use the CTA's accent spotlight gradient (`.big-link-light` in globals.css) for the honest version in more places, such as behind the ink lens.
+- [ ] Decide whether the Web3Forms 'Portfolio contact' form should deliver to rigan@verastack.dev (it still sends to the Gmail address; the free plan allows one recipient).
 
 ## Known trade-offs
 
