@@ -44,6 +44,27 @@ export function StoryScroll({ label, angle = 10, children }: StoryScrollProps) {
           })
         }
       })
+
+      // Pins are measured once. When a sheet grows afterwards (a font swap rewraps its text, an
+      // image arrives), re-measure, or the next sheet is dealt on too early and covers its end.
+      let timer = 0
+      const sizes = new WeakMap<Element, number>()
+      const resizeObserver = new ResizeObserver((entries) => {
+        const grew = entries.some((entry) => {
+          const height = Math.round(entry.contentRect.height)
+          const before = sizes.get(entry.target)
+          sizes.set(entry.target, height)
+          return before !== undefined && before !== height
+        })
+        if (!grew) return
+        window.clearTimeout(timer)
+        timer = window.setTimeout(() => ScrollTrigger.refresh(), 150)
+      })
+      for (const inner of root.querySelectorAll('[data-sheet-inner]')) resizeObserver.observe(inner)
+      return () => {
+        window.clearTimeout(timer)
+        resizeObserver.disconnect()
+      }
     },
     { scope: ref, dependencies: [angle] },
   )
