@@ -45,6 +45,8 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #34 | Shorter case study search titles; Article images |
 | #35 | Services section: coaching first (free 15-minute sessions via LinkedIn), six studio services, product film reel |
 | #36 | Interactive CTAs (ink band, letter roll, accent spotlight, magnetic arrow, ticker); film overlay player; email now rigan@verastack.dev |
+| #37 | Larger ink lens |
+| #38 | Spotlight glow on the lens, work rows, service rows and side projects; CTAs wrap between words; story scroll re-measures when a sheet grows |
 
 ## Names used in this project
 
@@ -77,10 +79,12 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 
 ## Planned, not started
 
-- [ ] Use the CTA's accent spotlight gradient (`.big-link-light` in globals.css) for the honest version in more places, such as behind the ink lens.
-- [ ] Decide whether the Web3Forms 'Portfolio contact' form should deliver to rigan@verastack.dev (it still sends to the Gmail address; the free plan allows one recipient).
+Nothing planned right now. Add ideas here as they come up.
 
 ## Known trade-offs
+
+- The site shows rigan@verastack.dev; the Web3Forms 'Portfolio contact' form delivers to verastack.labs@gmail.com.
+- Spotlight surfaces are marked `data-spotlight` with a `.spot` layer; `src/components/spotlight-tracker.tsx` feeds the pointer position. Add both to light up another surface.
 
 - Films in the services reel are 1080p web copies (2 to 6 MB) of the masters in `Videos\videonalyzer`; re-export them there and re-transcode if a film changes. The Firecracker draft, the Hook experiment and the vertical cuts are left out.
 
