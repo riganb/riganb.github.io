@@ -46,13 +46,25 @@ export function BigLink({ href, label, ticker }: BigLinkProps) {
       <span className="relative mx-auto flex max-w-[1320px] items-center justify-between gap-6 px-6 pb-6 pt-10 md:px-10 md:pt-12">
         <span className="big-link-title font-display text-[clamp(2.25rem,6vw,5rem)] leading-none tracking-[-0.02em]">
           <span className="sr-only">{label}</span>
-          <span aria-hidden="true" className="inline-flex flex-wrap">
-            {[...label].map((char, index) => (
-              <span key={index} className="big-link-char" style={{ '--i': index } as CSSProperties}>
-                <span className="block">{char === ' ' ? ' ' : char}</span>
-                <span className="block italic">{char === ' ' ? ' ' : char}</span>
-              </span>
-            ))}
+          {/* Touch screens have no hover to roll the letters, so they get the plain words, kerned. */}
+          <span aria-hidden="true" className="big-link-plain">
+            {label}
+          </span>
+          {/* Letters are grouped by word, so a line only ever breaks between words. */}
+          <span aria-hidden="true" className="big-link-rolling flex-wrap gap-x-[0.26em]">
+            {label.split(' ').map((word, w, words) => {
+              const start = words.slice(0, w).join(' ').length + (w > 0 ? 1 : 0)
+              return (
+                <span key={w} className="inline-flex whitespace-nowrap">
+                  {[...word].map((char, i) => (
+                    <span key={i} className="big-link-char" style={{ '--i': start + i } as CSSProperties}>
+                      <span className="block">{char}</span>
+                      <span className="block italic">{char}</span>
+                    </span>
+                  ))}
+                </span>
+              )
+            })}
           </span>
         </span>
         {/* Leans toward a nearby pointer, like the email button in the contact section. */}
