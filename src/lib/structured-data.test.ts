@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { services, type ServiceProof } from '@/content/services'
 import { caseStudies } from '@/content/case-studies'
 import { site } from '@/content/site'
-import { caseSearchTitle, caseStudyGraph, homeGraph, jsonLd, llmsText, sitemapEntries } from '@/lib/structured-data'
+import { caseSearchTitle, caseStudyGraph, homeGraph, jsonLd, llmsText, resumeSearchTitle, sitemapEntries } from '@/lib/structured-data'
 
 describe('homeGraph', () => {
   const graph = homeGraph()['@graph'] as Array<Record<string, unknown>>
@@ -43,10 +43,10 @@ describe('jsonLd', () => {
 })
 
 describe('sitemapEntries', () => {
-  it('lists home and every case study with trailing slashes', () => {
+  it('lists home, every case study and the resume with trailing slashes', () => {
     const urls = sitemapEntries().map((entry) => entry.url)
     expect(urls[0]).toBe(`${site.url}/`)
-    expect(urls).toHaveLength(caseStudies.length + 1)
+    expect(urls).toHaveLength(caseStudies.length + 2)
     expect(urls.every((url) => url.endsWith('/'))).toBe(true)
   })
 })
@@ -89,5 +89,20 @@ describe('services', () => {
     for (const film of services.films)
       for (const file of [film.src, film.poster, film.captions])
         expect(existsSync(join(process.cwd(), 'public', file))).toBe(true)
+  })
+})
+
+describe('resume discovery', () => {
+  it('lists the resume in the sitemap', () => {
+    expect(sitemapEntries().map((entry) => entry.url)).toContain(`${site.url}/resume/`)
+  })
+
+  it('gives answer engines the resume and its headline number', () => {
+    expect(llmsText()).toContain(`${site.url}/resume/`)
+    expect(llmsText()).toContain('70,000+')
+  })
+
+  it('keeps the resume search title within 65 characters', () => {
+    expect(resumeSearchTitle().length).toBeLessThanOrEqual(65)
   })
 })

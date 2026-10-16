@@ -58,13 +58,17 @@ export const journey = {
   nudge: 'Come say hi',
   portraitAlt: 'Rigan Burnwal in a white hoodie against a dark background',
   rows: [
-    { when: '2026', what: 'Founder, VeraStack Labs', detail: 'Origan, rigseed, Riggit, Mehfil and Oinkbuns' },
+    {
+      when: '2026',
+      what: 'Founder, VeraStack Labs',
+      detail: 'Origan, rigseed, Riggit, Mehfil and Oinkbuns. Client work for E3 Electric.AI and Cold Stone Arabia.',
+    },
     {
       when: '2024 – 2026',
       what: 'Software Engineer, Ultraviolette Automotive',
       detail: 'The X-47, Tesseract and Shockwave configurators: 70,000+ bookings. A typed monorepo, 2,800+ PRs. Spark Award, June 2025.',
     },
-    { when: '2023 – 2026', what: 'Freelance', detail: 'Pee Empro, Maven, Cold Stone Arabia, E3 Electric.AI' },
+    { when: '2023 – 2024', what: 'Freelance', detail: 'Pee Empro, Maven' },
     { when: '2023 – 2024', what: 'Contract Software Engineer, Suggaa Ventures', detail: 'Payments, cancellation flows, pricing data' },
     { when: '2020 – 2024', what: 'B.E. Information Science', detail: 'JSSATE, Bangalore' },
   ],
@@ -98,6 +102,6 @@ export const contact = {
     failed: 'That did not go through.',
     fallback: 'Email it instead',
   },
-  resume: { label: 'Resume', caption: 'Being rewritten into something better.', tag: 'Soon' },
+  resume: { label: 'Resume', caption: 'Three numbers, then proof.', tag: 'Open', pdf: 'Or the PDF' },
   footer: 'Built in Bangalore. Set in Instrument Serif and Geist Mono.',
 }
