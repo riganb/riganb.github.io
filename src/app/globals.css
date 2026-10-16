@@ -780,3 +780,115 @@ html[data-lens='hover'] .lens-disc {
     display: inline-flex;
   }
 }
+
+/* Resume: the page prints as its own one-page A4 PDF (scripts/resume-pdf.mjs). Plain, single
+   column, every number live text, so applicant tracking software reads it in order. */
+.print-only {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
+  }
+
+  html:has(.resume-page),
+  html:has(.resume-page) body {
+    background: #fff !important;
+    color: #16130f;
+    font-size: 9.5pt;
+  }
+
+  html:has(.resume-page) header,
+  html:has(.resume-page) footer,
+  html:has(.resume-page) .lens-disc,
+  html:has(.resume-page) .lens-press,
+  .resume-page .honest-layer,
+  .resume-page .honest-toggle,
+  .resume-page .print-hide {
+    display: none !important;
+  }
+
+  .resume-page .print-only {
+    display: block;
+  }
+
+  .resume-page * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .resume-page > div {
+    max-width: none;
+    padding: 0;
+  }
+
+  .resume-page .resume-name {
+    font-size: 30pt;
+    margin-top: 2pt;
+  }
+
+  .resume-page .resume-band {
+    display: block;
+    margin-top: 14pt;
+  }
+
+  .resume-page .resume-fact {
+    display: grid;
+    grid-template-columns: 30mm 1fr;
+    align-items: baseline;
+    gap: 6mm;
+    padding: 6pt 0;
+    border-left: 0;
+  }
+
+  .resume-page .resume-fact + .resume-fact {
+    border-top: 1px solid var(--rule);
+  }
+
+  .resume-page .resume-num {
+    font-size: 26pt;
+  }
+
+  .resume-page .resume-caption {
+    margin-top: 0;
+    max-width: none;
+  }
+
+  .resume-page .resume-caption p {
+    font-size: 10pt;
+  }
+
+  .resume-page .resume-press {
+    margin-top: 6pt;
+  }
+
+  .resume-page section[aria-labelledby] {
+    margin-top: 14pt;
+  }
+
+  .resume-page .resume-role {
+    display: grid;
+    grid-template-columns: 22mm 1fr;
+    padding: 6pt 0;
+    break-inside: avoid;
+  }
+
+  .resume-page .resume-role h3 {
+    font-size: 10.5pt;
+  }
+
+  .resume-page .resume-role p {
+    margin-top: 1pt;
+    max-width: none;
+  }
+
+  .resume-page .resume-also li {
+    padding: 3pt 0;
+  }
+
+  .resume-page .resume-links {
+    margin-top: 10pt;
+  }
+}

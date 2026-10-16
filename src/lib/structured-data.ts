@@ -1,6 +1,7 @@
 import { journey, sideProjects, toolbox } from '@/content/about'
 import { caseStudies, type CaseStudy } from '@/content/case-studies'
 import { hero } from '@/content/home'
+import { resume } from '@/content/resume'
 import { services } from '@/content/services'
 import { site } from '@/content/site'
 import { studio } from '@/content/studio'
@@ -10,6 +11,7 @@ type Node = Record<string, unknown>
 
 const plain = (text: string) => text.replaceAll('*', '')
 const caseUrl = (slug: string) => `${site.url}/work/${slug}/`
+const resumeUrl = `${site.url}/resume/`
 const ids = {
   person: `${site.url}/#person`,
   studio: `${site.url}/#verastack`,
@@ -143,6 +145,10 @@ export function caseSearchTitle(study: CaseStudy): string {
   return `${study.client} case study · ${site.name}`
 }
 
+export function resumeSearchTitle(): string {
+  return `Resume · ${site.name}`
+}
+
 export function caseShareTitle(study: CaseStudy): string {
   return `${study.client}: ${plain(study.title)}`
 }
@@ -151,6 +157,7 @@ export function sitemapEntries(): Array<{ url: string; priority: number }> {
   return [
     { url: `${site.url}/`, priority: 1 },
     ...caseStudies.map((study) => ({ url: caseUrl(study.slug), priority: 0.8 })),
+    { url: resumeUrl, priority: 0.7 },
   ]
 }
 
@@ -199,6 +206,11 @@ export function llmsText(): string {
       (project) => `- ${project.name} (${project.kind}): ${project.body} ${project.links.map((link) => link.href).join(' ')}`,
     ),
     ...sideProjects.mods.items.map((mod) => `- ${mod.name} (${sideProjects.mods.label}): ${mod.body} ${mod.href}`),
+    '',
+    '## Resume',
+    '',
+    `One page, also as a PDF: ${resumeUrl} (${site.url}/resume.pdf)`,
+    ...resume.facts.map((fact) => `- ${fact.value}: ${fact.caption.lines.join(' ')}`),
     '',
     '## Journey',
     '',
