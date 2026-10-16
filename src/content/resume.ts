@@ -63,7 +63,7 @@ export const resume = {
       what: 'Ultraviolette Automotive, software engineer',
       lines: [
         'Configurators and booking flows for the X-47, Tesseract and Shockwave: *70,000+ bookings*.',
-        'A typed monorepo of *2,800+ PRs* governed. A critical session auth flaw fixed. Spark Award, June 2025.',
+        'A typed monorepo of *2,800+ PRs* governed. Critical session auth flaw fixed. Spark Award, 2025.',
       ],
     },
     {
@@ -99,5 +99,5 @@ export const resume = {
     'Free 15-minute coaching sessions, on LinkedIn',
   ],
   // First to go when the PDF runs long (the spec's cut order). Still shown on the web page.
-  screenOnly: ['Free 15-minute coaching sessions, on LinkedIn'],
+  screenOnly: [] as string[],
 }

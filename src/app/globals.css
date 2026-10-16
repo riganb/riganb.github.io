@@ -797,7 +797,12 @@ html[data-lens='hover'] .lens-disc {
   html:has(.resume-page) body {
     background: #fff !important;
     color: #16130f;
-    font-size: 9.5pt;
+    font-size: 10pt;
+  }
+
+  /* The body keeps room for the floating lens button on screen; paper has no button. */
+  html:has(.resume-page) body {
+    padding: 0 !important;
   }
 
   html:has(.resume-page) header,
@@ -825,7 +830,7 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page .resume-name {
-    font-size: 27pt;
+    font-size: 32pt;
     margin-top: 2pt;
   }
 
@@ -848,7 +853,7 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page .resume-num {
-    font-size: 24pt;
+    font-size: 30pt;
   }
 
   /* Static, so each caption is painted (and extracted) right after its number, not after the page. */
@@ -859,7 +864,7 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page .resume-caption p {
-    font-size: 10pt;
+    font-size: 11pt;
   }
 
   .resume-page .resume-press {
@@ -867,7 +872,7 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page section[aria-labelledby] {
-    margin-top: 8pt;
+    margin-top: 11pt;
   }
 
   .resume-page .resume-role {
@@ -878,7 +883,7 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page .resume-role h3 {
-    font-size: 10.5pt;
+    font-size: 11.5pt;
   }
 
   .resume-page .resume-role p {
