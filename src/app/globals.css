@@ -790,7 +790,7 @@ html[data-lens='hover'] .lens-disc {
 @media print {
   @page {
     size: A4;
-    margin: 12mm 14mm;
+    margin: 10mm 14mm;
   }
 
   html:has(.resume-page),
@@ -825,13 +825,13 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page .resume-name {
-    font-size: 30pt;
+    font-size: 27pt;
     margin-top: 2pt;
   }
 
   .resume-page .resume-band {
     display: block;
-    margin-top: 14pt;
+    margin-top: 10pt;
   }
 
   .resume-page .resume-fact {
@@ -839,7 +839,7 @@ html[data-lens='hover'] .lens-disc {
     grid-template-columns: 30mm 1fr;
     align-items: baseline;
     gap: 6mm;
-    padding: 6pt 0;
+    padding: 4pt 0;
     border-left: 0;
   }
 
@@ -848,7 +848,7 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page .resume-num {
-    font-size: 26pt;
+    font-size: 24pt;
   }
 
   /* Static, so each caption is painted (and extracted) right after its number, not after the page. */
@@ -867,13 +867,13 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page section[aria-labelledby] {
-    margin-top: 14pt;
+    margin-top: 8pt;
   }
 
   .resume-page .resume-role {
     display: grid;
     grid-template-columns: 22mm 1fr;
-    padding: 6pt 0;
+    padding: 4pt 0;
     break-inside: avoid;
   }
 
@@ -886,8 +886,27 @@ html[data-lens='hover'] .lens-disc {
     max-width: none;
   }
 
+  .resume-page h2 {
+    padding-bottom: 4pt;
+  }
+
+  .resume-page p,
+  .resume-page li,
+  .resume-page dd {
+    line-height: 1.45;
+  }
+
   .resume-page .resume-also li {
-    padding: 3pt 0;
+    padding: 2pt 0;
+  }
+
+  .resume-page .resume-skills > div {
+    grid-template-columns: 30mm 1fr;
+    padding: 2pt 0;
+  }
+
+  .resume-page .resume-skills dt {
+    padding-top: 0;
   }
 
   .resume-page .resume-links {

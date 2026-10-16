@@ -49,6 +49,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #38 | Spotlight glow on the lens, work rows, service rows and side projects; CTAs wrap between words; story scroll re-measures when a sheet grows |
 | #39 | Ultraviolette booking numbers (70,000+ across X-47, Tesseract and Shockwave) on the home page, work row, journey and case study; press links on the UV and E3 case studies; UV dates now 2024 to 2026 |
 | #40 | Resume: `/resume/` (three numbers, then proof, with the honest lens) and a one-page `resume.pdf` printed from it; contact card and footer link to it; Journey moves E3 and Cold Stone under the studio |
+| #41 | Resume gains Selected builds, Skills (for recruiter keyword matching) and a verastack.dev Lighthouse line; PDF still one page (coaching line is web-only) |
 
 ## Names used in this project
 

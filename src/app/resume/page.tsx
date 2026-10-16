@@ -113,12 +113,12 @@ export default function ResumePage() {
           </ol>
         </section>
 
-        <section aria-labelledby="also" className="mt-14">
-          <h2 id="also" className={`${mono} border-b border-ink pb-3 text-muted`}>
-            Education and more
+        <section aria-labelledby="builds" className="mt-14">
+          <h2 id="builds" className={`${mono} border-b border-ink pb-3 text-muted`}>
+            Selected builds
           </h2>
           <ul className="resume-also">
-            {resume.also.map((item) => (
+            {resume.builds.map((item) => (
               <li key={item} className="border-b border-rule py-3 leading-relaxed text-ink-2">
                 <Proof text={item} />
               </li>
@@ -126,7 +126,34 @@ export default function ResumePage() {
           </ul>
         </section>
 
-        <p className={`${mono} resume-links mt-12 flex flex-wrap gap-x-6 gap-y-2 text-muted`}>
+        <section aria-labelledby="skills" className="mt-14">
+          <h2 id="skills" className={`${mono} border-b border-ink pb-3 text-muted`}>
+            Skills
+          </h2>
+          <dl className="resume-skills">
+            {resume.skills.map((group) => (
+              <div key={group.title} className="grid gap-x-6 gap-y-1 border-b border-rule py-3 md:grid-cols-[9rem_1fr]">
+                <dt className={`${mono} pt-1 text-muted`}>{group.title}</dt>
+                <dd className="leading-relaxed text-ink-2">{group.items.join(', ')}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section aria-labelledby="also" className="mt-14">
+          <h2 id="also" className={`${mono} border-b border-ink pb-3 text-muted`}>
+            Education and more
+          </h2>
+          <ul className="resume-also">
+            {resume.also.map((item) => (
+              <li key={item} className={`border-b border-rule py-3 leading-relaxed text-ink-2${resume.screenOnly.includes(item) ? ' print-hide' : ''}`}>
+                <Proof text={item} />
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <p className={`${mono} resume-links print-hide mt-12 flex flex-wrap gap-x-6 gap-y-2 text-muted`}>
           <a href={`mailto:${site.email}`} className={link}>
             {site.email}
           </a>

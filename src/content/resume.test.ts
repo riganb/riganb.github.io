@@ -35,3 +35,15 @@ describe('resume', () => {
     expect(site.call.href.startsWith('https://wa.me/919380654730')).toBe(true)
   })
 })
+
+describe('resume extras', () => {
+  it('names the stack for keyword matching', () => {
+    const skills = resume.skills.flatMap((group) => group.items)
+    for (const skill of ['TypeScript', 'React', 'Next.js', 'AWS Lambda', 'Rust']) expect(skills).toContain(skill)
+  })
+
+  it('lists selected builds with a number where one exists', () => {
+    expect(resume.builds).toHaveLength(4)
+    expect(resume.builds[0]).toContain('18.8 MB')
+  })
+})
