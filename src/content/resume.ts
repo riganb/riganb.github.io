@@ -49,7 +49,7 @@ export const resume = {
   roles: [
     {
       id: 'verastack',
-      when: '2026 →',
+      when: '2026 – now',
       what: 'VeraStack Labs, founder',
       lines: [
         'Origan, rigseed, Riggit, Mehfil and Oinkbuns, built and shipped.',
@@ -58,7 +58,7 @@ export const resume = {
     },
     {
       id: 'ultraviolette',
-      when: '2024 → 26',
+      when: '2024 – 2026',
       what: 'Ultraviolette Automotive, software engineer',
       lines: [
         'Configurators and booking flows for the X-47, Tesseract and Shockwave: *70,000+ bookings*.',
@@ -67,13 +67,13 @@ export const resume = {
     },
     {
       id: 'suggaa',
-      when: '2023 → 24',
+      when: '2023 – 2024',
       what: 'Suggaa Ventures, contract engineer',
       lines: ['Checkout *40% lighter*. Fares trained on live data from *four* ride-hailing apps.'],
     },
     {
       id: 'freelance',
-      when: '2023 → 24',
+      when: '2023 – 2024',
       what: 'Freelance',
       lines: ['Pee Empro: an attendance app that cut data entry by *90%*. Maven: QR event registration.'],
     },

@@ -851,7 +851,9 @@ html[data-lens='hover'] .lens-disc {
     font-size: 26pt;
   }
 
+  /* Static, so each caption is painted (and extracted) right after its number, not after the page. */
   .resume-page .resume-caption {
+    position: static;
     margin-top: 0;
     max-width: none;
   }
