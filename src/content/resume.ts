@@ -53,7 +53,8 @@ export const resume = {
       what: 'VeraStack Labs, founder',
       lines: [
         'Origan, rigseed, Riggit, Mehfil and Oinkbuns, built and shipped.',
-        'Client work: E3 TRION, *paid bookings on launch day*. Cold Stone Arabia, *76 stores* in six countries, launching.',
+        'Client work: E3 TRION, *paid bookings on launch day*. Cold Stone Arabia, *76 stores*, launching.',
+        'verastack.dev: Lighthouse *100* for SEO and best practices, all *20 pages* indexed by Google.',
       ],
     },
     {
@@ -78,10 +79,25 @@ export const resume = {
       lines: ['Pee Empro: an attendance app that cut data entry by *90%*. Maven: QR event registration.'],
     },
   ] satisfies ResumeRole[],
+  builds: [
+    'rigseed: a desktop torrent client in Tauri and Rust, an *18.8 MB* installer, about *6x smaller* than an empty Electron app.',
+    'Autom8r: an AI workflow builder with a topological-sort engine, running OpenAI, Anthropic and Gemini models.',
+    'use-content: an open-source React hook for live copy editing that ships *under 1 kB* to production.',
+    'Three open-source Claude Code mods: secret-guard, session-meter and repo-board.',
+  ],
+  // Named in full so applicant tracking software finds the keywords.
+  skills: [
+    { title: 'Languages', items: ['TypeScript', 'JavaScript', 'Rust', 'SQL', 'Python', 'Java'] },
+    { title: 'Frameworks', items: ['React', 'Next.js', 'Node.js', 'Tauri', 'tRPC', 'Prisma', 'Tailwind CSS'] },
+    { title: 'Cloud and data', items: ['AWS Lambda', 'API Gateway', 'S3', 'DynamoDB', 'PostgreSQL', 'Supabase'] },
+    { title: 'Tools', items: ['TurboRepo', 'GitHub Actions', 'Framer', 'Webflow', 'Figma', 'GSAP'] },
+  ],
   also: [
     'NASA Ideathon 2022, *first of 83 teams*',
     'B.E. Information Science, JSSATE, 2024',
     'Vice President, GeeksforGeeks chapter, JSSATE',
     'Free 15-minute coaching sessions, on LinkedIn',
   ],
+  // First to go when the PDF runs long (the spec's cut order). Still shown on the web page.
+  screenOnly: ['Free 15-minute coaching sessions, on LinkedIn'],
 }
