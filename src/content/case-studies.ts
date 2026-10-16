@@ -11,6 +11,8 @@ export type Sheet = {
   media?: Media
   metrics?: Metric[]
   metricsNote?: string
+  // Outside coverage that backs the numbers on this sheet.
+  press?: Array<{ label: string; href: string }>
 }
 
 export type CaseStudy = {
@@ -86,6 +88,12 @@ export const caseStudies: CaseStudy[] = [
           height: 640,
           caption: 'The savings calculator, live on the product page.',
         },
+        press: [
+          { label: 'Autocar India', href: 'https://www.autocarindia.com/bike-news/e3-trion-electric-scooter-launched-at-rs-1-lakh-440423' },
+          { label: 'Autocar Pro', href: 'https://www.autocarpro.in/news/e3-electricai-launches-e3-trion-electric-scooter-starting-at-rs-99999-133951' },
+          { label: 'BikeDekho', href: 'https://www.bikedekho.com/news/category-launch-news/breaking-e3-trion-launched-at-rs-99999-full-details-here-19979' },
+          { label: 'EVreporter', href: 'https://evreporter.com/e3-electric-ai-launches-e3-trion-electric-scooter-priced-from-%E2%82%B999999/' },
+        ],
       },
     ],
     highlights: [
@@ -98,8 +106,8 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'ultraviolette',
-    client: 'Ultraviolette, X-47 and Tesseract',
-    title: 'The configurators behind *X-47 and Tesseract*',
+    client: 'Ultraviolette, three EV launches',
+    title: 'The configurators behind *70,000+ bookings*',
     year: '2025',
     role: 'Software Engineer, full-time',
     stack: ['Next.js', 'TypeScript', 'TurboRepo', 'Jotai', 'AWS Lambda', 'DynamoDB'],
@@ -107,8 +115,8 @@ export const caseStudies: CaseStudy[] = [
     intro: [
       'Ultraviolette builds electric',
       'motorcycles people wait for.',
-      'I built where they choose one,',
-      'on a codebase I helped rebuild.',
+      '70,000 of them booked one',
+      'through the flows I built.',
     ],
     sheets: [
       {
@@ -125,10 +133,10 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: 'Build',
-        title: 'A typed monorepo and two configurators',
+        title: 'A typed monorepo and three launches',
         body: [
           'I led the move to a strictly typed TurboRepo monorepo, with compile-time constraints, validation schemas and Jotai for shared state.',
-          'On top of it, multi-zone Next.js configurators for the X-47 motorcycle and the Tesseract scooter, backed by AWS Lambda, API Gateway, S3 and a DynamoDB single-table design.',
+          'On top of it, the multi-zone Next.js configurators and booking flows for the X-47 crossover, the Tesseract scooter and the Shockwave enduro, backed by AWS Lambda, API Gateway, S3 and a DynamoDB single-table design.',
         ],
         media: {
           kind: 'image',
@@ -141,21 +149,29 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: 'Result',
-        title: 'Shipped, and a Spark Award',
+        title: '70,000+ bookings, and a Spark Award',
         body: [
-          'Both configurators went live with their launches. Along the way I found and fixed a critical session authentication vulnerability.',
+          'Each flow took its launch-day rush. Tesseract passed 50,000 bookings in two weeks, Shockwave 7,000 and the X-47 3,000 in its first 24 hours, by the press counts. Along the way I found and fixed a critical session authentication vulnerability.',
           'In June 2025 I received the Spark Award as the sole recipient on a cross-functional team, for delivering the Isle of Man project in under a week.',
         ],
         metrics: [
+          { label: 'Bookings, three launches', value: '70,000+' },
+          { label: 'X-47, first 24 hours', value: '3,000+' },
           { label: 'Production PRs governed', value: '2,800+' },
           { label: 'Isle of Man project', value: '< 1 week' },
           { label: 'Spark Award', value: '2025' },
+        ],
+        press: [
+          { label: 'Autocar India', href: 'https://www.autocarindia.com/bike-news/ultraviolette-tesseract-electric-scooter-surpasses-50000-bookings-434877' },
+          { label: 'Team-BHP', href: 'https://www.team-bhp.com/news/ultraviolette-x-47-surpasses-3000-bookings-24-hours' },
+          { label: 'BikeWale', href: 'https://www.bikewale.com/news/ultraviolette-shockwave-garners-over-7000-bookings-since-launch/' },
+          { label: 'Mobility Outlook', href: 'https://www.mobilityoutlook.com/news/ultraviolette-tesseract-electric-scooter-garners-60000-bookings-ahead-of-2026-launch/' },
         ],
       },
     ],
     highlights: [
       { title: 'Monorepo migration', body: 'Legacy JavaScript into a strictly typed TurboRepo monorepo, one pull request at a time.' },
-      { title: 'X-47 and Tesseract configurators', body: 'Multi-zone Next.js configurators that drive direct-to-consumer sales for a motorcycle and a scooter.' },
+      { title: 'Three launch configurators', body: 'Multi-zone Next.js configurators and booking flows for the X-47, Tesseract and Shockwave, 70,000+ bookings between them.' },
       { title: 'Serverless backend', body: 'Lambda, API Gateway and S3 with a single-table DynamoDB design.' },
       { title: 'Security fix', body: 'A critical session authentication flaw found, patched and designed out.' },
     ],

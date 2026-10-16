@@ -47,6 +47,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #36 | Interactive CTAs (ink band, letter roll, accent spotlight, magnetic arrow, ticker); film overlay player; email now rigan@verastack.dev |
 | #37 | Larger ink lens |
 | #38 | Spotlight glow on the lens, work rows, service rows and side projects; CTAs wrap between words; story scroll re-measures when a sheet grows |
+| #39 | Ultraviolette booking numbers (70,000+ across X-47, Tesseract and Shockwave) on the home page, work row, journey and case study; press links on the UV and E3 case studies; UV dates now 2024 to 2026 |
 
 ## Names used in this project
 
@@ -74,12 +75,13 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
   3. Put it back in the `next` chain (currently E3 → UV → E3).
   4. Replace the "The new site" placeholder with real screens.
   5. Consider a cursor preview image for its work row.
-- [ ] The new resume. The contact section shows a "Soon" card with no link until then
+- [ ] The new resume, being designed now (web page plus PDF, impact first). The contact section shows a "Soon" card with no link until then
   (`src/components/contact/resume-corner.tsx`, copy in `src/content/about.ts`).
+- [ ] E3 TRION booking count, if E3 ever shares one (no public figure exists).
 
 ## Planned, not started
 
-Nothing planned right now. Add ideas here as they come up.
+- Premium resume: a page on the site and a matching PDF, led by the 70,000+ bookings figure. Design in progress.
 
 ## Known trade-offs
 

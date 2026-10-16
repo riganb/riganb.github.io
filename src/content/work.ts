@@ -32,10 +32,10 @@ export const work = {
     },
     {
       slug: 'ultraviolette',
-      client: 'Ultraviolette, X-47 and Tesseract',
+      client: 'Ultraviolette, X-47, Tesseract, Shockwave',
       discipline: 'Configurator and platform',
       year: '2025',
-      note: 'The configurators behind the X-47 and Tesseract, on a monorepo of 2,800+ PRs.',
+      note: 'Configurators and booking flows for three launches: 70,000+ bookings, on a monorepo of 2,800+ PRs.',
       caseStudy: true,
       preview: { src: '/work/ultraviolette/preview.webp', alt: 'The Ultraviolette X-47 configurator' },
     },
