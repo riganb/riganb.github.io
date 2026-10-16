@@ -144,7 +144,7 @@ export default function ResumePage() {
           <h2 id="also" className={`${mono} border-b border-ink pb-3 text-muted`}>
             Education and more
           </h2>
-          <ul className="resume-also">
+          <ul className="resume-also resume-also-pairs">
             {resume.also.map((item) => (
               <li key={item} className={`border-b border-rule py-3 leading-relaxed text-ink-2${resume.screenOnly.includes(item) ? ' print-hide' : ''}`}>
                 <Proof text={item} />

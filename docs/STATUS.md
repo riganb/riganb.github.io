@@ -51,6 +51,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #40 | Resume: `/resume/` (three numbers, then proof, with the honest lens) and a one-page `resume.pdf` printed from it; contact card and footer link to it; Journey moves E3 and Cold Stone under the studio |
 | #41 | Resume gains Selected builds, Skills (for recruiter keyword matching) and a verastack.dev Lighthouse line; PDF still one page (coaching line is web-only) |
 | #42 | Resume PDF: larger type (10pt body, bigger numerals) fills the page; print drops the body padding kept for the lens button; coaching line back in print |
+| #43 | Resume PDF rebalanced: roomier rows, 9.5pt body with large numerals, education two to a row in print, a clear bottom margin |
 
 ## Names used in this project
 

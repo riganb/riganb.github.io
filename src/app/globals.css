@@ -790,14 +790,14 @@ html[data-lens='hover'] .lens-disc {
 @media print {
   @page {
     size: A4;
-    margin: 10mm 14mm;
+    margin: 12mm 14mm 17mm;
   }
 
   html:has(.resume-page),
   html:has(.resume-page) body {
     background: #fff !important;
     color: #16130f;
-    font-size: 10pt;
+    font-size: 9.5pt;
   }
 
   /* The body keeps room for the floating lens button on screen; paper has no button. */
@@ -830,13 +830,13 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page .resume-name {
-    font-size: 32pt;
+    font-size: 26pt;
     margin-top: 2pt;
   }
 
   .resume-page .resume-band {
     display: block;
-    margin-top: 10pt;
+    margin-top: 12pt;
   }
 
   .resume-page .resume-fact {
@@ -844,7 +844,7 @@ html[data-lens='hover'] .lens-disc {
     grid-template-columns: 30mm 1fr;
     align-items: baseline;
     gap: 6mm;
-    padding: 4pt 0;
+    padding: 5pt 0;
     border-left: 0;
   }
 
@@ -864,7 +864,7 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page .resume-caption p {
-    font-size: 11pt;
+    font-size: 10.5pt;
   }
 
   .resume-page .resume-press {
@@ -872,27 +872,27 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page section[aria-labelledby] {
-    margin-top: 11pt;
+    margin-top: 10pt;
   }
 
   .resume-page .resume-role {
     display: grid;
     grid-template-columns: 22mm 1fr;
-    padding: 4pt 0;
+    padding: 5pt 0;
     break-inside: avoid;
   }
 
   .resume-page .resume-role h3 {
-    font-size: 11.5pt;
+    font-size: 11pt;
   }
 
   .resume-page .resume-role p {
-    margin-top: 1pt;
+    margin-top: 2pt;
     max-width: none;
   }
 
   .resume-page h2 {
-    padding-bottom: 4pt;
+    padding-bottom: 5pt;
   }
 
   .resume-page p,
@@ -902,12 +902,19 @@ html[data-lens='hover'] .lens-disc {
   }
 
   .resume-page .resume-also li {
-    padding: 2pt 0;
+    padding: 3pt 0;
+  }
+
+  /* Short items, so two to a row; each row still reads left to right. */
+  .resume-page .resume-also-pairs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6mm;
   }
 
   .resume-page .resume-skills > div {
     grid-template-columns: 30mm 1fr;
-    padding: 2pt 0;
+    padding: 3pt 0;
   }
 
   .resume-page .resume-skills dt {
