@@ -19,6 +19,19 @@ export function CaseSheet({ sheet, index }: { sheet: Sheet; index: number }) {
             {paragraph}
           </p>
         ))}
+        {sheet.press && (
+          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
+            In the press:{' '}
+            {sheet.press.map((item, i) => (
+              <span key={item.href}>
+                {i > 0 && <span aria-hidden="true"> · </span>}
+                <a href={item.href} target="_blank" rel="noreferrer" className="underline decoration-rule underline-offset-4 transition-colors hover:text-accent">
+                  {item.label} <span aria-hidden="true">↗</span>
+                </a>
+              </span>
+            ))}
+          </p>
+        )}
         {sheet.media && metrics && <div className="mt-10">{metrics}</div>}
       </div>
       <div>{sheet.media ? <CaseMedia media={sheet.media} /> : metrics}</div>

@@ -60,9 +60,9 @@ export const journey = {
   rows: [
     { when: '2026', what: 'Founder, VeraStack Labs', detail: 'Origan, rigseed, Riggit, Mehfil and Oinkbuns' },
     {
-      when: '2024 – now',
+      when: '2024 – 2026',
       what: 'Software Engineer, Ultraviolette Automotive',
-      detail: 'The X-47 and Tesseract configurators, a typed monorepo, 2,800+ PRs. Spark Award, June 2025.',
+      detail: 'The X-47, Tesseract and Shockwave configurators: 70,000+ bookings. A typed monorepo, 2,800+ PRs. Spark Award, June 2025.',
     },
     { when: '2023 – 2026', what: 'Freelance', detail: 'Pee Empro, Maven, Cold Stone Arabia, E3 Electric.AI' },
     { when: '2023 – 2024', what: 'Contract Software Engineer, Suggaa Ventures', detail: 'Payments, cancellation flows, pricing data' },

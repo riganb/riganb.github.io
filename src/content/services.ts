@@ -52,7 +52,7 @@ export const services = {
       name: 'Web experiences & 3D',
       blurb: 'Distinctive, motion-rich sites and 3D on the web: configurators, product stories, interactive pieces.',
       proof: [
-        { text: 'Ultraviolette X-47 · Tesseract', href: '/work/ultraviolette/' },
+        { text: 'Ultraviolette: 70,000+ bookings', href: '/work/ultraviolette/' },
         { text: 'E3 TRION', href: '/work/e3-trion/' },
       ],
     },
