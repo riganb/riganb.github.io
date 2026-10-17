@@ -10,6 +10,9 @@ export const site = {
   ogImage: { url: '/og.png', width: 1200, height: 630, alt: 'Rigan Burnwal: founder of VeraStack Labs and software engineer' },
   status: 'Building VeraStack Labs · Bangalore',
   email: 'rigan@verastack.dev',
+  // Cloudflare Web Analytics beacon for riganb.github.io: cookieless visit counts, so no consent
+  // banner. Public by design; null turns it off. Dashboard: Web analytics in the Cloudflare account.
+  analyticsToken: 'adf067f14c2b4c0184052f95194c050f' as string | null,
   // The resume's 'Get on a call'. WhatsApp until a cal.com link replaces it.
   call: { label: 'Get on a call', href: 'https://wa.me/919380654730?text=Hi%20Rigan%2C%20saw%20your%20resume.' },
   // Web3Forms form 'Portfolio contact' (sends to the email above). The access key is public by design.
