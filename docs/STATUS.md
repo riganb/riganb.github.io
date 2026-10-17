@@ -57,6 +57,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #46 | Resume share image `/resume/og.png` led by 70,000+; resume is in the LinkedIn Featured section |
 | #47 | Contact form warnings: alert colour token, warning triangle, role=alert and aria-invalid; email checked on blur; failed sends shown the same way. No hCaptcha on the portfolio, so the popup captcha fix does not apply |
 | #48 | Page fade-and-rise on first load (and on the resume), home sections fade up as they scroll in (`data-enter`); opacity and transform only, off under reduced motion, never in print |
+| #49 | Questions section on the home page with FAQPage JSON-LD (also in llms.txt); VeraStack Labs Organization gains a logo. Brings the verastack.dev AI search check from 86 to 100 |
 
 ## Names used in this project
 

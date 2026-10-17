@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { services, type ServiceProof } from '@/content/services'
 import { caseStudies } from '@/content/case-studies'
+import { faq } from '@/content/faq'
 import { site } from '@/content/site'
 import { caseSearchTitle, caseStudyGraph, homeGraph, jsonLd, llmsText, resumeSearchTitle, sitemapEntries } from '@/lib/structured-data'
 
@@ -10,7 +11,7 @@ describe('homeGraph', () => {
   const graph = homeGraph()['@graph'] as Array<Record<string, unknown>>
 
   it('describes the person, the site and the profile page', () => {
-    expect(graph.map((node) => node['@type'])).toEqual(['Person', 'Organization', 'WebSite', 'ProfilePage'])
+    expect(graph.map((node) => node['@type'])).toEqual(['Person', 'Organization', 'WebSite', 'ProfilePage', 'FAQPage'])
   })
 
   it('links the person to their profiles and the studio they founded', () => {
@@ -104,5 +105,18 @@ describe('resume discovery', () => {
 
   it('keeps the resume search title within 65 characters', () => {
     expect(resumeSearchTitle().length).toBeLessThanOrEqual(65)
+  })
+})
+
+describe('FAQ markup', () => {
+  it('marks up every visible question as FAQPage', () => {
+    const graph = homeGraph()['@graph'] as Array<Record<string, unknown>>
+    const page = graph.find((node) => node['@type'] === 'FAQPage') as { mainEntity: Array<{ name: string }> }
+    expect(page.mainEntity.map((q) => q.name)).toEqual(faq.items.map((item) => item.q))
+  })
+
+  it('gives the studio a logo', () => {
+    const graph = homeGraph()['@graph'] as Array<Record<string, unknown>>
+    expect(graph.find((node) => node['@type'] === 'Organization')?.logo).toMatch(/^https:\/\//)
   })
 })

@@ -1,5 +1,6 @@
 import { journey, sideProjects, toolbox } from '@/content/about'
 import { caseStudies, type CaseStudy } from '@/content/case-studies'
+import { faq } from '@/content/faq'
 import { hero } from '@/content/home'
 import { resume } from '@/content/resume'
 import { services } from '@/content/services'
@@ -63,6 +64,7 @@ function organization(): Node {
     '@id': ids.studio,
     name: 'VeraStack Labs',
     url: studio.link.href,
+    logo: 'https://verastack.dev/icon.svg',
     description: studio.line,
     founder: { '@id': ids.person },
     sameAs: [studio.github],
@@ -97,6 +99,15 @@ export function homeGraph(): Node {
         name: site.title,
         isPartOf: { '@id': ids.website },
         mainEntity: { '@id': ids.person },
+      },
+      {
+        '@type': 'FAQPage',
+        url: `${site.url}/#faq-title`,
+        mainEntity: faq.items.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a },
+        })),
       },
     ],
   }
@@ -211,6 +222,10 @@ export function llmsText(): string {
     '',
     `One page, also as a PDF: ${resumeUrl} (${site.url}/resume.pdf)`,
     ...resume.facts.map((fact) => `- ${fact.value}: ${fact.caption.lines.join(' ')}`),
+    '',
+    '## Questions',
+    '',
+    ...faq.items.map((item) => `- ${item.q} ${item.a}`),
     '',
     '## Journey',
     '',
