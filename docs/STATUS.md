@@ -59,6 +59,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #48 | Page fade-and-rise on first load (and on the resume), home sections fade up as they scroll in (`data-enter`); opacity and transform only, off under reduced motion, never in print |
 | #49 | Questions section on the home page with FAQPage JSON-LD (also in llms.txt); VeraStack Labs Organization gains a logo. Brings the verastack.dev AI search check from 86 to 100 |
 | #50 | Android address-bar shift: body uses `min-h-svh` instead of `min-h-dvh`; a test keeps `dvh` to the mobile menu |
+| #51 | Origan Open Shelf under Coaching: Oxidise (DSA in Rust), Filter Coffee (Java Collections), The Switch (JS to TS); also in the FAQ answer and llms.txt. The Origan demo stays unlinked (private) |
 
 ## Names used in this project
 

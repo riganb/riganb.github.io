@@ -12,9 +12,14 @@ export type Service = {
   proof: ServiceProof[]
   /** Coaching is one-to-one with Rigan, so it carries its own offer and call to action. */
   offer?: { line: string; cta: { label: string; href: string } }
+  /** Free courses that back the coaching: shown as a small shelf of links under the row. */
+  courses?: Shelf
   /** Shows the film reel under the row. */
   films?: boolean
 }
+
+export type Course = { name: string; topic: string; detail: string; href: string }
+export type Shelf = { label: string; href: string; note: string; items: Course[] }
 
 export type Film = {
   id: string
@@ -45,6 +50,32 @@ export const services = {
       offer: {
         line: 'Free 15-minute sessions',
         cta: { label: 'Message me on LinkedIn', href: linkedin },
+      },
+      // Origan's free courses (VeraStack Labs work). Free, no sign-up.
+      courses: {
+        label: "Free courses on Origan's Open Shelf",
+        href: 'https://origan.verastack.dev/resources/',
+        note: 'Every code sample compiles and passes tests in CI before a lesson goes live. Free, no sign-up.',
+        items: [
+          {
+            name: 'Oxidise',
+            topic: 'DSA in Rust',
+            detail: '20 lessons, from Vec and union-find to dynamic programming.',
+            href: 'https://origan.verastack.dev/learn/rust-dsa/',
+          },
+          {
+            name: 'Filter Coffee',
+            topic: 'Java Collections',
+            detail: '13 lessons, from ArrayList to choosing the right collection.',
+            href: 'https://origan.verastack.dev/learn/java-collections/',
+          },
+          {
+            name: 'The Switch',
+            topic: 'JavaScript to TypeScript',
+            detail: 'The first lessons are live, starting with an honest list of why to switch.',
+            href: 'https://origan.verastack.dev/learn/js-to-ts/',
+          },
+        ],
       },
     },
     {
