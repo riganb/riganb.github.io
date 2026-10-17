@@ -45,7 +45,7 @@ const profiles = [
 
 export default function ResumePage() {
   return (
-    <main id="main" className="resume-page">
+    <main id="main" className="resume-page page-rise">
       <div className="mx-auto max-w-[1100px] px-6 pb-24 pt-32 md:px-10 md:pt-40">
         <div className="resume-head flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
           <div>

@@ -926,3 +926,43 @@ html[data-lens='hover'] .lens-disc {
     margin-top: 10pt;
   }
 }
+
+/* Page and section entrances (src/components/motion/page-motion.tsx). Opacity and transform only,
+   so content stays in the HTML and nothing shifts. backwards fill: once the rise ends, <main>
+   carries no transform, which would otherwise break the fixed pins inside it. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes page-rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+  }
+
+  html:not([data-navigated]) main,
+  main.page-rise {
+    animation: page-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+
+  /* Only the reveal animates; hiding below-the-fold sections is instant. */
+  html[data-enter-ready] [data-enter][data-entered] {
+    transition:
+      opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  html[data-enter-ready] [data-enter]:not([data-entered]) {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+/* Paper gets every section, settled. */
+@media print {
+  main,
+  [data-enter] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
