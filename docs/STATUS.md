@@ -58,6 +58,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #47 | Contact form warnings: alert colour token, warning triangle, role=alert and aria-invalid; email checked on blur; failed sends shown the same way. No hCaptcha on the portfolio, so the popup captcha fix does not apply |
 | #48 | Page fade-and-rise on first load (and on the resume), home sections fade up as they scroll in (`data-enter`); opacity and transform only, off under reduced motion, never in print |
 | #49 | Questions section on the home page with FAQPage JSON-LD (also in llms.txt); VeraStack Labs Organization gains a logo. Brings the verastack.dev AI search check from 86 to 100 |
+| #50 | Android address-bar shift: body uses `min-h-svh` instead of `min-h-dvh`; a test keeps `dvh` to the mobile menu |
 
 ## Names used in this project
 
@@ -77,6 +78,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 
 ## Waiting on Rigan
 
+- [ ] Scroll down and up on Android Chrome (home, a case study, the resume) to confirm nothing shifts when the address bar hides and shows.
 - [ ] One real contact-note submission from your phone, to confirm delivery to verastack.labs@gmail.com after the warning changes.
 - [ ] E3 configurator and booking screenshots (placeholder on `/work/e3-trion/`, Build sheet).
 - [ ] UV "before" material, as diagrams rather than code (placeholder on `/work/ultraviolette/`).
@@ -94,6 +96,8 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 Nothing planned right now. Add ideas here as they come up.
 
 ## Known trade-offs
+
+- **Viewport units.** `dvh` changes as Android Chrome's address bar moves, so only the mobile menu uses it (enforced by `src/styles/viewport.test.ts`). Full-height sheets use `min-h-screen` (100vh, which mobile Chrome holds at the large viewport); the body uses `min-h-svh`. ScrollTrigger keeps `ignoreMobileResize`.
 
 - **Section reveals use `data-enter`, not `data-reveal`.** `data-reveal` already belongs to the line-reveal headings (`reveal-lines.tsx`). The resume has no section reveals, so the PDF prints from a settled page.
 
