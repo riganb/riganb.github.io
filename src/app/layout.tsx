@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import Script from 'next/script'
 import { Geist_Mono, Instrument_Serif, Inter_Tight } from 'next/font/google'
 import { site } from '@/content/site'
 import { LensProvider } from '@/components/lens/lens-provider'
@@ -79,6 +80,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
           <SiteFooter />
         </LensProvider>
+        {/* Production only, so dev-server visits never count. */}
+        {site.analyticsToken && process.env.NODE_ENV === 'production' && (
+          <Script
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: site.analyticsToken })}
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   )
