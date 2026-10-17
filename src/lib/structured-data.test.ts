@@ -16,7 +16,7 @@ describe('homeGraph', () => {
 
   it('links the person to their profiles and the studio they founded', () => {
     const person = graph[0]
-    expect(person.sameAs).toEqual(site.socials.map((social) => social.href))
+    expect(person.sameAs).toEqual([...site.socials.map((social) => social.href), 'https://verastack.dev/founder/'])
     expect(person.worksFor).toEqual({ '@id': `${site.url}/#verastack` })
   })
 })
@@ -79,11 +79,11 @@ describe('services', () => {
     expect(offers(graph[1])).not.toContain('Coaching & counselling')
   })
 
-  it('points every proof link at a real case study or file', () => {
+  it('points every proof link at a real case study, a file or a studio post', () => {
     const slugs = caseStudies.map((study) => `/work/${study.slug}/`)
     for (const service of services.items)
       for (const proof of service.proof as ServiceProof[])
-        if (proof.href) expect([...slugs, '/llms.txt']).toContain(proof.href)
+        if (proof.href && !proof.href.startsWith('https://verastack.dev/blog/')) expect([...slugs, '/llms.txt']).toContain(proof.href)
   })
 
   it('ships every film, poster and caption file it shows', () => {

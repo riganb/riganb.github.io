@@ -1,6 +1,7 @@
 import { journey, sideProjects, toolbox } from '@/content/about'
 import { caseStudies, type CaseStudy } from '@/content/case-studies'
 import { faq } from '@/content/faq'
+import { writing } from '@/content/writing'
 import { hero } from '@/content/home'
 import { resume } from '@/content/resume'
 import { services } from '@/content/services'
@@ -34,7 +35,7 @@ function person(): Node {
     award: 'Spark Award, Ultraviolette Automotive, 2025',
     knowsAbout: toolbox.columns.flatMap((column) => column.items),
     worksFor: { '@id': ids.studio },
-    sameAs: site.socials.map((social) => social.href),
+    sameAs: [...site.socials.map((social) => social.href), writing.founderPage.href],
     makesOffer: coachingOffer(),
   }
 }
@@ -225,6 +226,11 @@ export function llmsText(): string {
     '',
     `One page, also as a PDF: ${resumeUrl} (${site.url}/resume.pdf)`,
     ...resume.facts.map((fact) => `- ${fact.value}: ${fact.caption.lines.join(' ')}`),
+    '',
+    '## Writing',
+    '',
+    ...writing.items.map((a) => `- [${a.title}](${a.href}): ${a.kind}, ${a.date}. ${a.line}`),
+    `Founder page: ${writing.founderPage.href}`,
     '',
     '## Questions',
     '',

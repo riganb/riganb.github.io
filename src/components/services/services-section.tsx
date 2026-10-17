@@ -12,9 +12,11 @@ const mono = 'font-mono text-[11px] uppercase tracking-[0.08em]'
 function Proof({ proof }: { proof: ServiceProof }) {
   if (!proof.href) return <span>{proof.text}</span>
   const link = 'underline decoration-rule underline-offset-4 transition-colors hover:text-accent'
+  // Studies on the studio blog open in a new tab.
+  if (proof.href.startsWith('http')) return <a href={proof.href} target="_blank" rel="noreferrer" className={link}>{proof.text}</a>
   // A file such as llms.txt is not a page, so it gets a plain link rather than client navigation.
   if (/\.[a-z]+$/.test(proof.href)) return <a href={proof.href} className={link}>{proof.text}</a>
-  // In-site proof (case studies, llms.txt) stays on the portfolio; nothing here leaves the page.
+  // In-site proof (case studies) uses client navigation.
   return (
     <Link href={proof.href} className={link}>
       {proof.text}

@@ -10,12 +10,13 @@ import * as cases from '@/content/case-studies'
 import * as servicesContent from '@/content/services'
 import * as resumeContent from '@/content/resume'
 import * as faqContent from '@/content/faq'
+import * as writingContent from '@/content/writing'
 
 // Built from its code point so this file never contains the character itself.
 const EM_DASH = String.fromCodePoint(0x2014)
 
 // Add every content module here as it is created.
-const modules: Record<string, unknown> = { site, home, work: workContent, studio: studioContent, about, cases, services: servicesContent, resume: resumeContent, faq: faqContent }
+const modules: Record<string, unknown> = { site, home, work: workContent, studio: studioContent, about, cases, services: servicesContent, resume: resumeContent, faq: faqContent, writing: writingContent }
 
 function collectStrings(value: unknown, path: string): Array<[string, string]> {
   if (typeof value === 'string') return [[path, value]]
