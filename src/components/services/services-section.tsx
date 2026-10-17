@@ -71,6 +71,35 @@ export function ServicesSection() {
                     </a>
                   </div>
                 )}
+                {service.courses && (
+                  <div className="mt-8">
+                    <a
+                      href={service.courses.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`${mono} text-muted underline decoration-rule underline-offset-4 transition-colors hover:text-accent`}
+                    >
+                      {service.courses.label} <span aria-hidden="true">↗</span>
+                    </a>
+                    <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+                      {service.courses.items.map((course) => (
+                        <li key={course.href}>
+                          <a
+                            href={course.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group flex h-full flex-col rounded-md border border-rule p-4 transition-colors hover:border-accent"
+                          >
+                            <span className="font-display text-2xl leading-none transition-colors group-hover:text-accent">{course.name}</span>
+                            <span className={`${mono} mt-2 text-muted`}>{course.topic}</span>
+                            <span className="mt-3 text-sm leading-relaxed text-ink-2">{course.detail}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className={`${mono} mt-3 text-muted`}>{service.courses.note}</p>
+                  </div>
+                )}
               </div>
               {service.films && (
                 <div className="col-span-full mt-2 lg:col-span-2 lg:col-start-2">

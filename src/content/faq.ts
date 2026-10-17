@@ -19,7 +19,7 @@ export const faq = {
     },
     {
       q: 'Are the coaching sessions really free?',
-      a: 'The first 15 minutes are. One-to-one sessions for students and developers on building, outreach, interviews and placement prep. Message me on LinkedIn to book one.',
+      a: 'The first 15 minutes are. One-to-one sessions for students and developers on building, outreach, interviews and placement prep. Message me on LinkedIn to book one. Free courses in Rust, Java and TypeScript are on the Origan Open Shelf.',
     },
     {
       q: 'Where are you based?',

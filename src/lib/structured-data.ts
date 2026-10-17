@@ -201,7 +201,10 @@ export function llmsText(): string {
     '',
     ...services.items.map((service) => {
       const offer = service.offer ? ` ${service.offer.line}: ${service.offer.cta.href}` : ''
-      return `- ${service.name}: ${service.blurb} Proof: ${service.proof.map((p) => p.text).join(', ')}.${offer}`
+      const courses = service.courses
+        ? ` ${service.courses.label}: ${service.courses.items.map((c) => `${c.name} (${c.topic}) ${c.href}`).join('; ')}.`
+        : ''
+      return `- ${service.name}: ${service.blurb} Proof: ${service.proof.map((p) => p.text).join(', ')}.${offer}${courses}`
     }),
     `Start a project: ${services.cta.href}`,
     '',
