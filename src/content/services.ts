@@ -108,7 +108,11 @@ export const services = {
       name: 'AI search & SEO',
       blurb:
         "Get named when people ask ChatGPT, Perplexity or Google's AI answers: structured data, llms.txt and pages written to be quoted, on solid SEO foundations.",
-      proof: [{ text: 'This site · structured data and llms.txt', href: '/llms.txt' }, { text: 'verastack.dev' }],
+      proof: [
+        { text: 'This site · structured data and llms.txt', href: '/llms.txt' },
+        { text: 'Study: 96 Indian D2C sites', href: 'https://verastack.dev/blog/ai-search-indian-d2c-brands/' },
+        { text: 'Study: 26 SaaS homepages', href: 'https://verastack.dev/blog/ai-search-saas-homepages/' },
+      ],
     },
     {
       id: 'videos',

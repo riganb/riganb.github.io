@@ -60,6 +60,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #49 | Questions section on the home page with FAQPage JSON-LD (also in llms.txt); VeraStack Labs Organization gains a logo. Brings the verastack.dev AI search check from 86 to 100 |
 | #50 | Android address-bar shift: body uses `min-h-svh` instead of `min-h-dvh`; a test keeps `dvh` to the mobile menu |
 | #51 | Origan Open Shelf under Coaching: Oxidise (DSA in Rust), Filter Coffee (Java Collections), The Switch (JS to TS); also in the FAQ answer and llms.txt. The Origan demo stays unlinked (private) |
+| #52 | Writing section (four bylined verastack.dev posts, plus the founder page); the two AI search studies as proof on the AI search service; founder page in Person sameAs and llms.txt |
 
 ## Names used in this project
 

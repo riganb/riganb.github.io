@@ -2,6 +2,7 @@ import { ViewTransition } from 'react'
 import { Journey } from '@/components/about/journey'
 import { SideProjects } from '@/components/about/side-projects'
 import { Toolbox } from '@/components/about/toolbox'
+import { WritingSection } from '@/components/about/writing-section'
 import { FaqSection } from '@/components/about/faq-section'
 import { JsonLd } from '@/components/json-ld'
 import { Contact } from '@/components/contact/contact'
@@ -27,6 +28,7 @@ export default function Home() {
         <ServicesSection />
         <StudioChapter />
         <SideProjects />
+        <WritingSection />
         <Journey />
         <Toolbox />
         <FaqSection />
