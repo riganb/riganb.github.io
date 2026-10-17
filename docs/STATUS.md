@@ -55,6 +55,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #44 | Cloudflare Web Analytics beacon (cookieless, production builds only; token in `site.analyticsToken`) |
 | #45 | E3 TRION and Cold Stone worded as "Independent client work" under the founder row (resume, PDF, Journey), matching verastack.dev |
 | #46 | Resume share image `/resume/og.png` led by 70,000+; resume is in the LinkedIn Featured section |
+| #47 | Contact form warnings: alert colour token, warning triangle, role=alert and aria-invalid; email checked on blur; failed sends shown the same way. No hCaptcha on the portfolio, so the popup captcha fix does not apply |
 
 ## Names used in this project
 
@@ -74,6 +75,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 
 ## Waiting on Rigan
 
+- [ ] One real contact-note submission from your phone, to confirm delivery to verastack.labs@gmail.com after the warning changes.
 - [ ] E3 configurator and booking screenshots (placeholder on `/work/e3-trion/`, Build sheet).
 - [ ] UV "before" material, as diagrams rather than code (placeholder on `/work/ultraviolette/`).
 - [ ] Cold Stone launch. When it is live and Cold Stone is happy to be shown:
