@@ -97,6 +97,7 @@ export const contact = {
     send: 'Send it',
     idle: 'Lands straight in my inbox.',
     incomplete: 'Fill the underlined blanks and a message.',
+    badEmail: "That email doesn't look right. Check for a typo, like a missing @ or dot.",
     sending: 'Sending...',
     sent: 'Sent. I will reply soon.',
     failed: 'That did not go through.',

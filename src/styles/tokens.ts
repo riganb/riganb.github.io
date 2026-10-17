@@ -9,6 +9,7 @@ export const TOKEN_NAMES = [
   'accent',
   'accent-ink',
   'live',
+  'alert',
   'fill',
   'fill-ink',
 ] as const
@@ -29,6 +30,8 @@ export const palettes: Record<ThemeName, Palette> = {
     accent: '#A74D27',
     'accent-ink': '#F4F1EA',
     live: '#3F8F5A',
+    // Form warnings: an orange-red, darkened on paper so it still reads at 4.5:1.
+    alert: '#B8391C',
     fill: '#E8A55A',
     'fill-ink': '#16140F',
   },
@@ -43,6 +46,7 @@ export const palettes: Record<ThemeName, Palette> = {
     accent: '#E8A55A',
     'accent-ink': '#15130F',
     live: '#6FBF86',
+    alert: '#FF6B4A',
     fill: '#E8A55A',
     'fill-ink': '#15130F',
   },
@@ -62,6 +66,8 @@ export const CONTRAST_RULES: ContrastRule[] = [
   { fg: 'accent', bg: 'paper-2', min: 4.5 },
   { fg: 'accent-ink', bg: 'accent', min: 4.5 },
   { fg: 'live', bg: 'paper', min: 3 },
+  { fg: 'alert', bg: 'paper', min: 4.5 },
+  { fg: 'alert', bg: 'paper-2', min: 4.5 },
   { fg: 'fill-ink', bg: 'fill', min: 4.5 },
 ]
 

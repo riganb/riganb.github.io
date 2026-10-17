@@ -1,15 +1,28 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
+import { useState, type FormEvent, type ReactNode } from 'react'
 import { contact } from '@/content/about'
 import { site } from '@/content/site'
-import { noteMailto, notePayload, noteProblems, type Note } from '@/lib/note'
+import { isEmail, noteMailto, notePayload, noteProblems, type Note } from '@/lib/note'
 
 type Status = 'idle' | 'sending' | 'sent' | 'failed'
 
+// A plain warning: alert colour, a small triangle, announced to screen readers.
+function Warning({ id, children }: { id?: string; children: ReactNode }) {
+  return (
+    <span id={id} role="alert" className="inline-flex items-start gap-1.5 text-alert">
+      <svg aria-hidden="true" viewBox="0 0 16 16" className="mt-px size-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
+        <path d="M8 1.8 15 14H1L8 1.8Z" />
+        <path d="M8 6.2v3.6M8 11.6v.1" strokeLinecap="round" />
+      </svg>
+      <span>{children}</span>
+    </span>
+  )
+}
+
 // Underlined blanks that grow with their text (field-sizing), set in the display serif.
 const blank =
-  'mx-1 min-w-[7ch] border-b border-ink/35 bg-transparent px-0.5 pb-0.5 text-ink outline-none transition-colors [field-sizing:content] placeholder:text-muted focus:border-accent data-[miss]:border-accent'
+  'mx-1 min-w-[7ch] border-b border-ink/35 bg-transparent px-0.5 pb-0.5 text-ink outline-none transition-colors [field-sizing:content] placeholder:text-muted focus:border-accent data-[miss]:border-alert aria-invalid:border-alert'
 
 // A short note that reads as a sentence, sent through Web3Forms (after the VeraStack Labs
 // enquiry form, without its project fields). A honeypot catches bots; if sending fails, the note
@@ -19,11 +32,14 @@ export function NoteForm() {
   const [bot, setBot] = useState(false)
   const [tried, setTried] = useState(false)
   const [status, setStatus] = useState<Status>('idle')
+  // Shown when the email field is left holding something that is not an address; never mid-typing.
+  const [badEmail, setBadEmail] = useState(false)
   const problems = noteProblems(note)
   const ready = Object.keys(problems).length === 0
   const locked = status === 'sending' || status === 'sent'
   const miss = (field: keyof Note) => (tried && problems[field] ? '' : undefined)
   const edit = (field: keyof Note) => (value: string) => setNote((current) => ({ ...current, [field]: value }))
+  const invalid = (field: keyof Note) => (miss(field) !== undefined || (field === 'email' && badEmail) ? true : undefined)
 
   const send = async (event: FormEvent) => {
     event.preventDefault()
@@ -49,7 +65,7 @@ export function NoteForm() {
     }
   }
 
-  const hint = tried && !ready ? contact.note.incomplete : status === 'sending' ? contact.note.sending : contact.note.idle
+  const hint = status === 'sending' ? contact.note.sending : contact.note.idle
 
   return (
     // POST, so a submit before the script loads never puts the note in a URL.
@@ -67,6 +83,7 @@ export function NoteForm() {
             readOnly={locked}
             value={note.name}
             onChange={(e) => edit('name')(e.target.value)}
+            aria-invalid={invalid('name')}
             data-miss={miss('name')}
             className={blank}
           />
@@ -82,13 +99,24 @@ export function NoteForm() {
             placeholder="you@company.com"
             readOnly={locked}
             value={note.email}
-            onChange={(e) => edit('email')(e.target.value)}
+            onChange={(e) => {
+              edit('email')(e.target.value)
+              if (badEmail && isEmail(e.target.value)) setBadEmail(false)
+            }}
+            onBlur={(e) => setBadEmail(e.target.value.trim() !== '' && !isEmail(e.target.value))}
+            aria-invalid={invalid('email')}
+            aria-describedby={badEmail ? 'note-email-warning' : undefined}
             data-miss={miss('email')}
             className={blank}
           />
         </label>
         .
       </p>
+      {badEmail && (
+        <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.08em]">
+          <Warning id="note-email-warning">{contact.note.badEmail}</Warning>
+        </p>
+      )}
       <label className="mt-4 block">
         <span className="sr-only">Your message</span>
         <textarea
@@ -99,8 +127,9 @@ export function NoteForm() {
           readOnly={locked}
           value={note.message}
           onChange={(e) => edit('message')(e.target.value)}
+          aria-invalid={invalid('message')}
           data-miss={miss('message')}
-          className="block w-full resize-none border-b border-ink/35 bg-transparent pb-2 text-base leading-relaxed text-ink outline-none transition-colors [field-sizing:content] placeholder:text-muted focus:border-accent data-[miss]:border-accent"
+          className="block w-full resize-none border-b border-ink/35 bg-transparent pb-2 text-base leading-relaxed text-ink outline-none transition-colors [field-sizing:content] placeholder:text-muted focus:border-accent data-[miss]:border-alert aria-invalid:border-alert"
         />
       </label>
 
@@ -125,12 +154,14 @@ export function NoteForm() {
           </button>
           <span aria-live="polite" className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
             {status === 'failed' ? (
-              <>
+              <Warning>
                 {contact.note.failed}{' '}
-                <a href={noteMailto(site.email, note)} className="text-accent underline underline-offset-4">
+                <a href={noteMailto(site.email, note)} className="underline underline-offset-4">
                   {contact.note.fallback}
                 </a>
-              </>
+              </Warning>
+            ) : tried && !ready ? (
+              <Warning>{contact.note.incomplete}</Warning>
             ) : (
               hint
             )}
