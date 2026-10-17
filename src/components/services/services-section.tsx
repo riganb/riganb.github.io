@@ -26,7 +26,7 @@ function Proof({ proof }: { proof: ServiceProof }) {
 // the work index (the proof) and the studio chapter (who does the work).
 export function ServicesSection() {
   return (
-    <section data-reveal="" id="services" aria-labelledby="services-title" className="border-b border-rule">
+    <section data-enter="" id="services" aria-labelledby="services-title" className="border-b border-rule">
       <div className="mx-auto max-w-[1320px] px-6 pb-10 pt-24 md:px-10 md:pt-32">
         <p className={`${mono} text-muted`}>
           <DecryptText text={services.label} />

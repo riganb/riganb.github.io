@@ -94,7 +94,7 @@ export default function ResumePage() {
           ))}
         </p>
 
-        <section data-reveal="" aria-labelledby="experience" className="mt-20">
+        <section aria-labelledby="experience" className="mt-20">
           <h2 id="experience" className={`${mono} border-b border-ink pb-3 text-muted`}>
             Experience
           </h2>
@@ -115,7 +115,7 @@ export default function ResumePage() {
           </ol>
         </section>
 
-        <section data-reveal="" aria-labelledby="builds" className="mt-14">
+        <section aria-labelledby="builds" className="mt-14">
           <h2 id="builds" className={`${mono} border-b border-ink pb-3 text-muted`}>
             Selected builds
           </h2>
@@ -128,7 +128,7 @@ export default function ResumePage() {
           </ul>
         </section>
 
-        <section data-reveal="" aria-labelledby="skills" className="mt-14">
+        <section aria-labelledby="skills" className="mt-14">
           <h2 id="skills" className={`${mono} border-b border-ink pb-3 text-muted`}>
             Skills
           </h2>
@@ -142,7 +142,7 @@ export default function ResumePage() {
           </dl>
         </section>
 
-        <section data-reveal="" aria-labelledby="also" className="mt-14">
+        <section aria-labelledby="also" className="mt-14">
           <h2 id="also" className={`${mono} border-b border-ink pb-3 text-muted`}>
             Education and more
           </h2>

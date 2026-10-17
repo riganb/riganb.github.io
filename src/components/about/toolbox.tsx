@@ -3,7 +3,7 @@ import { toolbox } from '@/content/about'
 
 export function Toolbox() {
   return (
-    <section data-reveal="" aria-labelledby="toolbox-title" className="border-b border-rule">
+    <section data-enter="" aria-labelledby="toolbox-title" className="border-b border-rule">
       <div className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-28">
         <h2 id="toolbox-title" className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
           <DecryptText text={toolbox.label} />

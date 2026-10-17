@@ -8,8 +8,8 @@ import { useEffect, useRef } from 'react'
 // - Page rise: <main> fades up on the first load. Once the visitor navigates, data-navigated turns
 //   it off, so it never doubles the view-transition slides between the work index and case studies.
 //   The resume opts back in with .page-rise.
-// - Section reveal: [data-reveal] sections fade up as they scroll in. Sections already on screen
-//   are marked shown before data-reveal-ready is set, so nothing above the fold blinks.
+// - Section reveal: [data-enter] sections fade up as they scroll in. Sections already on screen
+//   are marked shown before data-enter-ready is set, so nothing above the fold blinks.
 export function PageMotion() {
   const pathname = usePathname()
   const first = useRef(pathname)
@@ -33,12 +33,12 @@ export function PageMotion() {
   useEffect(() => {
     const root = document.documentElement
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const sections = [...document.querySelectorAll<HTMLElement>('[data-reveal]:not([data-revealed])')]
+    const sections = [...document.querySelectorAll<HTMLElement>('[data-enter]:not([data-entered])')]
     const show = (el: HTMLElement) => {
-      el.dataset.revealed = ''
+      el.dataset.entered = ''
     }
     for (const el of sections) if (el.getBoundingClientRect().top < innerHeight) show(el)
-    root.dataset.revealReady = ''
+    root.dataset.enterReady = ''
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -50,7 +50,7 @@ export function PageMotion() {
       },
       { rootMargin: '0px 0px -12% 0px' },
     )
-    for (const el of sections) if (!('revealed' in el.dataset)) observer.observe(el)
+    for (const el of sections) if (!('entered' in el.dataset)) observer.observe(el)
     return () => observer.disconnect()
   }, [pathname])
 
