@@ -61,6 +61,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #50 | Android address-bar shift: body uses `min-h-svh` instead of `min-h-dvh`; a test keeps `dvh` to the mobile menu |
 | #51 | Origan Open Shelf under Coaching: Oxidise (DSA in Rust), Filter Coffee (Java Collections), The Switch (JS to TS); also in the FAQ answer and llms.txt. The Origan demo stays unlinked (private) |
 | #52 | Writing section (four bylined verastack.dev posts, plus the founder page); the two AI search studies as proof on the AI search service; founder page in Person sameAs and llms.txt |
+| #53 | Writing gains the YC Summer 2026 study; The Switch card now reads 13 lessons (course complete), shelf note counts 46 lessons |
 
 ## Names used in this project
 
