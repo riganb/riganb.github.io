@@ -54,6 +54,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #43 | Resume PDF rebalanced: roomier rows, 9.5pt body with large numerals, education two to a row in print, a clear bottom margin |
 | #44 | Cloudflare Web Analytics beacon (cookieless, production builds only; token in `site.analyticsToken`) |
 | #45 | E3 TRION and Cold Stone worded as "Independent client work" under the founder row (resume, PDF, Journey), matching verastack.dev |
+| #46 | Resume share image `/resume/og.png` led by 70,000+; resume is in the LinkedIn Featured section |
 
 ## Names used in this project
 

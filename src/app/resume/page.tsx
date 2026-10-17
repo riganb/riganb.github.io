@@ -6,14 +6,16 @@ import { site } from '@/content/site'
 import { splitEmphasis } from '@/lib/emphasis'
 import { resumeSearchTitle } from '@/lib/structured-data'
 
+const image = { ...site.ogImage, url: '/resume/og.png', alt: `${site.name}: 70,000+ EV bookings through flows I built` }
+
 const description = `${site.name}, founder of VeraStack Labs. ${resume.facts.map((fact) => `${fact.value} ${fact.caption.lines.join(' ')}`).join(' ')}`
 
 export const metadata: Metadata = {
   title: resumeSearchTitle(),
   description,
   alternates: { canonical: '/resume/' },
-  openGraph: { title: resumeSearchTitle(), description, url: '/resume/', type: 'profile', siteName: site.name, images: [site.ogImage] },
-  twitter: { card: 'summary_large_image', title: resumeSearchTitle(), description, images: [site.ogImage] },
+  openGraph: { title: resumeSearchTitle(), description, url: '/resume/', type: 'profile', siteName: site.name, images: [image] },
+  twitter: { card: 'summary_large_image', title: resumeSearchTitle(), description, images: [image] },
 }
 
 const mono = 'font-mono text-[11px] uppercase tracking-[0.08em]'
