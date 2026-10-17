@@ -53,7 +53,7 @@ export const resume = {
       what: 'VeraStack Labs, founder',
       lines: [
         'Origan, rigseed, Riggit, Mehfil and Oinkbuns, built and shipped.',
-        'Client work: E3 TRION, *paid bookings on launch day*. Cold Stone Arabia, *76 stores*, launching.',
+        'Independent client work: E3 TRION, *paid bookings on launch day*. Cold Stone Arabia, *76 stores*, launching.',
         'verastack.dev: Lighthouse *100* for SEO and best practices, all *20 pages* indexed by Google.',
       ],
     },

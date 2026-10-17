@@ -61,7 +61,7 @@ export const journey = {
     {
       when: '2026',
       what: 'Founder, VeraStack Labs',
-      detail: 'Origan, rigseed, Riggit, Mehfil and Oinkbuns. Client work for E3 Electric.AI and Cold Stone Arabia.',
+      detail: 'Origan, rigseed, Riggit, Mehfil and Oinkbuns. Independent client work for E3 Electric.AI and Cold Stone Arabia.',
     },
     {
       when: '2024 – 2026',
