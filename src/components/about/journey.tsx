@@ -5,7 +5,7 @@ import { journey } from '@/content/about'
 
 export function Journey() {
   return (
-    <section id="journey" aria-labelledby="journey-title" className="border-b border-rule">
+    <section data-reveal="" id="journey" aria-labelledby="journey-title" className="border-b border-rule">
       <div className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-32">
         <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted"><DecryptText text={journey.label} /></p>
         <h2 id="journey-title" className="mt-4 font-display text-[clamp(2.5rem,6vw,5rem)] leading-none tracking-[-0.02em]">

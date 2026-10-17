@@ -14,7 +14,7 @@ export function WorkIndex() {
   const fine = useMediaQuery(FINE_POINTER_QUERY)
 
   return (
-    <section id="work" aria-labelledby="work-title" className="border-b border-rule">
+    <section data-reveal="" id="work" aria-labelledby="work-title" className="border-b border-rule">
       <div className="mx-auto max-w-[1320px] px-6 pb-10 pt-24 md:px-10 md:pt-32">
         <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted"><DecryptText text={work.label} /></p>
         <h2 id="work-title" className="mt-4 font-display text-[clamp(2.5rem,6vw,5rem)] leading-none tracking-[-0.02em]">

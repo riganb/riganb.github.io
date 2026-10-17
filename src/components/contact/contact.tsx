@@ -11,7 +11,7 @@ const signOff = 'font-display text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.92] tr
 
 export function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-title">
+    <section data-reveal="" id="contact" aria-labelledby="contact-title">
       <div className="mx-auto max-w-[1320px] px-6 py-28 md:px-10 md:py-40">
         <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted"><DecryptText text={contact.label} /></p>
         <HonestText honest={contact.signOff.honest} layerClassName={signOff} className="mt-6">

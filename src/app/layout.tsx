@@ -6,6 +6,7 @@ import { site } from '@/content/site'
 import { LensProvider } from '@/components/lens/lens-provider'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteNav } from '@/components/site-nav'
+import { PageMotion } from '@/components/motion/page-motion'
 import { SmoothScroll } from '@/components/smooth-scroll'
 import { SpotlightTracker } from '@/components/spotlight-tracker'
 import { themeScript } from '@/lib/theme'
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <LensProvider>
           <SmoothScroll />
           <SpotlightTracker />
+          <PageMotion />
           <SiteNav />
           {children}
           <SiteFooter />

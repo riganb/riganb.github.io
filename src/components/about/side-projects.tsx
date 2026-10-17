@@ -3,7 +3,7 @@ import { sideProjects } from '@/content/about'
 
 export function SideProjects() {
   return (
-    <section aria-labelledby="side-projects-title" className="border-b border-rule">
+    <section data-reveal="" aria-labelledby="side-projects-title" className="border-b border-rule">
       <div className="mx-auto max-w-[1320px] px-6 pb-4 pt-24 md:px-10 md:pt-32">
         <h2 id="side-projects-title" className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
           <DecryptText text={sideProjects.label} />

@@ -45,7 +45,7 @@ const profiles = [
 
 export default function ResumePage() {
   return (
-    <main id="main" className="resume-page">
+    <main id="main" className="resume-page page-rise">
       <div className="mx-auto max-w-[1100px] px-6 pb-24 pt-32 md:px-10 md:pt-40">
         <div className="resume-head flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
           <div>
@@ -94,7 +94,7 @@ export default function ResumePage() {
           ))}
         </p>
 
-        <section aria-labelledby="experience" className="mt-20">
+        <section data-reveal="" aria-labelledby="experience" className="mt-20">
           <h2 id="experience" className={`${mono} border-b border-ink pb-3 text-muted`}>
             Experience
           </h2>
@@ -115,7 +115,7 @@ export default function ResumePage() {
           </ol>
         </section>
 
-        <section aria-labelledby="builds" className="mt-14">
+        <section data-reveal="" aria-labelledby="builds" className="mt-14">
           <h2 id="builds" className={`${mono} border-b border-ink pb-3 text-muted`}>
             Selected builds
           </h2>
@@ -128,7 +128,7 @@ export default function ResumePage() {
           </ul>
         </section>
 
-        <section aria-labelledby="skills" className="mt-14">
+        <section data-reveal="" aria-labelledby="skills" className="mt-14">
           <h2 id="skills" className={`${mono} border-b border-ink pb-3 text-muted`}>
             Skills
           </h2>
@@ -142,7 +142,7 @@ export default function ResumePage() {
           </dl>
         </section>
 
-        <section aria-labelledby="also" className="mt-14">
+        <section data-reveal="" aria-labelledby="also" className="mt-14">
           <h2 id="also" className={`${mono} border-b border-ink pb-3 text-muted`}>
             Education and more
           </h2>
