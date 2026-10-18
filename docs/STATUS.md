@@ -63,6 +63,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #52 | Writing section (four bylined verastack.dev posts, plus the founder page); the two AI search studies as proof on the AI search service; founder page in Person sameAs and llms.txt |
 | #53 | Writing gains the YC Summer 2026 study; The Switch card now reads 13 lessons (course complete), shelf note counts 46 lessons |
 | #54 | Writing gains "Funded this fortnight: six AI agents for the back office" (18 Oct) |
+| #55 | Writing gains "GEO is the new SEO"; the AI search service and FAQ say "AEO and GEO" to match verastack.dev |
 
 ## Names used in this project
 
