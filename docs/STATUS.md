@@ -66,6 +66,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #55 | Writing gains "GEO is the new SEO"; the AI search service and FAQ say "AEO and GEO" to match verastack.dev |
 | #56 | SaaS Launch Kit as the headline package in Services ($9,500 fixed, 4 weeks), linked to verastack.dev/launch-kit, and in llms.txt |
 | #57 | Dark is now the default theme (a stored light choice still wins; print stays light); resume band captions wrap inside their column under the honest lens |
+| #58 | Writing gains "The cobbler's shoes: AI search scores of 25 software studios" |
 
 ## Names used in this project
 
