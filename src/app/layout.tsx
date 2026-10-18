@@ -60,6 +60,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
+      data-theme="dark"
       suppressHydrationWarning
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >

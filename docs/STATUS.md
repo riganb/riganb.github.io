@@ -65,6 +65,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #54 | Writing gains "Funded this fortnight: six AI agents for the back office" (18 Oct) |
 | #55 | Writing gains "GEO is the new SEO"; the AI search service and FAQ say "AEO and GEO" to match verastack.dev |
 | #56 | SaaS Launch Kit as the headline package in Services ($9,500 fixed, 4 weeks), linked to verastack.dev/launch-kit, and in llms.txt |
+| #57 | Dark is now the default theme (a stored light choice still wins; print stays light); resume band captions wrap inside their column under the honest lens |
 
 ## Names used in this project
 
@@ -102,6 +103,8 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 Nothing planned right now. Add ideas here as they come up.
 
 ## Known trade-offs
+
+- **Theme default.** Dark unless the visitor picked light (stored in localStorage). Print always uses the light palette, so the resume PDF is unaffected. Pages are paired line for line under the honest lens; copy that wraps freely (the resume band captions) uses `HonestText wrap` so the overlay wraps too.
 
 - **Viewport units.** `dvh` changes as Android Chrome's address bar moves, so only the mobile menu uses it (enforced by `src/styles/viewport.test.ts`). Full-height sheets use `min-h-screen` (100vh, which mobile Chrome holds at the large viewport); the body uses `min-h-svh`. ScrollTrigger keeps `ignoreMobileResize`.
 

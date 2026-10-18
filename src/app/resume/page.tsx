@@ -75,7 +75,7 @@ export default function ResumePage() {
               <a href={`#${fact.target}`} className={`resume-num block font-display text-[clamp(4rem,9vw,6.5rem)] leading-[0.85] tracking-[-0.03em]${index === 0 ? ' text-accent' : ' hover:text-accent'} transition-colors`}>
                 {fact.value}
               </a>
-              <HonestText honest={fact.caption.honest} layerClassName={caption} toggle={false} className="resume-caption mt-4 max-w-[34ch]">
+              <HonestText honest={fact.caption.honest} layerClassName={caption} toggle={false} wrap className="resume-caption mt-4 max-w-[34ch]">
                 <p className={`${caption} text-ink-2`}>{fact.caption.lines[0]}</p>
               </HonestText>
             </div>
