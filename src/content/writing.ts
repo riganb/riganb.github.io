@@ -8,6 +8,13 @@ export const writing = {
   founderPage: { label: 'The founder page on verastack.dev', href: 'https://verastack.dev/founder/' },
   items: [
     {
+      title: 'Funded this fortnight: six AI agents for the back office',
+      kind: 'Startups',
+      date: '18 Oct 2026',
+      line: '$136.8M raised by six startups from 3 to 17 Oct, and how AI search reads their homepages.',
+      href: 'https://verastack.dev/blog/funded-this-fortnight-back-office-agents/',
+    },
+    {
       title: 'AI search scores of YC Summer 2026, by space',
       kind: 'Study',
       date: '17 Oct 2026',
