@@ -1,5 +1,5 @@
-// Questions people ask before they reach out. Shown on the home page and marked up as FAQPage,
-// the format answer engines quote most readily. Answers stay to what the rest of the site proves.
+// Questions people ask before they reach out. Shown on the home page as plain answers (what answer
+// engines can quote) and marked up as FAQPage as good practice. Answers stay to what the site proves.
 export type Question = { q: string; a: string }
 
 export const faq = {
