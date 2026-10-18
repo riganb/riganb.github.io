@@ -2,9 +2,9 @@ import type { ThemeName } from '@/styles/tokens'
 
 export const THEME_STORAGE_KEY = 'theme'
 
-// Light is the default; the site goes dark only when the visitor chooses it.
+// Dark is the default; the site goes light only when the visitor chooses it.
 export function resolveTheme(stored: string | null): ThemeName {
-  return stored === 'dark' ? 'dark' : 'light'
+  return stored === 'light' ? 'light' : 'dark'
 }
 
 export function nextTheme(current: ThemeName): ThemeName {
@@ -12,7 +12,7 @@ export function nextTheme(current: ThemeName): ThemeName {
 }
 
 // Runs before first paint so a stored choice never flashes the wrong theme.
-// Without a stored choice the page stays light.
+// Without a stored choice the page goes dark.
 export const themeScript = `(function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem(${JSON.stringify(
   THEME_STORAGE_KEY,
-)});if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}})()`
+)});document.documentElement.dataset.theme=t==='light'?'light':'dark'}catch(e){document.documentElement.dataset.theme='dark'}})()`

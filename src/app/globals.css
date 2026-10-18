@@ -56,6 +56,10 @@ html[data-lens='hover'] .pair-line {
   white-space: nowrap;
 }
 
+html[data-lens='hover'] .honest-wrap .pair-line {
+  white-space: normal;
+}
+
 /* Kept for keyboard and screen-reader users; visible only when focused. */
 .honest-toggle:not(:focus-visible) {
   position: absolute;

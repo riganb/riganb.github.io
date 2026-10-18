@@ -81,5 +81,7 @@ export function tokensToCss(): string {
   return [
     `:root{${declarations('light')}}`,
     `:root[data-theme="dark"]{${declarations('dark')}}`,
+    // Paper is always light, so the resume PDF prints ink on white whatever the screen theme.
+    `@media print{:root[data-theme="dark"]{${declarations('light')}}}`,
   ].join('')
 }

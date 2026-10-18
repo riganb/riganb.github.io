@@ -7,12 +7,12 @@ describe('resolveTheme', () => {
     expect(resolveTheme('light')).toBe('light')
   })
 
-  it('defaults to light, whatever the system prefers', () => {
-    expect(resolveTheme(null)).toBe('light')
+  it('defaults to dark, whatever the system prefers', () => {
+    expect(resolveTheme(null)).toBe('dark')
   })
 
   it('ignores garbage in storage', () => {
-    expect(resolveTheme('purple')).toBe('light')
+    expect(resolveTheme('purple')).toBe('dark')
   })
 })
 
@@ -26,7 +26,7 @@ describe('nextTheme', () => {
 describe('themeScript', () => {
   it('reads the storage key and only applies valid values', () => {
     expect(themeScript).toContain(`localStorage.getItem("${THEME_STORAGE_KEY}")`)
-    expect(themeScript).toContain(`t==='light'||t==='dark'`)
+    expect(themeScript).toContain(`t==='light'?'light':'dark'`)
   })
 
   it('marks the document as having JavaScript', () => {

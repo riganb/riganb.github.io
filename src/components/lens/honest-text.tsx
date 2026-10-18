@@ -12,6 +12,9 @@ type HonestTextProps = {
   className?: string
   /** A screen-reader and keyboard toggle; off for short labels such as spec rows. */
   toggle?: boolean
+  /** For copy that wraps freely (one long line, not paired line for line): the honest overlay wraps
+   *  inside the same width instead of running past it. */
+  wrap?: boolean
   children: ReactNode
 }
 
@@ -28,6 +31,7 @@ export function HonestText({
   layerClassName,
   className = '',
   toggle = true,
+  wrap = false,
   children,
 }: HonestTextProps) {
   const lens = useLens()
@@ -42,7 +46,7 @@ export function HonestText({
 
   return (
     <div
-      className={`relative ${className}`}
+      className={`relative ${wrap ? 'honest-wrap ' : ''}${className}`}
       onPointerEnter={() => lens?.setActive(true)}
       onPointerLeave={() => lens?.setActive(false)}
     >
