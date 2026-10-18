@@ -8,6 +8,13 @@ export const writing = {
   founderPage: { label: 'The founder page on verastack.dev', href: 'https://verastack.dev/founder/' },
   items: [
     {
+      title: "GEO is the new SEO: what changes and what doesn't",
+      kind: 'Guide',
+      date: '18 Oct 2026',
+      line: 'GEO, AEO and SEO side by side: what stays plain SEO and what changes.',
+      href: 'https://verastack.dev/blog/geo-is-the-new-seo/',
+    },
+    {
       title: 'Funded this fortnight: six AI agents for the back office',
       kind: 'Startups',
       date: '18 Oct 2026',

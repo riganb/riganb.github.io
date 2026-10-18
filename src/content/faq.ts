@@ -15,7 +15,7 @@ export const faq = {
     },
     {
       q: 'What does VeraStack Labs build?',
-      a: 'Web experiences and configurators, web apps, marketing sites, search and AI visibility work, product films and apps, from first sketch to launch.',
+      a: 'Web experiences and configurators, web apps, marketing sites, AI search (AEO and GEO) and SEO, product films and apps, from first sketch to launch.',
     },
     {
       q: 'Are the coaching sessions really free?',
