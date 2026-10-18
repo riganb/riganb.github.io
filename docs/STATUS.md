@@ -68,6 +68,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #57 | Dark is now the default theme (a stored light choice still wins; print stays light); resume band captions wrap inside their column under the honest lens |
 | #58 | Writing gains "The cobbler's shoes: AI search scores of 25 software studios" |
 | #59 | AI search copy softened: plain answers lead, structured data and llms.txt framed as good practice rather than what gets a site cited |
+| #60 | Open Shelf gains Off the Syllabus (six articles); course cards two by two; note counts 46 lessons and 6 articles |
 
 ## Names used in this project
 

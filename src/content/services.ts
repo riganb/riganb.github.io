@@ -62,7 +62,7 @@ export const services = {
       courses: {
         label: "Free courses on Origan's Open Shelf",
         href: 'https://origan.verastack.dev/resources/',
-        note: '46 lessons, all free with no sign-up. Every code sample compiles and passes tests in CI before a lesson goes live.',
+        note: '46 lessons and 6 articles, all free with no sign-up. Every code sample compiles and passes tests in CI before a lesson goes live.',
         items: [
           {
             name: 'Oxidise',
@@ -81,6 +81,12 @@ export const services = {
             topic: 'JavaScript to TypeScript',
             detail: '13 lessons with a type-stripping toggle and a narrowing stepper, ending in a printable cheat sheet.',
             href: 'https://origan.verastack.dev/learn/js-to-ts/',
+          },
+          {
+            name: 'Off the Syllabus',
+            topic: 'Web and tools',
+            detail: 'Six stand-alone articles, from Core Web Vitals and JSON-LD to what happens when you type a URL.',
+            href: 'https://origan.verastack.dev/learn/off-the-syllabus/',
           },
         ],
       },
