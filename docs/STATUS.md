@@ -64,6 +64,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #53 | Writing gains the YC Summer 2026 study; The Switch card now reads 13 lessons (course complete), shelf note counts 46 lessons |
 | #54 | Writing gains "Funded this fortnight: six AI agents for the back office" (18 Oct) |
 | #55 | Writing gains "GEO is the new SEO"; the AI search service and FAQ say "AEO and GEO" to match verastack.dev |
+| #56 | SaaS Launch Kit as the headline package in Services ($9,500 fixed, 4 weeks), linked to verastack.dev/launch-kit, and in llms.txt |
 
 ## Names used in this project
 

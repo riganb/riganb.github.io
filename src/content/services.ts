@@ -40,6 +40,13 @@ export const services = {
     honest: ['Things I say yes to', 'and then overbuild.'],
   } satisfies LinePair,
   note: 'Coaching is one-to-one with me. Everything else runs through VeraStack Labs, the studio I founded.',
+  // The studio's headline package (verastack.dev/launch-kit), shown above the list.
+  launchKit: {
+    label: 'Headline package',
+    name: 'SaaS Launch Kit',
+    line: 'Brand, a 5-page launch site, a 60-second launch film, and AEO and GEO built in. One team, 4 weeks, $9,500 fixed.',
+    cta: { label: 'See the Launch Kit', href: 'https://verastack.dev/launch-kit/' },
+  },
   items: [
     {
       id: 'coaching',
