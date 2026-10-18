@@ -100,7 +100,7 @@ export function ServicesSection() {
                     >
                       {service.courses.label} <span aria-hidden="true">↗</span>
                     </a>
-                    <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+                    <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                       {service.courses.items.map((course) => (
                         <li key={course.href}>
                           <a
