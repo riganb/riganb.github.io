@@ -199,6 +199,7 @@ export function llmsText(): string {
     '## Services',
     '',
     services.note,
+    `${services.launchKit.label}: ${services.launchKit.name}. ${services.launchKit.line} ${services.launchKit.cta.href}`,
     '',
     ...services.items.map((service) => {
       const offer = service.offer ? ` ${service.offer.line}: ${service.offer.cta.href}` : ''

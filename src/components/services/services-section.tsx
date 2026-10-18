@@ -37,6 +37,23 @@ export function ServicesSection() {
           <RevealLines as="h2" id="services-title" lines={services.heading.lines} className={heading} />
         </HonestText>
         <p className="mt-6 max-w-[56ch] leading-relaxed text-ink-2">{services.note}</p>
+        <a
+          href={services.launchKit.cta.href}
+          target="_blank"
+          rel="noreferrer"
+          className="group mt-10 flex flex-col gap-4 rounded-md border border-ink p-6 transition-colors hover:border-accent md:flex-row md:items-center md:justify-between md:gap-10 md:p-8"
+        >
+          <span>
+            <span className={`${mono} text-accent`}>{services.launchKit.label}</span>
+            <span className="mt-2 block font-display text-[clamp(1.75rem,3.4vw,2.75rem)] leading-none tracking-[-0.01em]">
+              {services.launchKit.name}
+            </span>
+            <span className="mt-3 block max-w-[60ch] leading-relaxed text-ink-2">{services.launchKit.line}</span>
+          </span>
+          <span className={`${mono} inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-ink px-4 py-2 text-paper transition-colors group-hover:bg-accent group-hover:text-accent-ink md:self-center`}>
+            {services.launchKit.cta.label} <span aria-hidden="true">↗</span>
+          </span>
+        </a>
       </div>
 
       <ol className="border-t border-ink">
