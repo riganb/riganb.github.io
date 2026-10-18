@@ -8,6 +8,13 @@ export const writing = {
   founderPage: { label: 'The founder page on verastack.dev', href: 'https://verastack.dev/founder/' },
   items: [
     {
+      title: "The cobbler's shoes: AI search scores of 25 software studios",
+      kind: 'Study',
+      date: '18 Oct 2026',
+      line: "Median 81 and 21 of 25 with no FAQ: how 25 software studios' own homepages read to AI answers.",
+      href: 'https://verastack.dev/blog/ai-search-software-studios/',
+    },
+    {
       title: "GEO is the new SEO: what changes and what doesn't",
       kind: 'Guide',
       date: '18 Oct 2026',
