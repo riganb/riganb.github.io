@@ -70,6 +70,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #59 | AI search copy softened: plain answers lead, structured data and llms.txt framed as good practice rather than what gets a site cited |
 | #60 | Open Shelf gains Off the Syllabus (six articles); course cards two by two; note counts 46 lessons and 6 articles |
 | #61 | Open Shelf note mentions its 11 interactive blocks |
+| #62 | Portfolio film (0:54) in the Product videos reel: 1080p transcode, closing-lockup poster, captions from the film's SRT |
 
 ## Names used in this project
 

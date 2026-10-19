@@ -168,6 +168,14 @@ export const services = {
       captions: '/videos/bruno.vtt',
       note: 'Independent film, not made for the Bruno team',
     },
+    {
+      id: 'portfolio',
+      title: 'Portfolio film',
+      length: '0:54',
+      src: '/videos/portfolio.mp4',
+      poster: '/videos/portfolio-poster.jpg',
+      captions: '/videos/portfolio.vtt',
+    },
   ] satisfies Film[],
   cta: { label: 'Start a project with VeraStack Labs', href: 'https://verastack.dev/#contact' },
 }
