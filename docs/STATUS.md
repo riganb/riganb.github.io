@@ -71,6 +71,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #60 | Open Shelf gains Off the Syllabus (six articles); course cards two by two; note counts 46 lessons and 6 articles |
 | #61 | Open Shelf note mentions its 11 interactive blocks |
 | #62 | Portfolio film (0:54) in the Product videos reel: 1080p transcode, closing-lockup poster, captions from the film's SRT |
+| #63 | Open Shelf case study (`/work/open-shelf/`): CI-verified samples, accessible stepper, 46 lessons; work row, next chain E3 to UV to Open Shelf to E3 |
 
 ## Names used in this project
 
@@ -97,7 +98,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 - [ ] Cold Stone launch. When it is live and Cold Stone is happy to be shown:
   1. Move its study from `draftCaseStudies` to `caseStudies` in `src/content/case-studies.ts`.
   2. Set `caseStudy: true` and remove `status` on its row in `src/content/work.ts`.
-  3. Put it back in the `next` chain (currently E3 → UV → E3).
+  3. Put it back in the `next` chain (currently E3 → UV → Open Shelf → E3).
   4. Replace the "The new site" placeholder with real screens.
   5. Consider a cursor preview image for its work row.
 - [ ] A cal.com link. "Get on a call" on the resume opens WhatsApp until then; swap `site.call` in `src/content/site.ts`.

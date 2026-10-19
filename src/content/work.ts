@@ -40,6 +40,15 @@ export const work = {
       preview: { src: '/work/ultraviolette/preview.webp', alt: 'The Ultraviolette X-47 configurator' },
     },
     {
+      slug: 'open-shelf',
+      client: 'Origan, The Open Shelf',
+      discipline: 'Free courses and lessons',
+      year: '2026',
+      note: '46 free lessons in Rust, Java and TypeScript, every code sample compiled and tested in CI.',
+      caseStudy: true,
+      preview: { src: '/work/open-shelf/preview.webp', alt: 'An Oxidise lesson on the Open Shelf' },
+    },
+    {
       slug: 'suggaa',
       client: 'Suggaa Ventures',
       discipline: 'Payments and pricing data',
