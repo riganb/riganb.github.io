@@ -175,6 +175,76 @@ export const caseStudies: CaseStudy[] = [
       { title: 'Serverless backend', body: 'Lambda, API Gateway and S3 with a single-table DynamoDB design.' },
       { title: 'Security fix', body: 'A critical session authentication flaw found, patched and designed out.' },
     ],
+    next: 'open-shelf',
+  },
+  {
+    slug: 'open-shelf',
+    client: 'Origan, The Open Shelf',
+    title: 'Free courses where *every sample compiles*',
+    year: '2026',
+    role: 'VeraStack Labs, founder',
+    stack: ['Next.js', 'TypeScript', 'Rust', 'Java', 'GitHub Actions'],
+    live: { label: 'origan.verastack.dev/resources', href: 'https://origan.verastack.dev/resources/' },
+    intro: [
+      'Placement prep is mostly notes',
+      'with code nobody ran. So we',
+      'wrote free courses where every',
+      'sample is compiled and tested.',
+    ],
+    sheets: [
+      {
+        label: 'Before',
+        title: 'Notes nobody ran',
+        body: [
+          'Origan prepares engineering students for placements from first semester to the final drive. Much of the free material they find shows code as screenshots or snippets that were never compiled, so mistakes travel with it.',
+          'The Open Shelf is the free half of Origan: open to anyone, no sign-up, made by VeraStack Labs.',
+        ],
+        media: {
+          kind: 'image',
+          src: '/work/open-shelf/shelf.webp',
+          alt: 'The Open Shelf: free study material, with filters for Rust, Java, TypeScript and Web and a search box',
+          width: 1440,
+          height: 900,
+          caption: 'The Open Shelf, with filters and search across courses and lessons.',
+        },
+      },
+      {
+        label: 'Build',
+        title: 'Every sample is a real file',
+        body: [
+          'Each code sample lives as a file that CI compiles and tests before a page goes live: cargo test for Rust, plus a rustc check on every Playground link; javac -Xlint:all -Werror with assertions for Java; tsc --strict for TypeScript, where every line marked as an error is checked by its error code.',
+          'Lessons share a chapters sidebar that stays put while the article swaps, and interactive steppers for binary search, BFS, heaps, HashMap buckets and narrowing. The stepper works by keyboard and screen reader, falls back without JavaScript and respects reduced motion, and its steps are verified against the real code.',
+        ],
+        media: {
+          kind: 'image',
+          src: '/work/open-shelf/lesson.webp',
+          alt: 'Oxidise lesson 14, Binary search in Rust, with the chapters sidebar open',
+          width: 1440,
+          height: 900,
+          caption: 'Oxidise, lesson 14: the chapters sidebar and the lesson.',
+        },
+      },
+      {
+        label: 'Result',
+        title: 'Three courses, all free',
+        body: [
+          'Oxidise (DSA in Rust), Filter Coffee (Java Collections) and The Switch (JavaScript to TypeScript) are complete, with Off the Syllabus adding stand-alone articles on the web and its tools.',
+          'It ships as a static Next.js site on GitHub Pages with Course and LearningResource structured data, llms.txt and IndexNow, and scores 100 on the VeraStack AI search check.',
+        ],
+        metrics: [
+          { label: 'Lessons', value: '46' },
+          { label: 'Articles', value: '6' },
+          { label: 'Interactive blocks', value: '11' },
+          { label: 'AI search check', value: '100' },
+        ],
+      },
+    ],
+    highlights: [
+      { title: 'Compiled, not pasted', body: 'Rust, Java and TypeScript samples are real files that CI compiles and tests before a lesson ships.' },
+      { title: 'Errors checked by code', body: 'Every line a TypeScript lesson calls an error is verified against the compiler by its error code.' },
+      { title: 'An accessible stepper', body: 'Keyboard, live region, a no-JavaScript fallback and reduced motion, with steps verified against the real code.' },
+      { title: 'Free and open', body: 'No sign-up, no paywall: three complete courses and an article collection on the web.' },
+    ],
     next: 'e3-trion',
   },
 ]
