@@ -68,7 +68,7 @@ export const studio = {
       name: 'Oinkbuns',
       kind: 'Browser game · Kitchen game for kids',
       pitch: 'Bake hot cross buns with Peppa.',
-      body: 'A tiny, free kitchen game: mix the dough, bake, pipe the cross and serve customers before they get bored. Five busy days, three stars each, on a laptop, tablet or phone.',
+      body: 'A tiny, free kitchen game: mix the dough, bake, pipe the cross and serve customers before they get bored. Seven busy days, three stars each, and Bun Rush, an endless mode, on a laptop, tablet or phone.',
       stack: ['Phaser', 'TypeScript', 'Next.js'],
       links: [
         { label: 'Play', href: 'https://oinkbuns.verastack.dev/play/' },

@@ -73,6 +73,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #62 | Portfolio film (0:54) in the Product videos reel: 1080p transcode, closing-lockup poster, captions from the film's SRT |
 | #63 | Open Shelf case study (`/work/open-shelf/`): CI-verified samples, accessible stepper, 46 lessons; work row, next chain E3 to UV to Open Shelf to E3 |
 | #64 | Open Shelf interactive block count corrected to 14 (note and case study metric) |
+| #65 | Oinkbuns copy: seven days and Bun Rush, matching the live game |
 
 ## Names used in this project
 
