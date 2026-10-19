@@ -62,7 +62,7 @@ export const services = {
       courses: {
         label: "Free courses on Origan's Open Shelf",
         href: 'https://origan.verastack.dev/resources/',
-        note: '46 lessons, 6 articles and 11 interactive blocks, all free with no sign-up. Every code sample compiles and passes tests in CI before a lesson goes live.',
+        note: '46 lessons, 6 articles and 14 interactive blocks, all free with no sign-up. Every code sample compiles and passes tests in CI before a lesson goes live.',
         items: [
           {
             name: 'Oxidise',

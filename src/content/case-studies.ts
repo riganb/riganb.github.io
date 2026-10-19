@@ -234,7 +234,7 @@ export const caseStudies: CaseStudy[] = [
         metrics: [
           { label: 'Lessons', value: '46' },
           { label: 'Articles', value: '6' },
-          { label: 'Interactive blocks', value: '11' },
+          { label: 'Interactive blocks', value: '14' },
           { label: 'AI search check', value: '100' },
         ],
       },
