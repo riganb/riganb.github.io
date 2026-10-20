@@ -80,6 +80,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #69 | Dark cut of the portfolio film: dark mode shows the dark poster and plays portfolio-dark.mp4; light mode keeps the original. Same captions file |
 | #70 | Free 15-minute coaching sessions book cal.com/verastack/quick ("Book 15 minutes") instead of a LinkedIn message; FAQ, resume line and PDF updated |
 | #71 | Writing: "AI search scores of YC Fall 2026, six weeks before Demo Day" (153 homepages, median 72) added at the top |
+| #72 | Writing paginates four to a page (all rows stay in the markup); "All the studio's films on verastack.dev" link under the Films row (verastack.dev/films/) |
 
 ## Names used in this project
 

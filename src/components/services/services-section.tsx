@@ -123,6 +123,14 @@ export function ServicesSection() {
               {service.films && (
                 <div className="col-span-full mt-2 lg:col-span-2 lg:col-start-2">
                   <FilmReel films={services.films} />
+                  <a
+                    href={services.filmsLink.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${mono} mt-5 inline-block text-muted underline decoration-rule underline-offset-4 transition-colors hover:text-accent`}
+                  >
+                    {services.filmsLink.label} <span aria-hidden="true">↗</span>
+                  </a>
                 </div>
               )}
             </div>
