@@ -8,6 +8,13 @@ export const writing = {
   founderPage: { label: 'The founder page on verastack.dev', href: 'https://verastack.dev/founder/' },
   items: [
     {
+      title: 'AI search scores of YC Fall 2026, six weeks before Demo Day',
+      kind: 'Study',
+      date: '21 Oct 2026',
+      line: '153 YC Fall 2026 homepages: median 72, seven perfect scores, and the leaders in each space.',
+      href: 'https://verastack.dev/blog/yc-fall-2026-ai-search/',
+    },
+    {
       title: "The cobbler's shoes: AI search scores of 25 software studios",
       kind: 'Study',
       date: '18 Oct 2026',
