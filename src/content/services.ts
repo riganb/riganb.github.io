@@ -143,6 +143,7 @@ export const services = {
       proof: [{ text: 'rigseed · Riggit' }, { text: 'Pee Empro attendance app' }],
     },
   ] satisfies Service[],
+  filmsLink: { label: "All the studio's films on verastack.dev", href: 'https://verastack.dev/films/' },
   films: [
     {
       id: 'rigseed',
