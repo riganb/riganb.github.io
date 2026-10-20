@@ -31,8 +31,9 @@ describe('resume', () => {
     }
   })
 
-  it('books calls on WhatsApp for now', () => {
-    expect(site.call.href.startsWith('https://wa.me/919380654730')).toBe(true)
+  it('books calls on Cal.com and keeps WhatsApp on the phone number', () => {
+    expect(site.call.href).toBe('https://cal.com/verastack/intro')
+    expect(site.whatsapp.startsWith('https://wa.me/919380654730')).toBe(true)
   })
 })
 

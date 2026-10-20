@@ -74,6 +74,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #63 | Open Shelf case study (`/work/open-shelf/`): CI-verified samples, accessible stepper, 46 lessons; work row, next chain E3 to UV to Open Shelf to E3 |
 | #64 | Open Shelf interactive block count corrected to 14 (note and case study metric) |
 | #65 | Oinkbuns copy: seven days and Bun Rush, matching the live game |
+| #66 | Resume "Get on a call" books the 30-minute Cal.com intro (cal.com/verastack/intro); the PDF phone number keeps its WhatsApp link |
 
 ## Names used in this project
 
@@ -103,7 +104,6 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
   3. Put it back in the `next` chain (currently E3 → UV → Open Shelf → E3).
   4. Replace the "The new site" placeholder with real screens.
   5. Consider a cursor preview image for its work row.
-- [ ] A cal.com link. "Get on a call" on the resume opens WhatsApp until then; swap `site.call` in `src/content/site.ts`.
 - [ ] E3 TRION booking count, if E3 ever shares one (no public figure exists).
 
 ## Planned, not started
