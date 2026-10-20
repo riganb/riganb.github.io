@@ -10,7 +10,7 @@ const CLOSE_MS = 420
 // Posters until pressed, then the film plays in a dialog with controls, sound and captions while
 // the page holds still underneath (after the VeraStack Labs reel). The player grows out of the
 // poster that was pressed and shrinks back into it on the way out. Nothing loads before a press.
-export function FilmReel({ films }: { films: Film[] }) {
+export function FilmReel({ films, className = 'mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4' }: { films: Film[]; className?: string }) {
   const dialog = useRef<HTMLDialogElement>(null)
   const video = useRef<HTMLVideoElement>(null)
   const closing = useRef(0)
@@ -75,7 +75,7 @@ export function FilmReel({ films }: { films: Film[] }) {
 
   return (
     <>
-      <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className={className}>
         {films.map((item) => (
           <li key={item.id}>
             <figure>

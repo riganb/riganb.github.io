@@ -54,7 +54,7 @@ export const sideProjects = {
 
 export const journey = {
   label: '// Journey',
-  title: 'How I *got* here',
+  title: { lines: ['How I *got* here'], honest: ['Took the long way'] } satisfies LinePair,
   nudge: 'Come say hi',
   portraitAlt: 'Rigan Burnwal in a white hoodie against a dark background',
   rows: [
