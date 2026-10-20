@@ -16,6 +16,7 @@ export function FilmReel({ films, className = 'mt-8 grid gap-5 sm:grid-cols-2 lg
   const closing = useRef(0)
   const [film, setFilm] = useState<Film | null>(null)
   const [origin, setOrigin] = useState({ x: 0, y: 0 })
+  const [dark, setDark] = useState(false)
 
   const release = useCallback(() => {
     lenisRef.current?.start()
@@ -40,6 +41,8 @@ export function FilmReel({ films, className = 'mt-8 grid gap-5 sm:grid-cols-2 lg
   const open = (next: Film, event: MouseEvent<HTMLButtonElement>) => {
     const rect = event.currentTarget.getBoundingClientRect()
     setOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 })
+    // A film with a dark cut plays the one that matches the page's theme at the moment of the press.
+    setDark(document.documentElement.dataset.theme === 'dark')
     setFilm(next)
   }
 
@@ -93,8 +96,20 @@ export function FilmReel({ films, className = 'mt-8 grid gap-5 sm:grid-cols-2 lg
                   height={720}
                   loading="lazy"
                   decoding="async"
-                  className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className={`size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]${item.dark ? ' theme-light-only' : ''}`}
                 />
+                {item.dark && (
+                  // eslint-disable-next-line @next/next/no-img-element -- static export serves a pre-sized JPEG
+                  <img
+                    src={item.dark.poster}
+                    alt=""
+                    width={1280}
+                    height={720}
+                    loading="lazy"
+                    decoding="async"
+                    className="theme-dark-only size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                )}
                 <span className="absolute left-3 top-3 rounded-full bg-paper/90 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-ink">
                   {item.length}
                 </span>
@@ -129,9 +144,9 @@ export function FilmReel({ films, className = 'mt-8 grid gap-5 sm:grid-cols-2 lg
           <div>
             <video
               ref={video}
-              key={film.id}
-              src={film.src}
-              poster={film.poster}
+              key={`${film.id}${dark && film.dark ? '-dark' : ''}`}
+              src={dark && film.dark ? film.dark.src : film.src}
+              poster={dark && film.dark ? film.dark.poster : film.poster}
               controls
               playsInline
               preload="metadata"
