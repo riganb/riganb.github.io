@@ -1,7 +1,6 @@
 import type { LinePair } from '@/lib/pairs'
 import { site } from '@/content/site'
 
-const linkedin = site.socials.find((social) => social.label === 'LinkedIn')?.href ?? 'https://www.linkedin.com/in/rigan-burnwal/'
 
 export type ServiceProof = { text: string; href?: string }
 
@@ -58,7 +57,7 @@ export const services = {
       proof: [{ text: 'Founder of Origan, a four-year prep programme for colleges' }],
       offer: {
         line: 'Free 15-minute sessions',
-        cta: { label: 'Message me on LinkedIn', href: linkedin },
+        cta: { label: 'Book 15 minutes', href: site.coachingCall },
       },
       // Origan's free courses (VeraStack Labs work). Free, no sign-up.
       courses: {

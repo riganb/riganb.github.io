@@ -78,6 +78,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #67 | Honest twins on the "Selected work" ("Work I can show") and "How I got here" ("Took the long way") headings; the portfolio film sits beside the About statement (still in the services reel too) |
 | #68 | On touch screens a soft fade along the bottom edge keeps text from running under the floating honest-version button (hidden in print) |
 | #69 | Dark cut of the portfolio film: dark mode shows the dark poster and plays portfolio-dark.mp4; light mode keeps the original. Same captions file |
+| #70 | Free 15-minute coaching sessions book cal.com/verastack/quick ("Book 15 minutes") instead of a LinkedIn message; FAQ, resume line and PDF updated |
 
 ## Names used in this project
 

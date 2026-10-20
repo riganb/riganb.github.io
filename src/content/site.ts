@@ -16,6 +16,8 @@ export const site = {
   // The resume's 'Get on a call': the 30-minute intro on the VeraStack Labs Cal.com account (the
   // same one verastack.dev uses). Opens in a new tab, never inside a modal dialog.
   call: { label: 'Get on a call', href: 'https://cal.com/verastack/intro' },
+  // Free 15-minute coaching sessions book the short slot on the same Cal.com account.
+  coachingCall: 'https://cal.com/verastack/quick',
   // The phone number printed on the resume PDF links to WhatsApp.
   whatsapp: 'https://wa.me/919380654730?text=Hi%20Rigan%2C%20saw%20your%20resume.',
   // Web3Forms form 'Portfolio contact' (sends to the email above). The access key is public by design.

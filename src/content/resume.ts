@@ -96,7 +96,7 @@ export const resume = {
     'NASA Ideathon 2022, *first of 83 teams*',
     'B.E. Information Science, JSSATE, 2024',
     'Vice President, GeeksforGeeks chapter, JSSATE',
-    'Free 15-minute coaching sessions, on LinkedIn',
+    'Free 15-minute coaching sessions, booked on Cal.com',
   ],
   // First to go when the PDF runs long (the spec's cut order). Still shown on the web page.
   screenOnly: [] as string[],
