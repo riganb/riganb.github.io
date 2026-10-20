@@ -199,6 +199,7 @@ export function LensProvider({ children }: { children: ReactNode }) {
         style={{ width: LENS_ACTIVE_RADIUS * 2, height: LENS_ACTIVE_RADIUS * 2 }}
         className="lens-disc pointer-events-none fixed left-0 top-0 z-[45] rounded-full bg-accent opacity-0 transition-opacity duration-200"
       />
+      <div aria-hidden="true" className="lens-fade pointer-events-none fixed inset-x-0 bottom-0 z-[44]" />
       <button
         ref={pressRef}
         type="button"

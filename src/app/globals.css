@@ -89,6 +89,22 @@ html[data-honest='on'] .lens-press {
   opacity: 0;
 }
 
+/* Text fades out along the bottom edge instead of running under the floating button. */
+.lens-fade {
+  display: none;
+  height: 7rem;
+  background: linear-gradient(to top, var(--paper) 20%, transparent);
+  transition: opacity 0.2s;
+}
+
+html[data-lens='press'] .lens-fade {
+  display: block;
+}
+
+html[data-honest='on'] .lens-fade {
+  opacity: 0;
+}
+
 /* Press mode tints the page rather than covering it, so lines without an honest pair stay
    readable. The disc turns the page to --fill: multiply keeps dark ink dark on light paper;
    difference turns dark paper orange and light ink dark. Polished lines that do have a pair
@@ -814,6 +830,7 @@ html[data-lens='hover'] .lens-disc {
   html:has(.resume-page) footer,
   html:has(.resume-page) .lens-disc,
   html:has(.resume-page) .lens-press,
+  .lens-fade,
   .resume-page .honest-layer,
   .resume-page .honest-toggle,
   .resume-page .print-hide {
