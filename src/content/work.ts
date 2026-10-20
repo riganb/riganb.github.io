@@ -1,3 +1,5 @@
+import type { LinePair } from '@/lib/pairs'
+
 export type WorkItem = {
   slug: string
   client: string
@@ -11,7 +13,7 @@ export type WorkItem = {
 
 export const work = {
   label: '// Selected work',
-  title: 'Selected *work*',
+  title: { lines: ['Selected *work*'], honest: ['Work I can show'] } satisfies LinePair,
   items: [
     {
       slug: 'cold-stone',

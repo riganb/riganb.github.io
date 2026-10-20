@@ -1,16 +1,21 @@
 import { DecryptText } from '@/components/motion/decrypt-text'
 import { HalftonePortrait } from '@/components/about/halftone-portrait'
+import { HonestText } from '@/components/lens/honest-text'
 import { Emphasis } from '@/components/typography/emphasis'
 import { journey } from '@/content/about'
+
+const heading = 'font-display text-[clamp(2.5rem,6vw,5rem)] leading-none tracking-[-0.02em]'
 
 export function Journey() {
   return (
     <section data-enter="" id="journey" aria-labelledby="journey-title" className="border-b border-rule">
       <div className="mx-auto max-w-[1320px] px-6 py-24 md:px-10 md:py-32">
         <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted"><DecryptText text={journey.label} /></p>
-        <h2 id="journey-title" className="mt-4 font-display text-[clamp(2.5rem,6vw,5rem)] leading-none tracking-[-0.02em]">
-          <Emphasis text={journey.title} />
-        </h2>
+        <HonestText honest={journey.title.honest} layerClassName={heading} toggle={false} className="mt-4">
+          <h2 id="journey-title" className={heading}>
+            <Emphasis text={journey.title.lines[0]} />
+          </h2>
+        </HonestText>
         <div className="mt-14 grid items-start gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
           <ol className="border-t border-ink">
             {journey.rows.map((row) => (
