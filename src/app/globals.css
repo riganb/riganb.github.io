@@ -432,6 +432,12 @@ html.menu-open {
   }
 }
 
+/* Films with a dark cut show the poster that matches the theme. */
+html[data-theme='dark'] .theme-light-only,
+html:not([data-theme='dark']) .theme-dark-only {
+  display: none;
+}
+
 /* Theme toggle: the sun sets and the moon rises. Driven by data-theme, so the icon is right on
    first paint without waiting for React. */
 .theme-sun,

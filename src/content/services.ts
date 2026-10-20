@@ -29,6 +29,8 @@ export type Film = {
   poster: string
   captions: string
   note?: string
+  /** A cut in the site's dark palette, shown when the page is in dark mode. Same timing and captions. */
+  dark?: { src: string; poster: string }
 }
 
 // Mirrors the VeraStack Labs services (verastack.dev), copied rather than imported so the two
@@ -175,6 +177,7 @@ export const services = {
       src: '/videos/portfolio.mp4',
       poster: '/videos/portfolio-poster.jpg',
       captions: '/videos/portfolio.vtt',
+      dark: { src: '/videos/portfolio-dark.mp4', poster: '/videos/portfolio-dark-poster.jpg' },
     },
   ] satisfies Film[],
   cta: { label: 'Start a project with VeraStack Labs', href: 'https://verastack.dev/#contact' },
