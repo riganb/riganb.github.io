@@ -55,7 +55,7 @@ export default function ResumePage() {
             </h1>
             <p className={`${mono} mt-4 text-ink-2`}>{resume.role}</p>
             <p className={`${mono} print-only mt-2 text-ink-2`}>
-              <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.call.href}>{resume.phone}</a> ·{' '}
+              <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.whatsapp}>{resume.phone}</a> ·{' '}
               <a href={profiles[0].href}>linkedin.com/in/rigan-burnwal</a> · <a href={site.url}>riganb.github.io</a>
             </p>
           </div>

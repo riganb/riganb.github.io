@@ -13,8 +13,11 @@ export const site = {
   // Cloudflare Web Analytics beacon for riganb.github.io: cookieless visit counts, so no consent
   // banner. Public by design; null turns it off. Dashboard: Web analytics in the Cloudflare account.
   analyticsToken: 'adf067f14c2b4c0184052f95194c050f' as string | null,
-  // The resume's 'Get on a call'. WhatsApp until a cal.com link replaces it.
-  call: { label: 'Get on a call', href: 'https://wa.me/919380654730?text=Hi%20Rigan%2C%20saw%20your%20resume.' },
+  // The resume's 'Get on a call': the 30-minute intro on the VeraStack Labs Cal.com account (the
+  // same one verastack.dev uses). Opens in a new tab, never inside a modal dialog.
+  call: { label: 'Get on a call', href: 'https://cal.com/verastack/intro' },
+  // The phone number printed on the resume PDF links to WhatsApp.
+  whatsapp: 'https://wa.me/919380654730?text=Hi%20Rigan%2C%20saw%20your%20resume.',
   // Web3Forms form 'Portfolio contact' (sends to the email above). The access key is public by design.
   form: { endpoint: 'https://api.web3forms.com/submit', accessKey: 'b9f9d35b-769b-4c6d-819b-c8316b9dba55' },
   nav: [
