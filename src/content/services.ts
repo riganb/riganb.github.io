@@ -93,9 +93,15 @@ export const services = {
       },
     },
     {
+      id: 'sites',
+      name: 'Websites & launches',
+      blurb: 'Marketing sites, rebuilds and launch pages, in code or in Framer and Webflow when your team wants to edit it themselves.',
+      proof: [{ text: 'E3 TRION launch', href: '/work/e3-trion/' }, { text: 'PixelStack Studio' }],
+    },
+    {
       id: 'experiences',
-      name: 'Web experiences & 3D',
-      blurb: 'Distinctive, motion-rich sites and 3D on the web: configurators, product stories, interactive pieces.',
+      name: 'Web & 3D experiences',
+      blurb: 'Distinctive, motion-rich sites and 3D experiences on the web: configurators, product stories, interactive pieces.',
       proof: [
         { text: 'Ultraviolette: 70,000+ bookings', href: '/work/ultraviolette/' },
         { text: 'E3 TRION', href: '/work/e3-trion/' },
@@ -112,10 +118,10 @@ export const services = {
       ],
     },
     {
-      id: 'sites',
-      name: 'Websites & launches',
-      blurb: 'Marketing sites, rebuilds and launch pages, in code or in Framer and Webflow when your team wants to edit it themselves.',
-      proof: [{ text: 'E3 TRION launch', href: '/work/e3-trion/' }, { text: 'PixelStack Studio' }],
+      id: 'apps',
+      name: 'Desktop & mobile apps',
+      blurb: 'Small, fast apps for desktop and Android, from internal tools to our own products.',
+      proof: [{ text: 'rigseed · Riggit' }, { text: 'Pee Empro attendance app' }],
     },
     {
       id: 'search',
@@ -135,12 +141,6 @@ export const services = {
         'Launch films, explainers and ad cuts for SaaS products and startups. Fast to make and priced to test: ship a few versions, keep the one that works.',
       proof: [{ text: 'rigseed launch film' }, { text: 'Origan explainer' }, { text: 'Bruno launch film' }],
       films: true,
-    },
-    {
-      id: 'apps',
-      name: 'Desktop & mobile apps',
-      blurb: 'Small, fast apps for desktop and Android, from internal tools to our own products.',
-      proof: [{ text: 'rigseed · Riggit' }, { text: 'Pee Empro attendance app' }],
     },
   ] satisfies Service[],
   filmsLink: { label: "All the studio's films on verastack.dev", href: 'https://verastack.dev/films/' },
