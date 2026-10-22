@@ -81,6 +81,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #70 | Free 15-minute coaching sessions book cal.com/verastack/quick ("Book 15 minutes") instead of a LinkedIn message; FAQ, resume line and PDF updated |
 | #71 | Writing: "AI search scores of YC Fall 2026, six weeks before Demo Day" (153 homepages, median 72) added at the top |
 | #72 | Writing paginates four to a page (all rows stay in the markup); "All the studio's films on verastack.dev" link under the Films row (verastack.dev/films/) |
+| #73 | Services match verastack.dev's new grouping (design, build, market): "Web & 3D experiences" (never bare "3D"), order websites, web & 3D experiences, web apps, apps, AI search, product videos |
 
 ## Names used in this project
 
