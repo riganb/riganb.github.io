@@ -8,6 +8,13 @@ export const writing = {
   founderPage: { label: 'The founder page on verastack.dev', href: 'https://verastack.dev/founder/' },
   items: [
     {
+      title: 'What ChatGPT sees when it reads your homepage',
+      kind: 'Guide',
+      date: '23 Oct 2026',
+      line: 'Most AI crawlers never run JavaScript, so a rich page can reach ChatGPT almost blank. How to check yours, and fix it.',
+      href: 'https://verastack.dev/blog/what-chatgpt-sees/',
+    },
+    {
       title: 'AI search scores of YC Fall 2026, six weeks before Demo Day',
       kind: 'Study',
       date: '21 Oct 2026',
