@@ -54,7 +54,7 @@ export const services = {
       name: 'Coaching & counselling',
       blurb:
         'One-to-one sessions for developers and students: getting better at building, reaching out to the right people, and focused prep for interviews and placements.',
-      proof: [{ text: 'Founder of Origan, a four-year prep programme for colleges' }],
+      proof: [{ text: 'Founder of Origan, placement preparation for colleges, start to finish' }],
       offer: {
         line: 'Free 15-minute sessions',
         cta: { label: 'Book 15 minutes', href: site.coachingCall },
