@@ -84,6 +84,7 @@ The redesign is live: home page, two published case studies, SEO and AEO groundw
 | #73 | Services match verastack.dev's new grouping (design, build, market): "Web & 3D experiences" (never bare "3D"), order websites, web & 3D experiences, web apps, apps, AI search, product videos |
 | #74 | Writing: "What ChatGPT sees when it reads your homepage" (guide, 23 Oct) added at the top |
 | #75 | Origan studio card matches the new site lead: "Four problems, fixed together.", Campus Coach plus progress-tracking software, fresh landing capture; coaching proof line no longer says "programme" |
+| #76 | Studio intro links to the studio's new /work index (client launches, products and concepts); "A small lab" is now "An independent lab" |
 
 ## Names used in this project
 
