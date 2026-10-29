@@ -15,9 +15,11 @@ export type StudioProduct = {
 export const studio = {
   label: '// The studio',
   title: 'VeraStack *Labs*',
-  line: 'A small lab for software that respects the people using it. Five products so far, each with its own look and a reason to exist.',
+  line: 'An independent lab for software that respects the people using it. Five products so far, each with its own look and a reason to exist.',
   productsLabel: 'On the workbench',
   link: { label: 'Visit VeraStack Labs', href: 'https://verastack.dev' },
+  // The studio's index of client launches, products and concepts.
+  workLink: { label: "Client launches, products and concepts on verastack.dev/work", href: 'https://verastack.dev/work/' },
   github: 'https://github.com/verastack-labs',
   products: [
     {

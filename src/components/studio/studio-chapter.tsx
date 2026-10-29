@@ -21,6 +21,14 @@ export function StudioChapter() {
               <Emphasis text={studio.title} />
             </h2>
             <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-ink-2">{studio.line}</p>
+            <a
+              href={studio.workLink.href}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 inline-block self-start font-mono text-[11px] uppercase tracking-[0.08em] text-muted underline decoration-rule underline-offset-4 transition-colors hover:text-accent"
+            >
+              {studio.workLink.label} <span aria-hidden="true">↗</span>
+            </a>
             <div className="mt-14 border-t border-ink pt-4">
               <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-muted">{studio.productsLabel}</p>
               <StudioProducts products={studio.products} />
